@@ -20,9 +20,10 @@ Dieser erleichtert den Umgang mit GitHub um einiges.
 ![Issues Tab](https://i.imgur.com/pywjgbN.png)
 
 Achte beim Erstellen eines neuen `Issue` darauf rechts an der Seite: 
-- mindestens ein Label zuzuweisen
-- ein Projekt zuzuweisen
-- gegebenenfalls bereits einen Bearbeiter zuzuweisen
+- mindestens ein **Label** zuzuweisen
+- ein **Project** zuzuweisen
+- einen **Milestone** zuweisen
+- gegebenenfalls bereits einen oder mehrere **Assignees** (Bearbeiter) zuzuweisen
 
 ![Issue Erstellung](https://i.imgur.com/shZD6wH.png)
 
