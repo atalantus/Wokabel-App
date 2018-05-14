@@ -7,7 +7,7 @@
 ### Tutorials
 [Entwickle deine erste App](https://developer.android.com/training/basics/firstapp/), um die Grundlagen der Appprogrammierung mit Android Studio zu lernen.
 
-**ANMERKUNG:** In Android Studio kann man zwischen den Programmiersprachen `Kotlin` und `Java` auswählen. Wählt da bitte `Java` aus. (Eigentlich ist die offizielle Sprache von Android mittlerweile `Kotlin` und `Kotlin` hat auch sehr viele Vorteile gegenüber `Java`, aber...)
+**ANMERKUNG:** In Android Studio kann man zwischen den Programmiersprachen `Kotlin` und `Java` auswählen. Wählt da bitte `Java` aus. (Eigentlich ist die offizielle Sprache von Android mittlerweile `Kotlin` und `Kotlin` hat auch sehr viele Vorteile gegenüber `Java`, aber... ¯\_(ツ)_/¯)
 
 ## GitHub
 ### Installation
