@@ -3,9 +3,11 @@
 ## Android Studio
 ### Installation
 1. Lade die aktuelle Version von [Android Studio](https://developer.android.com/studio/) herunter.
-2. **coming soon...**
+2. Achte darauf folgende Komponenten mit zu installieren: **Android Virtual Device**, **Android SDK**, **Android SDK Platform**
 ### Tutorials
-[Entwickle deine erste App](https://developer.android.com/training/basics/firstapp/), um die Grundlagen von Appprogrammierung mit Android Studio zu lernen.
+[Entwickle deine erste App](https://developer.android.com/training/basics/firstapp/), um die Grundlagen der Appprogrammierung mit Android Studio zu lernen.
+
+**ANMERKUNG:** In Android Studio kann man zwischen den Programmiersprachen `Kotlin` und `Java` auswählen. Wählt da bitte `Java` aus. (Eigentlich ist die offizielle Sprache von Android mittlerweile `Kotlin` und `Kotlin` hat auch sehr viele Vorteile gegenüber `Java`, aber...)
 
 ## GitHub
 ### Installation
