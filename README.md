@@ -7,7 +7,7 @@
 ### Tutorials
 [Entwickle deine erste App](https://developer.android.com/training/basics/firstapp/), um die Grundlagen der Appprogrammierung mit Android Studio zu lernen.
 
-**ANMERKUNG:** In Android Studio kann man zwischen den Programmiersprachen `Kotlin` und `Java` auswählen. Wählt da bitte `Java` aus. (Eigentlich ist die offizielle Sprache von Android mittlerweile `Kotlin` und `Kotlin` hat auch sehr viele Vorteile gegenüber `Java`, aber... ¯\_(ツ)_/¯)
+**ANMERKUNG:** In Android Studio kann man zwischen den Programmiersprachen `Kotlin` und `Java` auswählen. Wählt da bitte `Java` aus.
 
 ## GitHub
 ### Installation
@@ -22,9 +22,10 @@ Dieser erleichtert den Umgang mit GitHub um einiges.
 ![Issues Tab](https://i.imgur.com/pywjgbN.png)
 
 Achte beim Erstellen eines neuen `Issue` darauf rechts an der Seite: 
-- mindestens ein **Label** zuzuweisen
+- mindestens ein **Label** zuzuweisen (Art des Issues und Priorität)
 - ein **Project** zuzuweisen
 - einen **Milestone** zuweisen
+- gegebenenfalls auf ein anderes Issue (z.B. die User Story) über ein **#[IssueNummer] zu verweisen**
 - gegebenenfalls bereits einen oder mehrere **Assignees** (Bearbeiter) zuzuweisen
 
 ![Issue Erstellung](https://i.imgur.com/shZD6wH.png)
