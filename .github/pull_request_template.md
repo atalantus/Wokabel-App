@@ -1,3 +1,6 @@
+## Hinzugefügt
+*Liste die Klassen oder Dateien auf (nur Dateiname), die du neu zu dem Projekt hinzugefügt hast.* 
+
 ## Beschreibung
 *Was hast du gemacht?*
 
