@@ -6,19 +6,20 @@
     <coordinates>
       <x>720</x>
       <y>470</y>
-      <w>270</w>
-      <h>150</h>
+      <w>300</w>
+      <h>320</h>
     </coordinates>
     <panel_attributes>*Vocable*
 --
 String key
 ArrayList&lt;String&gt; values
-String test
+String helper
+String id
 int level
-int id
 --
-Vocable(String key, String value,
-String test, int priority)</panel_attributes>
+Vocable(String key, ArrayList&lt;String&gt; values, 
+String helper)
+Vocable</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -47,38 +48,46 @@ Responsibilities
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>190</x>
-      <y>200</y>
-      <w>270</w>
-      <h>70</h>
+      <x>160</x>
+      <y>10</y>
+      <w>300</w>
+      <h>260</h>
     </coordinates>
     <panel_attributes>*Supergroup*
 --
+String name
+String id
 Hashtable&lt;String, Subgroup&gt; subgroups
 --
-Supergroup()</panel_attributes>
+Supergroup(String name)
+Supergroup(String name, String id, 
+Hashtable&lt;String, Subgroup&gt; subgroups)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>720</x>
-      <y>200</y>
+      <y>10</y>
       <w>270</w>
-      <h>70</h>
+      <h>260</h>
     </coordinates>
     <panel_attributes>*Subgroup*
 --
-Hashtable&lt;Integer, Vocable&gt; vocables
+String name
+String id
+Hashtable&lt;String, Vocable&gt; vocables
 --
-Subgroup()</panel_attributes>
+Subgroup(String name)
+Subgroup(String name, String id,
+Hashtable&lt;String, Vocable&gt; vocables)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>450</x>
-      <y>220</y>
+      <y>120</y>
       <w>290</w>
       <h>50</h>
     </coordinates>
