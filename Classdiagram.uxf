@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>470</y>
+      <w>300</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>*Vocable*
+--
+String key
+ArrayList&lt;String&gt; values
+String helper
+String id
+int level
+--
+Vocable(String key, ArrayList&lt;String&gt; values, 
+String helper)
+Vocable</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2370</x>
+      <y>80</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Stereotype&gt;&gt;
+Package::FatClass
+{Some Properties}
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>10</y>
+      <w>300</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>*Supergroup*
+--
+String name
+String id
+Hashtable&lt;String, Subgroup&gt; subgroups
+--
+Supergroup(String name)
+Supergroup(String name, String id, 
+Hashtable&lt;String, Subgroup&gt; subgroups)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>10</y>
+      <w>270</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>*Subgroup*
+--
+String name
+String id
+Hashtable&lt;String, Vocable&gt; vocables
+--
+Subgroup(String name)
+Subgroup(String name, String id,
+Hashtable&lt;String, Vocable&gt; vocables)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>120</y>
+      <w>290</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0,n
+hat als Subgroups &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;270.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>850</x>
+      <y>260</y>
+      <w>150</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0,n
+hat als Vokabeln &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;210.0</additional_attributes>
+  </element>
+</diagram>
