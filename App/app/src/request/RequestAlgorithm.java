@@ -1,57 +1,40 @@
 import java.util.Random;
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class RequestAlgorithm{
 
-    HashMap<Integer,Vocable> randomsorted;
+    ArrayList<Vocable> randomsorted;
     Vocable currentVoc;
     int index;
-    public RequestAlgorithm(HashMap<Integer,Vocable> input){
+    public RequestAlgorithm(ArrayList<Vocable> input){
         ;
         Random rand = new Random();
-        randomsorted = new HashMap<Integer,Vocable>();
-        HashMap<Integer,Vocable> a = input;
+        randomsorted = new ArrayList<Vocable>();
+        ArrayList<Vocable> a = new ArrayList<Vocable>();
         currentVoc = null;
-        index = input.size();
-        int max = 0;
-        max = input.size();
-
-        for(int i = 0; i < max  ; i++){
-            if(input.get(i).getLevel() > 1){
-                for(int l = 0; l < input.get(i).getLevel()-1; l++){
-                    a.put(index,input.get(i));
-
-                    index++;
-                }
+        for(int i = 0; i < input.size(); i++){
+            for(int l = 5; l > input.get(i).getLevel()-1; l--){
+                a.add(input.get(i));
             }
         }
 
-        while (a.size() > 0 || a == null){
+        while (a.size() > 0){
             int randnum = rand.nextInt(a.size());
-            randomsorted.put(index,a.get(randnum));
-            index++;
-            for(int i = randnum; i < a.size() ;i++){
-                a.put(i,a.get(i+1));
-            }
-            a.remove(a.size()-1);
-
+            randomsorted.add(a.get(randnum));
+            a.remove(randnum);
         }
 
     }
     public Vocable getNewVocable(){
         currentVoc = randomsorted.get(0);
-        for(int i = 0; i < randomsorted.size()-1 ;i++){
-            randomsorted.put(i,randomsorted.get(i+1));
-        }
-        randomsorted.remove(randomsorted.size()-1);
-        index--;
+        randomsorted.remove(0);
         return currentVoc;
     }
 
     public void handleAnswer(boolean answer){
         if(answer == false) {
-            randomsorted.put(index,currentVoc);
-            index++;
+            randomsorted.add(currentVoc);
         }
+
     }
 }
