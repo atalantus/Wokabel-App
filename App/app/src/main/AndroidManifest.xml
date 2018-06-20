@@ -19,7 +19,6 @@
         <activity android:name=".LanguageSelect" />
         <activity android:name=".HomeScreen" />
         <activity android:name=".UnitSelect" />
-        <activity android:name=".UnityDisplay" />
         <activity android:name=".UnitDisplay"></activity>
     </application>
 
