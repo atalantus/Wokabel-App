@@ -23,7 +23,7 @@ public class Vocable {
         this.key = key;
         this.values = values;
         this.helper = helper;
-        level = 0;
+        level = 4;
         id = "V" + UUID.randomUUID().toString();
     }
 
