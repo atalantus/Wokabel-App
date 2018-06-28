@@ -1,4 +1,4 @@
-package com.wokabel.app.wokabel.Models;
+package com.wokabel.app.wokabel.models;
 
 import java.util.ArrayList;
 import java.util.UUID;
