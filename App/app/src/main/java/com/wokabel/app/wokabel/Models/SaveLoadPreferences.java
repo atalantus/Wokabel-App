@@ -7,21 +7,21 @@ import android.content.SharedPreferences;
 
 @SuppressLint("ValidFragment")
 public class SaveLoadPreferences extends Fragment {
-    SharedPreferences Pref = getActivity().getPreferences(Context.MODE_PRIVATE);
-    SharedPreferences.Editor editor = Pref.edit();
-    com.wokabel.app.wokabel.models.User user;
+    private SharedPreferences Pref = getActivity().getPreferences(Context.MODE_PRIVATE);
+    private SharedPreferences.Editor editor = Pref.edit();
+    private com.wokabel.app.wokabel.models.User user;
 
     @SuppressLint("ValidFragment")
     public SaveLoadPreferences(com.wokabel.app.wokabel.models.User user){
         this.user=user;
     }
 
-    public void Save(){
+    public void save(){
         editor.putInt(user.getName(), user.getXp());
         editor.apply();
     }
 
-    public void Load(String User){
-        user.setXp(Pref.getInt(User, 100));
+    public void load(){
+        user.setXp(Pref.getInt(user.getName(), 100));
     }
 }
