@@ -15,7 +15,7 @@ public class Settings {
     private SharedPreferences.Editor editor;
 
     @SuppressLint("CommitPrefEdits")
-    private Settings(Context context) {
+    public Settings(Context context) {
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         editor = sharedPrefs.edit();
     }

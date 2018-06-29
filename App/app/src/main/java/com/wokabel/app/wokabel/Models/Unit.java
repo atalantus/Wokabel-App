@@ -6,28 +6,28 @@ import java.util.UUID;
 /**
  * Contains multiple {@link Vocable}s
  */
-public class Subgroup {
+public class Unit {
     private String name;
     private String id;
     private Hashtable<String, Vocable> vocables;
 
     /**
-     * Constructor for initiating a NEW {@link Subgroup}
+     * Constructor for initiating a NEW {@link Unit}
      * @param name The name
      */
-    public Subgroup(String name) {
+    public Unit(String name) {
         this.name = name;
         vocables = new Hashtable<>();
         id = "B" + UUID.randomUUID().toString();
     }
 
     /**
-     * Constructor for initiating an OLD {@link Subgroup}
+     * Constructor for initiating an OLD {@link Unit}
      * @param name The name
      * @param id The ID
      * @param vocables The vocables
      */
-    public Subgroup(String name, String id, Hashtable<String, Vocable> vocables) {
+    public Unit(String name, String id, Hashtable<String, Vocable> vocables) {
         this.name = name;
         this.id = id;
         this.vocables = vocables;
