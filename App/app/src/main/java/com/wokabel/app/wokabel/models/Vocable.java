@@ -1,17 +1,34 @@
-package com.wokabel.app.wokabel.Models;
+package com.wokabel.app.wokabel.models;
+
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.UUID;
+
+
 
 /**
  * A vocable
  */
+@Entity(tableName = "vocablist")
 public class Vocable {
+    @PrimaryKey
+    @NonNull
     private String key;
-    private ArrayList<String> values;
+
+    private String values;
+
     private String helper;
+
     private String id;
+
     private int level;
+
     private String subgroupid;
 
     /**
@@ -21,9 +38,16 @@ public class Vocable {
      * @param helper The tip if the User doesn't know the answer
      * @param subgroupid The id of the Subgroup the Vocable is assigned to
      */
+    @Ignore
     public Vocable(String key, ArrayList<String> values, String helper, String subgroupid) {
         this.key = key;
-        this.values = values;
+        StringBuilder sb = new StringBuilder();
+        for (String s : values)
+        {
+            sb.append(s);
+            sb.append("\t");
+        }
+        this.values = sb.toString();
         this.helper = helper;
         level = 0;
         this.subgroupid = subgroupid;
@@ -39,7 +63,23 @@ public class Vocable {
      * @param level The level
      * @param subgroupid The id of the Subgroup the Vocable is assigned to
      */
+    @Ignore
     public Vocable(String key, ArrayList<String> values, String helper, String id, int level, String subgroupid) {
+        this.key = key;
+        StringBuilder sb = new StringBuilder();
+        for (String s : values)
+        {
+            sb.append(s);
+            sb.append("\t");
+        }
+        this.values = sb.toString();
+        this.helper = helper;
+        this.id = id;
+        this.level = level;
+        this.subgroupid = subgroupid;
+    }
+
+    public Vocable(String key, String values, String helper, String id, int level, String subgroupid) {
         this.key = key;
         this.values = values;
         this.helper = helper;
@@ -56,11 +96,25 @@ public class Vocable {
         this.key = key;
     }
 
-    public ArrayList<String> getValues() {
+    public ArrayList<String> getValuesList() {
+        return new ArrayList<String>(Arrays.asList(values.split(",")));
+    }
+
+    public String getValues(){
         return values;
     }
 
     public void setValues(ArrayList<String> values) {
+        StringBuilder sb = new StringBuilder();
+        for (String s : values)
+        {
+            sb.append(s);
+            sb.append("\t");
+        }
+        this.values = sb.toString();
+    }
+
+    public void setValues(String values){
         this.values = values;
     }
 
@@ -82,6 +136,10 @@ public class Vocable {
 
     public String getId() {
         return id;
+    }
+
+    public void setId(String id){
+        this.id = id;
     }
 
     public String getSubgroupid(){

@@ -1,7 +1,8 @@
-package com.wokabel.app.wokabel.Models;
+package com.wokabel.app.wokabel.models;
 
 import java.util.Hashtable;
 import java.util.UUID;
+
 
 /**
  * Contains multiple {@link Vocable}s
