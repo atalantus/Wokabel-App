@@ -4,30 +4,30 @@ import java.util.Hashtable;
 import java.util.UUID;
 
 /**
- * A group of {@link Unit}s
+ * A group of {@link Subgroup}s
  */
-public class Language {
+public class Supergroup {
     private String name;
     private String id;
-    private Hashtable<String, Unit> subgroups;
+    private Hashtable<String, Subgroup> subgroups;
 
     /**
-     * Constructor for initiating a NEW {@link Language}
+     * Constructor for initiating a NEW {@link Supergroup}
      * @param name The name
      */
-    public Language(String name) {
+    public Supergroup(String name) {
         this.name = name;
         subgroups = new Hashtable<>();
         id = "P" + UUID.randomUUID().toString();
     }
 
     /**
-     * Constructor for initiating an OLD {@link Language}
+     * Constructor for initiating an OLD {@link Supergroup}
      * @param name The name
      * @param id The ID
      * @param subgroups The subgroups
      */
-    public Language(String name, String id, Hashtable<String, Unit> subgroups) {
+    public Supergroup(String name, String id, Hashtable<String, Subgroup> subgroups) {
         this.name = name;
         this.id = id;
         this.subgroups = subgroups;
@@ -45,11 +45,11 @@ public class Language {
         return id;
     }
 
-    public Hashtable<String, Unit> getSubgroups() {
+    public Hashtable<String, Subgroup> getSubgroups() {
         return subgroups;
     }
 
-    public void setSubgroups(Hashtable<String, Unit> subgroups) {
+    public void setSubgroups(Hashtable<String, Subgroup> subgroups) {
         this.subgroups = subgroups;
     }
 }
