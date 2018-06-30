@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Wokabel</string>
-
-    <string name="title_activity_home_screen">HomeScreen</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="welcome_start">Let\'s go!</string>
+    <string name="welcome_msg">To get started, please enter your forename below.</string>
+    <string name="welcome_input">Forename</string>
+    <string name="welcome_btn">Let\'s go!</string>
 </resources>

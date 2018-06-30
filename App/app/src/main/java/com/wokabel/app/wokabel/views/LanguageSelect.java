@@ -1,7 +1,9 @@
-package com.wokabel.app.wokabel;
+package com.wokabel.app.wokabel.views;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.wokabel.app.wokabel.R;
 
 public class LanguageSelect extends AppCompatActivity {
 
