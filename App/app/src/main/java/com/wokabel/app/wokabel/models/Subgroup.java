@@ -1,26 +1,35 @@
 package com.wokabel.app.wokabel.models;
 
-import java.util.Hashtable;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
 import java.util.UUID;
 
 
 /**
  * Contains multiple {@link Vocable}s
  */
+@Entity(tableName = "subgrouplist")
 public class Subgroup {
+
     private String name;
+
+    @NonNull
+    @PrimaryKey
     private String id;
+
     private String supergroupid;
-    private Hashtable<String, Vocable> vocables;
 
     /**
      * Constructor for initiating a NEW {@link Subgroup}
      * @param name The name
      */
+    @Ignore
     public Subgroup(String name, String supergroupid) {
         this.name = name;
         this.supergroupid = supergroupid;
-        vocables = new Hashtable<>();
         id = "B" + UUID.randomUUID().toString();
     }
 
@@ -28,13 +37,11 @@ public class Subgroup {
      * Constructor for initiating an OLD {@link Subgroup}
      * @param name The name
      * @param id The ID
-     * @param vocables The vocables
      */
-    public Subgroup(String name, String id, String supergroupid, Hashtable<String, Vocable> vocables) {
+    public Subgroup(String name, String id, String supergroupid) {
         this.name = name;
         this.id = id;
         this.supergroupid = supergroupid;
-        this.vocables = vocables;
     }
 
     public String getName() {
@@ -57,11 +64,4 @@ public class Subgroup {
         this.supergroupid = supergroupid;
     }
 
-    public Hashtable<String, Vocable> getVocables() {
-        return vocables;
-    }
-
-    public void setVocables(Hashtable<String, Vocable> vocables) {
-        this.vocables = vocables;
-    }
 }
