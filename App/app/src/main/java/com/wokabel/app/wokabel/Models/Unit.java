@@ -17,8 +17,8 @@ public class Unit {
      */
     public Unit(String name) {
         this.name = name;
-        vocables = new Hashtable<String, Vocable>();
-        id = "U" + UUID.randomUUID().toString();
+        vocables = new Hashtable<>();
+        id = "B" + UUID.randomUUID().toString();
     }
 
     /**
