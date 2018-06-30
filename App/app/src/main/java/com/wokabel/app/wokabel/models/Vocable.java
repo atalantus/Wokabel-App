@@ -41,13 +41,7 @@ public class Vocable {
     @Ignore
     public Vocable(String key, ArrayList<String> values, String helper, String subgroupid) {
         this.key = key;
-        StringBuilder sb = new StringBuilder();
-        for (String s : values)
-        {
-            sb.append(s);
-            sb.append("\t");
-        }
-        this.values = sb.toString();
+        this.values = String.join(", ", values);
         this.helper = helper;
         level = 0;
         this.subgroupid = subgroupid;
@@ -66,13 +60,7 @@ public class Vocable {
     @Ignore
     public Vocable(String key, ArrayList<String> values, String helper, String id, int level, String subgroupid) {
         this.key = key;
-        StringBuilder sb = new StringBuilder();
-        for (String s : values)
-        {
-            sb.append(s);
-            sb.append("\t");
-        }
-        this.values = sb.toString();
+        this.values = String.join(", ", values);
         this.helper = helper;
         this.id = id;
         this.level = level;
@@ -105,13 +93,7 @@ public class Vocable {
     }
 
     public void setValues(ArrayList<String> values) {
-        StringBuilder sb = new StringBuilder();
-        for (String s : values)
-        {
-            sb.append(s);
-            sb.append("\t");
-        }
-        this.values = sb.toString();
+        this.values = String.join(", ", values);
     }
 
     public void setValues(String values){
