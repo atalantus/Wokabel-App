@@ -12,18 +12,21 @@ public class Vocable {
     private String helper;
     private String id;
     private int level;
+    private String subgroupid;
 
     /**
      * Constructor for initiating a NEW {@link Vocable}
      * @param key The query
      * @param values The different answer possibilities
      * @param helper The tip if the User doesn't know the answer
+     * @param subgroupid The id of the Subgroup the Vocable is assigned to
      */
-    public Vocable(String key, ArrayList<String> values, String helper) {
+    public Vocable(String key, ArrayList<String> values, String helper, String subgroupid) {
         this.key = key;
         this.values = values;
         this.helper = helper;
         level = 0;
+        this.subgroupid = subgroupid;
         id = "V" + UUID.randomUUID().toString();
     }
 
@@ -34,13 +37,15 @@ public class Vocable {
      * @param helper The tip if the User doesn't know the answer
      * @param id The ID
      * @param level The level
+     * @param subgroupid The id of the Subgroup the Vocable is assigned to
      */
-    public Vocable(String key, ArrayList<String> values, String helper, String id, int level) {
+    public Vocable(String key, ArrayList<String> values, String helper, String id, int level, String subgroupid) {
         this.key = key;
         this.values = values;
         this.helper = helper;
         this.id = id;
         this.level = level;
+        this.subgroupid = subgroupid;
     }
 
     public String getKey() {
@@ -77,5 +82,13 @@ public class Vocable {
 
     public String getId() {
         return id;
+    }
+
+    public String getSubgroupid(){
+        return subgroupid;
+    }
+
+    public void setSubgroupid(String subgroupid){
+        this.subgroupid = subgroupid;
     }
 }

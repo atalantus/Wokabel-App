@@ -9,14 +9,16 @@ import java.util.UUID;
 public class Subgroup {
     private String name;
     private String id;
+    private String supergroupid;
     private Hashtable<String, Vocable> vocables;
 
     /**
      * Constructor for initiating a NEW {@link Subgroup}
      * @param name The name
      */
-    public Subgroup(String name) {
+    public Subgroup(String name, String supergroupid) {
         this.name = name;
+        this.supergroupid = supergroupid;
         vocables = new Hashtable<>();
         id = "B" + UUID.randomUUID().toString();
     }
@@ -27,9 +29,10 @@ public class Subgroup {
      * @param id The ID
      * @param vocables The vocables
      */
-    public Subgroup(String name, String id, Hashtable<String, Vocable> vocables) {
+    public Subgroup(String name, String id, String supergroupid, Hashtable<String, Vocable> vocables) {
         this.name = name;
         this.id = id;
+        this.supergroupid = supergroupid;
         this.vocables = vocables;
     }
 
@@ -43,6 +46,14 @@ public class Subgroup {
 
     public String getId() {
         return id;
+    }
+
+    public String getSupergroupid(){
+        return supergroupid;
+    }
+
+    public void setSupergroupid(String supergroupid){
+        this.supergroupid = supergroupid;
     }
 
     public Hashtable<String, Vocable> getVocables() {
