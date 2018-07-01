@@ -4,12 +4,11 @@ import java.util.Random;
 import java.util.ArrayList;
 import com.wokabel.app.wokabel.Models.Vocable;
 
-public class RequestAlgorithm{
+public class AbfrageService{
 
     ArrayList<Vocable> randomsorted;
     Vocable currentVoc;
-    public RequestAlgorithm(ArrayList<Vocable> input){
-        ;
+    public AbfrageService(ArrayList<Vocable> input){
         Random rand = new Random();
         randomsorted = new ArrayList<Vocable>();
         ArrayList<Vocable> a = new ArrayList<Vocable>();
@@ -27,6 +26,9 @@ public class RequestAlgorithm{
         }
 
     }
+
+
+
 
     public String getQuestion(int input){
         currentVoc = randomsorted.get(0);
