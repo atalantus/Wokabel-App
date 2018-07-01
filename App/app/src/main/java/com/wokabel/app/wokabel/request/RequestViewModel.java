@@ -4,12 +4,12 @@ import java.util.Random;
 import java.util.ArrayList;
 import com.wokabel.app.wokabel.Models.Vocable;
 
-public class AbfrageViewModel {
+public class RequestViewModel {
 
-    private AbfrageService algorithm;
+    private RequestService algorithm;
     private int mode;
 
-    public AbfrageViewModel(ArrayList<Vocable> input, int i)
+    public RequestViewModel(ArrayList<Vocable> input, int i)
     {
         algorithm = new AbfrageService(input);
         mode = i; //mode zeigt an welcher Abfragemodus ausgewählt ist; 0 = key --> value, 1 = value --> key; erweiterbar nach belieben deswegen Int

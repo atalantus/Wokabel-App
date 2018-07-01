@@ -4,11 +4,11 @@ import java.util.Random;
 import java.util.ArrayList;
 import com.wokabel.app.wokabel.Models.Vocable;
 
-public class AbfrageService{
+public class RequestService{
 
     ArrayList<Vocable> randomsorted;
     Vocable currentVoc;
-    public AbfrageService(ArrayList<Vocable> input){
+    public RequestService(ArrayList<Vocable> input){
         Random rand = new Random();
         randomsorted = new ArrayList<Vocable>();
         ArrayList<Vocable> a = new ArrayList<Vocable>();
