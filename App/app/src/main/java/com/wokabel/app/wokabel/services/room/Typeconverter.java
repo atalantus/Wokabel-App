@@ -1,6 +1,7 @@
-package com.wokabel.app.wokabel.models;
+package com.wokabel.app.wokabel.services.room;
 
 import android.arch.persistence.room.TypeConverter;
+import android.text.TextUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,11 +10,11 @@ public class Typeconverter {
 
     @TypeConverter
     public static String toString(ArrayList<String> list){
-        return String.join(", ", list);
+        return TextUtils.join(", ", list);
     }
 
     public static ArrayList<String> fromString(String string){
-        return new ArrayList<String>(Arrays.asList(string.split(",")));
+        return new ArrayList<>(Arrays.asList(string.split(",")));
     }
 
 }

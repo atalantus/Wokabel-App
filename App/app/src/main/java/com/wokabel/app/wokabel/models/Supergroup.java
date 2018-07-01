@@ -34,7 +34,7 @@ public class Supergroup {
      * @param name The name
      * @param id The ID
      */
-    public Supergroup(String name, String id) {
+    public Supergroup(String name, @NonNull String id) {
         this.name = name;
         this.id = id;
     }
@@ -47,6 +47,7 @@ public class Supergroup {
         this.name = name;
     }
 
+    @NonNull
     public String getId() {
         return id;
     }

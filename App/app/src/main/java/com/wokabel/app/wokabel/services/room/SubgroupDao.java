@@ -1,9 +1,11 @@
-package com.wokabel.app.wokabel.models;
+package com.wokabel.app.wokabel.services.room;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
+
+import com.wokabel.app.wokabel.models.Subgroup;
 
 import java.util.List;
 @Dao

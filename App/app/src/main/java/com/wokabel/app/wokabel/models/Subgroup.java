@@ -38,7 +38,7 @@ public class Subgroup {
      * @param name The name
      * @param id The ID
      */
-    public Subgroup(String name, String id, String supergroupid) {
+    public Subgroup(String name, @NonNull String id, String supergroupid) {
         this.name = name;
         this.id = id;
         this.supergroupid = supergroupid;
@@ -52,6 +52,7 @@ public class Subgroup {
         this.name = name;
     }
 
+    @NonNull
     public String getId() {
         return id;
     }

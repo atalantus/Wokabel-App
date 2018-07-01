@@ -1,4 +1,4 @@
-package com.wokabel.app.wokabel.models;
+package com.wokabel.app.wokabel.services.room;
 
 
 import android.arch.persistence.room.Database;
@@ -6,6 +6,10 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
+
+import com.wokabel.app.wokabel.models.Subgroup;
+import com.wokabel.app.wokabel.models.Supergroup;
+import com.wokabel.app.wokabel.models.Vocable;
 
 @Database(entities = {Vocable.class, Subgroup.class, Supergroup.class}, version = 1, exportSchema = false)
 @TypeConverters(Typeconverter.class)

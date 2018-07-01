@@ -1,15 +1,14 @@
 package com.wokabel.app.wokabel.models;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.UUID;
-
 
 
 /**
@@ -39,9 +38,9 @@ public class Vocable {
      * @param subgroupid The id of the Subgroup the Vocable is assigned to
      */
     @Ignore
-    public Vocable(String key, ArrayList<String> values, String helper, String subgroupid) {
+    public Vocable(@NonNull String key, ArrayList<String> values, String helper, String subgroupid) {
         this.key = key;
-        this.values = String.join(", ", values);
+        this.values = TextUtils.join(", ", values);
         this.helper = helper;
         level = 0;
         this.subgroupid = subgroupid;
@@ -58,16 +57,16 @@ public class Vocable {
      * @param subgroupid The id of the Subgroup the Vocable is assigned to
      */
     @Ignore
-    public Vocable(String key, ArrayList<String> values, String helper, String id, int level, String subgroupid) {
+    public Vocable(@NonNull String key, ArrayList<String> values, String helper, String id, int level, String subgroupid) {
         this.key = key;
-        this.values = String.join(", ", values);
+        this.values = TextUtils.join(", ", values);
         this.helper = helper;
         this.id = id;
         this.level = level;
         this.subgroupid = subgroupid;
     }
 
-    public Vocable(String key, String values, String helper, String id, int level, String subgroupid) {
+    public Vocable(@NonNull String key, String values, String helper, String id, int level, String subgroupid) {
         this.key = key;
         this.values = values;
         this.helper = helper;
@@ -76,16 +75,17 @@ public class Vocable {
         this.subgroupid = subgroupid;
     }
 
+    @NonNull
     public String getKey() {
         return key;
     }
 
-    public void setKey(String key) {
+    public void setKey(@NonNull String key) {
         this.key = key;
     }
 
     public ArrayList<String> getValuesList() {
-        return new ArrayList<String>(Arrays.asList(values.split(",")));
+        return new ArrayList<>(Arrays.asList(values.split(",")));
     }
 
     public String getValues(){
@@ -93,7 +93,7 @@ public class Vocable {
     }
 
     public void setValues(ArrayList<String> values) {
-        this.values = String.join(", ", values);
+        this.values = TextUtils.join(", ", values);
     }
 
     public void setValues(String values){
