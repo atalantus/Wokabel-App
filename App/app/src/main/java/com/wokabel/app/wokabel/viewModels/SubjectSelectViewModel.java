@@ -1,4 +1,7 @@
 package com.wokabel.app.wokabel.viewModels;
 
-public class SubjectSelectViewModel {
+import android.arch.lifecycle.ViewModel;
+
+public class SubjectSelectViewModel extends ViewModel {
+
 }
