@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Wokabel</string>
-    <string name="welcome_start">Let\'s go!</string>
     <string name="welcome_msg">To get started, please enter your forename below.</string>
     <string name="welcome_input">Forename</string>
     <string name="welcome_btn">Let\'s go!</string>
+    <string name="title_activity_subject_select">Subject Select</string>
+    <string name="title_activity_welcome">Welcome</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_subjects">Subjects</string>
+    <string name="title_settings">Settings</string>
 </resources>
