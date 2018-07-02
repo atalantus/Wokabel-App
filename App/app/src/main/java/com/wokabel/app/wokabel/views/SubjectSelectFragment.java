@@ -15,5 +15,14 @@ public class SubjectSelectFragment extends Fragment{
         return inflater.inflate(R.layout.fragment_subject_select, container, false);
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+    }
+
+    public static SubjectSelectFragment newInstance(){
+        SubjectSelectFragment fragment = new SubjectSelectFragment();
+        return fragment;
+    }
 
 }
