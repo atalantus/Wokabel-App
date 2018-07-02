@@ -1,23 +1,29 @@
-package com.wokabel.app.wokabel.models;
+package com.wokabel.app.wokabel.services.preferences;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.wokabel.app.wokabel.services.SettingsDefaults;
-
 /**
  * Handles Settings
  */
 public class Settings {
+    private static Settings instance = null;
+
     private SharedPreferences sharedPrefs;
     private SharedPreferences.Editor editor;
 
     @SuppressLint("CommitPrefEdits")
-    public Settings(Context context) {
+    private Settings(Context context) {
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         editor = sharedPrefs.edit();
+    }
+
+    public static Settings getInstance(Context context) {
+        if (instance == null)
+            instance = new Settings(context);
+        return instance;
     }
 
     public void setString(String key, String value) {

@@ -7,7 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.wokabel.app.wokabel.R;
-import com.wokabel.app.wokabel.models.Settings;
+import com.wokabel.app.wokabel.SurvivalBoxApplication;
+import com.wokabel.app.wokabel.services.preferences.Settings;
 
 public class Welcome extends AppCompatActivity {
 
@@ -20,7 +21,7 @@ public class Welcome extends AppCompatActivity {
     public void start(View view) {
         EditText forenameInput = findViewById(R.id.forenameInput);
         String forename = forenameInput.getText().toString();
-        Settings settings = new Settings(getApplicationContext());
+        Settings settings = SurvivalBoxApplication.sharedPreferences;
         settings.setString("username", forename);
         Intent intent = new Intent(this, SubjectSelect.class);
         startActivity(intent);

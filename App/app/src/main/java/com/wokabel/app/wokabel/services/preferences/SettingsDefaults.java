@@ -1,4 +1,4 @@
-package com.wokabel.app.wokabel.services;
+package com.wokabel.app.wokabel.services.preferences;
 
 import java.util.Hashtable;
 
