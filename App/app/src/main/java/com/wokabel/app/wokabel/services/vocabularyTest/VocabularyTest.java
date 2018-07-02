@@ -1,7 +1,10 @@
 package com.wokabel.app.wokabel.services.vocabularyTest;
 
+import android.view.Display;
+
 import java.util.Random;
 import java.util.ArrayList;
+
 import com.wokabel.app.wokabel.models.Vocable;
 
 public class VocabularyTest {
@@ -9,7 +12,8 @@ public class VocabularyTest {
     // Die verschiedenen Abfrage Modi
     public enum Modes {
         KEY_VALUE,
-        VALUE_KEY
+        VALUE_KEY,
+        RANDOM
     }
 
     // Der Abfrage Modus
@@ -19,7 +23,8 @@ public class VocabularyTest {
 
     /**
      * Konstruktor
-     * @param input Die Vokabeln die abgefragt werden sollen
+     *
+     * @param input    Die Vokabeln die abgefragt werden sollen
      * @param testMode Der Modus der Abfrage
      */
     public VocabularyTest(ArrayList<Vocable> input, Modes testMode) {
@@ -28,13 +33,13 @@ public class VocabularyTest {
         randomsorted = new ArrayList<>();
         ArrayList<Vocable> a = new ArrayList<>();
         currentVoc = null;
-        for(int i = 0; i < input.size(); i++){
-            for(int l = 5; l > input.get(i).getLevel()-1; l--){
+        for (int i = 0; i < input.size(); i++) {
+            for (int l = 5; l > input.get(i).getLevel() - 1; l--) {
                 a.add(input.get(i));
             }
         }
 
-        while (a.size() > 0){
+        while (a.size() > 0) {
             int randnum = rand.nextInt(a.size());
             randomsorted.add(a.get(randnum));
             a.remove(randnum);
@@ -43,26 +48,36 @@ public class VocabularyTest {
 
     public String getQuestion() throws Exception {
         currentVoc = randomsorted.get(0);
+        Modes currentMode = mode;
+        while (true) {
+            switch (currentMode) {
+                case KEY_VALUE:
+                    return currentVoc.getKey();
+                case VALUE_KEY:
+                    ArrayList<String> temp = currentVoc.getValuesList();
+                    String ValueString = "";
 
-        switch (mode) {
-            case KEY_VALUE:
-                return currentVoc.getKey();
-            case VALUE_KEY:
-                ArrayList<String> temp = currentVoc.getValuesList();
-                String ValueString = "";
-
-                for (String s:temp) {
-                    ValueString += s;
-                    ValueString += ", ";
-                }
-
-                return ValueString;
+                    for (String s : temp) {
+                        ValueString += s;
+                        ValueString += ", ";
+                    }
+                    return ValueString;
+                case RANDOM:
+                    Random rand = new Random();
+                    int randnum = rand.nextInt(2);
+                    if (randnum == 0) {
+                        currentMode = Modes.KEY_VALUE;
+                    } else {
+                        currentMode = Modes.VALUE_KEY;
+                    }
+                    break;
+                default:
+                    throw new Exception("Der Abfrage Modus '" + mode.toString() + "' wurde noch nicht in getQuestion() implementiert!");
+            }
         }
-
-        throw new Exception("Der Abfrage Modus '" + mode.toString() + "' wurde noch nicht in getQuestion() implementiert!");
     }
 
-    public String getHelper(){
+    public String getHelper() {
         return currentVoc.getHelper();
     }
 
@@ -71,8 +86,8 @@ public class VocabularyTest {
             case KEY_VALUE:
                 ArrayList<String> temp = currentVoc.getValuesList();
 
-                for (String s:temp) {
-                    if(s.equals(answer)){
+                for (String s : temp) {
+                    if (s.equals(answer)) {
                         return true;
                     }
                 }
@@ -91,7 +106,7 @@ public class VocabularyTest {
             case KEY_VALUE:
                 ArrayList<String> temp = currentVoc.getValuesList();
 
-                for (String s:temp) {
+                for (String s : temp) {
                     answer += s;
                     answer += ", ";
                 }
