@@ -4,13 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.wokabel.app.wokabel.R;
@@ -29,15 +25,15 @@ public class SubjectSelect extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_profile:
                     mTextMessage.setText(R.string.title_profile);
-                    selectedFragment = SettingsFragment.newInstance();
+                    selectedFragment = ProfileFragment.newInstance();
                     break;
                 case R.id.navigation_subjects:
                     mTextMessage.setText(R.string.title_subjects);
-                    selectedFragment = SubjectSelectFragment.newInstance();
+                    selectedFragment = SubjectsFragment.newInstance();
                     break;
                 case R.id.navigation_settings:
                     mTextMessage.setText(R.string.title_settings);
-                    selectedFragment = OptionsFragment.newInstance();
+                    selectedFragment = SettingsFragment.newInstance();
                     break;
             }
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
