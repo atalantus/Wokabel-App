@@ -12,7 +12,8 @@
     <string name="UnitSec">Select your Unit</string>
     <string name="shuffle">Shuffle</string>
     <string name="inorder">InOrder</string>
-
+    <string name="English">English</string>
+    <string name="French">French</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
