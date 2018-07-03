@@ -9,5 +9,5 @@
     <string name="title_activity_welcome">Willkommen</string>
     <string name="title_profile">Profil</string>
     <string name="title_subjects">Fächer</string>
-    <string name="title_settings">Einstellungen</string>
+    <string name="UnitSec">Waehle deine Unit</string>
 </resources>

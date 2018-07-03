@@ -24,6 +24,8 @@
         <activity
             android:name=".views.SubjectSelect"
             android:label="@string/title_activity_subject_select" />
+        <activity android:name=".unit_select" />
+        <activity android:name=".unit_display"></activity>
     </application>
 
 </manifest>
