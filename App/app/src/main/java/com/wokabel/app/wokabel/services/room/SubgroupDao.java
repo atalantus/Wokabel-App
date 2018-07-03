@@ -17,9 +17,13 @@ public interface SubgroupDao {
     @Query("DELETE FROM subgrouplist")
     void deleteAll();
 
+    @Query("SELECT * from subgrouplist WHERE id = :id")
+    Subgroup getSubgroupbyId(String id);
+
     @Query("SELECT * FROM subgrouplist")
     LiveData<List<Subgroup>> getAllSubgroups();
 
     @Query("SELECT * FROM subgrouplist WHERE supergroupid = :supergroupid")
-    LiveData<List<Subgroup>> getSupergroupSubgroups(String supergroupid);
+    LiveData<List<Subgroup>> getSubgroupsbySupergroup(String supergroupid);
+
 }

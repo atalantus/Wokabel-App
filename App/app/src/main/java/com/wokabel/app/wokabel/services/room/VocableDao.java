@@ -23,11 +23,14 @@ public interface VocableDao {
     @Query("DELETE FROM vocablist WHERE id = :id")
     void deletebyId(String id);
 
+    @Query("SELECT * from vocablist WHERE id = :id")
+    Vocable getVocablebyId(String id);
+
     @Query("SELECT * from vocablist")
     LiveData<List<Vocable>> getAllVocables();
 
     @Query("SELECT * from vocablist WHERE subgroupid = :subgroupid")
-    LiveData<List<Vocable>> getSubgroupVocables(String subgroupid);
+    LiveData<List<Vocable>> getVocablesbySubgroup(String subgroupid);
 
 
 }
