@@ -24,6 +24,10 @@
         <activity
             android:name=".views.SubjectSelect"
             android:label="@string/title_activity_subject_select" />
+        <activity
+            android:name=".unit_select"
+            android:label="@string/title_activity_unit_select"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
