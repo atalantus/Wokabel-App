@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import com.wokabel.app.wokabel.R;
 
 
-public class SubjectSelectFragment extends Fragment{
+public class SubjectsFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        return inflater.inflate(R.layout.fragment_subject_select, container, false);
+        return inflater.inflate(R.layout.fragment_subjects, container, false);
     }
 
     @Override
@@ -20,8 +20,8 @@ public class SubjectSelectFragment extends Fragment{
         super.onCreate(savedInstanceState);
     }
 
-    public static SubjectSelectFragment newInstance(){
-        SubjectSelectFragment fragment = new SubjectSelectFragment();
+    public static SubjectsFragment newInstance(){
+        SubjectsFragment fragment = new SubjectsFragment();
         return fragment;
     }
 
