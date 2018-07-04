@@ -1,13 +1,15 @@
-package com.wokabel.app.wokabel;
+package com.wokabel.app.wokabel.views;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class unit_display extends AppCompatActivity {
+import com.wokabel.app.wokabel.R;
+
+public class UnitSelect extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_unit_display);
+        setContentView(R.layout.activity_unit_select);
     }
 }

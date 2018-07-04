@@ -13,8 +13,6 @@ import com.wokabel.app.wokabel.R;
 
 public class SubjectSelect extends AppCompatActivity {
 
-    private TextView mTextMessage;
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -24,15 +22,15 @@ public class SubjectSelect extends AppCompatActivity {
             Fragment selectedFragment = null;
             switch (item.getItemId()) {
                 case R.id.navigation_profile:
-                    mTextMessage.setText(R.string.title_profile);
+                    setTitle(R.string.title_profile);
                     selectedFragment = ProfileFragment.newInstance();
                     break;
                 case R.id.navigation_subjects:
-                    mTextMessage.setText(R.string.title_subjects);
+                    setTitle(R.string.title_subjects);
                     selectedFragment = SubjectsFragment.newInstance();
                     break;
                 case R.id.navigation_settings:
-                    mTextMessage.setText(R.string.title_settings);
+                    setTitle(R.string.title_settings);
                     selectedFragment = SettingsFragment.newInstance();
                     break;
             }
@@ -48,12 +46,8 @@ public class SubjectSelect extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subject_select);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(R.id.navigation_subjects);
-
-
     }
-
 }

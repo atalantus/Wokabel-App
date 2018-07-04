@@ -1,6 +1,7 @@
 package com.wokabel.app.wokabel.views;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,22 +16,29 @@ import java.util.ArrayList;
 
 
 public class SubjectsFragment extends Fragment{
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        return inflater.inflate(R.layout.fragment_subjects, container, false);
-    }
+
+    private RecyclerView recyclerView;
 
     private static final String TAG = "SubjectsFragment";
 
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_subjects, container, false);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
         Log.d(TAG, "onCreate: started.");
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        recyclerView = getView().findViewById(R.id.recyclerv_view);
         initImageBitmaps();
     }
 
@@ -58,12 +66,8 @@ public class SubjectsFragment extends Fragment{
 
         Log.d(TAG, "initRecyclerView: inti recyclerView.");
 
-        /*
-        RecyclerView recyclerView = findViewById(R.id.recyclerv_view)
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(mNames, mImageUrls, this);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(mNames, mImageUrls, getView().getContext());
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        */
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(getView().getContext()));
     }
 }
