@@ -21,6 +21,7 @@ public class Welcome extends AppCompatActivity {
         String forename = forenameInput.getText().toString();
         //TODO: Save forename in Settings
         Intent intent = new Intent(this, SubjectSelect.class);
+        finish();
         startActivity(intent);
     }
 }
