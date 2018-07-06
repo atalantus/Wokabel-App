@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.wokabel.app.wokabel.R;
-import com.wokabel.app.wokabel.SurvivalBoxApplication;
+import com.wokabel.app.wokabel.WokabelApplication;
 import com.wokabel.app.wokabel.services.preferences.Settings;
 
 public class SubjectSelect extends AppCompatActivity {
@@ -40,7 +40,7 @@ public class SubjectSelect extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subject_select);
 
-        Settings settings = SurvivalBoxApplication.sharedPreferences;
+        Settings settings = WokabelApplication.sharedPreferences;
         TextView username = findViewById(R.id.UsernameTextView);
         username.setText(getString(R.string.greet_user, settings.getString("username")));
 
