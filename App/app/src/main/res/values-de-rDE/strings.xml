@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Wokabel</string>
-    <string name="welcome_start">Loslegen!</string>
     <string name="welcome_msg">Bitte geben Sie zuerst ihren Vornamen ein.</string>
     <string name="welcome_input">Vorname</string>
     <string name="welcome_btn">Loslegen!</string>
@@ -10,4 +9,5 @@
     <string name="title_profile">Profil</string>
     <string name="title_subjects">Fächer</string>
     <string name="title_settings">Einstellungen</string>
+    <string name="greet_user">Hallo %1$s!</string>
 </resources>
