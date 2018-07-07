@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
 import com.bumptech.glide.Glide;
 import com.wokabel.app.wokabel.R;
 
@@ -23,7 +22,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private static final String TAG = "RecyclerViewAdapter";
 
     private ArrayList<String> mImagesNames = new ArrayList<>();
-
     private ArrayList<String> mImages = new ArrayList<>();
     private Context mContext;
 
@@ -56,6 +54,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: clicked on: " + mImagesNames.get(position));
+
 
                 //Action: Neue Activitie Aufrufen
             }

@@ -38,7 +38,7 @@ public class SubjectsFragment extends Fragment{
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        recyclerView = getView().findViewById(R.id.recyclerv_view);
+        recyclerView = getView().findViewById(R.id.recycler_view);
         initImageBitmaps();
     }
 
