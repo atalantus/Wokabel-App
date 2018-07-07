@@ -16,15 +16,12 @@ public class ProfileFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        return view;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 
-    public static SubjectsFragment newInstance(){
-        SubjectsFragment fragment = new SubjectsFragment();
+    public static ProfileFragment newInstance(){
+        ProfileFragment fragment = new ProfileFragment();
         return fragment;
     }
 
