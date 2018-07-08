@@ -53,6 +53,7 @@ public class SubjectsFragment extends Fragment{
 
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
 
+        //mNames.add(model.getSupergroups().getName());
         mImageUrls.add("https://cdn.pixabay.com/photo/2013/07/12/13/27/england-147080_960_720.png");
         mNames.add("English"); //noch mit strings.xml verknüpfen
 
