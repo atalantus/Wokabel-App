@@ -8,6 +8,12 @@
     <string name="title_activity_welcome">Willkommen</string>
     <string name="title_profile">Profil</string>
     <string name="title_subjects">Fächer</string>
+    <string name="UnitSec">Waehle deine Unit</string>
     <string name="title_settings">Einstellungen</string>
-    <string name="greet_user">Hallo %1$s!</string>
+    <string name="shuffle">Zufällig</string>
+    <string name="English">Englisch</string>
+    <string name="French">Französisch</string>
+    <string name="Username">Benutzername</string>
+    <string name="XP">EP</string>
+    <string name="edit">BEARBEITEN</string>
 </resources>
