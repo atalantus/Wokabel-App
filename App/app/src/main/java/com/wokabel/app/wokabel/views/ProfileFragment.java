@@ -22,6 +22,7 @@ public class ProfileFragment extends Fragment {
 
     public static ProfileFragment newInstance(){
         ProfileFragment fragment = new ProfileFragment();
+        //setzen von desplayUsername und displayXP auf Werte gespeichert in den Settings fehlt noch
         return fragment;
     }
 
