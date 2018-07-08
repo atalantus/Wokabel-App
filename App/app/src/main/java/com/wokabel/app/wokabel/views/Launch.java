@@ -1,9 +1,10 @@
-package com.wokabel.app.wokabel;
+package com.wokabel.app.wokabel.views;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.wokabel.app.wokabel.R;
 import com.wokabel.app.wokabel.views.SubjectSelect;
 import com.wokabel.app.wokabel.views.Welcome;
 
