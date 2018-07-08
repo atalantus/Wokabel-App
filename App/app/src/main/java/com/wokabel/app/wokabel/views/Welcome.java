@@ -9,6 +9,8 @@ import android.widget.EditText;
 import com.wokabel.app.wokabel.R;
 import com.wokabel.app.wokabel.models.Vocable;
 import com.wokabel.app.wokabel.services.vocabularyTest.VocabularyTest;
+import com.wokabel.app.wokabel.WokabelApplication;
+import com.wokabel.app.wokabel.services.preferences.Settings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,8 +53,10 @@ public class Welcome extends AppCompatActivity {
     public void start(View view) {
         EditText forenameInput = findViewById(R.id.forenameInput);
         String forename = forenameInput.getText().toString();
-        //TODO: Save forename in Settings
+        Settings settings = WokabelApplication.sharedPreferences;
+        settings.setString("username", forename);
         Intent intent = new Intent(this, SubjectSelect.class);
+        finish();
         startActivity(intent);
     }
 }
