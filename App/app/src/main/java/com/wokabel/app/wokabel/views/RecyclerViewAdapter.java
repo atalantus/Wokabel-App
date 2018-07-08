@@ -2,12 +2,13 @@ package com.wokabel.app.wokabel.views;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -35,7 +36,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_subject, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
@@ -45,9 +46,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         Log.d(TAG, "onBindViewHolder: called.");
 
-        Glide.with(mContext).asBitmap().load(mImages.get(position)).into(holder.image);
+        Glide.with(mContext).asBitmap().load(mImages.get(position)).into(holder.icon);
 
-        holder.imageName.setText(mImagesNames.get(position));
+        holder.name.setText(mImagesNames.get(position));
 
         //WAS beim klicken passiert WICHTIG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
@@ -69,14 +70,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public class ViewHolder extends RecyclerView.ViewHolder{
 
 
-        CircleImageView image;
-        TextView imageName;
-        RelativeLayout parentLayout;
+        CircleImageView icon;
+        TextView name;
+        ImageButton editBtn;
+        ConstraintLayout parentLayout;
+
         public ViewHolder(View itemView)
         {
             super(itemView);
-            image = itemView.findViewById(R.id.image);
-            imageName = itemView.findViewById(R.id.image_name);
+            icon = itemView.findViewById(R.id.subject_icon);
+            name = itemView.findViewById(R.id.subject_name);
+            editBtn = itemView.findViewById(R.id.subject_editBtn);
             parentLayout = itemView.findViewById(R.id.parent_layout);
         }
     }
