@@ -3,8 +3,13 @@ package com.wokabel.app.wokabel.views;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.wokabel.app.wokabel.R;
@@ -13,25 +18,38 @@ import com.wokabel.app.wokabel.services.preferences.Settings;
 
 public class SubjectSelect extends AppCompatActivity {
 
-    private TextView mTextMessage;
+    private ProfileFragment profileFragment;
+    private SubjectsFragment subjectsFragment;
+    private SettingsFragment settingsFragment;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            Fragment selectedFragment = null;
             switch (item.getItemId()) {
                 case R.id.navigation_profile:
-                    mTextMessage.setText(R.string.title_profile);
-                    return true;
+                    setTitle(R.string.title_profile);
+                    if (profileFragment == null) profileFragment = ProfileFragment.newInstance();
+                    selectedFragment = profileFragment;
+                    break;
                 case R.id.navigation_subjects:
-                    mTextMessage.setText(R.string.title_subjects);
-                    return true;
+                    setTitle(R.string.title_subjects);
+                    if (subjectsFragment == null) subjectsFragment = SubjectsFragment.newInstance();
+                    selectedFragment = subjectsFragment;
+                    break;
                 case R.id.navigation_settings:
-                    mTextMessage.setText(R.string.title_settings);
-                    return true;
+                    setTitle(R.string.title_settings);
+                    if (settingsFragment == null) settingsFragment = SettingsFragment.newInstance();
+                    selectedFragment = settingsFragment;
+                    break;
             }
-            return false;
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frame, selectedFragment);
+            transaction.commit();
+            return true;
         }
     };
 
@@ -50,4 +68,7 @@ public class SubjectSelect extends AppCompatActivity {
         navigation.setSelectedItemId(R.id.navigation_subjects);
     }
 
+    public void createSubject(View view) {
+        subjectsFragment.createSubject(view);
+    }
 }

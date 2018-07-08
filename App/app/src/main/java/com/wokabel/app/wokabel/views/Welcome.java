@@ -24,6 +24,7 @@ public class Welcome extends AppCompatActivity {
         Settings settings = WokabelApplication.sharedPreferences;
         settings.setString("username", forename);
         Intent intent = new Intent(this, SubjectSelect.class);
+        finish();
         startActivity(intent);
     }
 }
