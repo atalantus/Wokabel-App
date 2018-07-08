@@ -14,6 +14,7 @@ import com.wokabel.app.wokabel.services.preferences.Settings;
 public class SubjectSelect extends AppCompatActivity {
 
     private TextView mTextMessage;
+    Settings settings = WokabelApplication.sharedPreferences;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -40,7 +41,6 @@ public class SubjectSelect extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subject_select);
 
-        Settings settings = WokabelApplication.sharedPreferences;
         TextView username = findViewById(R.id.UsernameTextView);
         username.setText(getString(R.string.greet_user, settings.getString("username")));
 
