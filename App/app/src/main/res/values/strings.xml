@@ -8,4 +8,15 @@
     <string name="title_profile">Profile</string>
     <string name="title_subjects">Subjects</string>
     <string name="title_settings">Settings</string>
+    <string name="Unit1">Unit1</string>
+    <string name="UnitSec">Select your Unit</string>
+    <string name="shuffle">Shuffle</string>
+    <string name="inorder">InOrder</string>
+    <string name="English">English</string>
+    <string name="French">French</string>
+    <string name="Username">Username</string>
+    <string name="XP">XP</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edit">EDIT</string>
 </resources>
