@@ -2,6 +2,7 @@ package com.wokabel.app.wokabel.views;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +16,7 @@ import com.wokabel.app.wokabel.R;
 import java.util.ArrayList;
 
 
-public class SubjectsFragment extends Fragment{
+public class SubjectsFragment extends Fragment {
 
     private RecyclerView recyclerView;
 
@@ -30,7 +31,7 @@ public class SubjectsFragment extends Fragment{
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         Log.d(TAG, "onCreate: started.");
@@ -42,18 +43,18 @@ public class SubjectsFragment extends Fragment{
         initImageBitmaps();
     }
 
-    public static SubjectsFragment newInstance(){
+    public static SubjectsFragment newInstance() {
         SubjectsFragment fragment = new SubjectsFragment();
         return fragment;
     }
 
 
     //Initialisierung der Bilder und Namen
-    public void initImageBitmaps(){
+    public void initImageBitmaps() {
 
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
 
-        //mNames.add(model.getSupergroups().getName());
+        //TODO: mNames.add(model.getSupergroups().getName());
         mImageUrls.add("https://cdn.pixabay.com/photo/2013/07/12/13/27/england-147080_960_720.png");
         mNames.add("English"); //noch mit strings.xml verknüpfen
 
@@ -63,12 +64,18 @@ public class SubjectsFragment extends Fragment{
         initRecyclerView();
 
     }
-    private void initRecyclerView(){
+
+    private void initRecyclerView() {
 
         Log.d(TAG, "initRecyclerView: inti recyclerView.");
 
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(mNames, mImageUrls, getView().getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getView().getContext()));
+    }
+
+    public void createSubject(View view) {
+        Snackbar.make(view, "Hier sollte jetzt ne neue Activity zum Erstellen eines Subjects sein!", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
     }
 }
