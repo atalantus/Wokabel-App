@@ -7,8 +7,9 @@
     tools:context=".views.UnitSelect">
 
     <LinearLayout
+        android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -18,10 +19,13 @@
             android:text="@string/UnitSec"
             tools:textSize="30sp" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Unit1" />
     </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toBottomOf="@id/LinearLayout1"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 </android.support.constraint.ConstraintLayout>
