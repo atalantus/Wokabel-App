@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1130</x>
+      <y>190</y>
+      <w>430</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>VocabularyTest
+--
+Modes mode
+ArrayList&lt;Vocable&gt; randomsorted
+Vocable currentVoc
+--
+VocabularyTest(ArrayList&lt;Vocable&gt; input, Modes testMode)
+String getQuestion()
+String getHelper()
+String getAnswer()
+boolean handleAnswer(String answer)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>200</y>
+      <w>550</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>VocabularyTestViewModel
+--
+VocabularyTest algorithm
+--
+VocabulryTestViewModel(ArrayList&lt;Vocable&gt;	input, VocabularyTest.Modes mode)
+String getQuestion()
+String getHelper()
+String getAnswer()
+boolean handleAnswer(String answer)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>660</x>
+      <y>250</y>
+      <w>480</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+has as Algorithm &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
+  </element>
+</diagram>
