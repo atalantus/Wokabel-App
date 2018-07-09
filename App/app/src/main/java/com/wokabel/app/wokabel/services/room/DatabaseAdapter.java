@@ -65,4 +65,34 @@ public class DatabaseAdapter {
     void insertSupergroup(Supergroup supergroup){
         supdao.insert(supergroup);
     }
+
+    void deleteDatabaseContent(){
+        vocdao.deleteAll();
+        subdao.deleteAll();
+        supdao.deleteAll();
+    }
+
+    boolean checkforContentSupergroup(){
+
+        if(supdao.getSupergroupList().isEmpty()){
+            return false;
+        }
+        return true;
+    }
+
+    boolean checkforContentSubgroup(){
+
+        if(subdao.getSubgroupList().isEmpty()){
+            return false;
+        }
+        return true;
+    }
+
+    boolean checkforContentVocable(){
+
+        if(vocdao.getVocableList().isEmpty()){
+            return false;
+        }
+        return true;
+    }
 }

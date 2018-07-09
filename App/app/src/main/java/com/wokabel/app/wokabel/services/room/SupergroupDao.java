@@ -24,6 +24,9 @@ public interface SupergroupDao {
     @Query("SELECT * FROM supergrouplist")
     LiveData<List<Supergroup>> getAllSupergroups();
 
+    @Query("SELECT * from supergrouplist")
+    List<Supergroup> getSupergroupList();
+
     @Query("SELECT * FROM supergrouplist")
     Supergroup [] getAllSupergroupsArray();
 

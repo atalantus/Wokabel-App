@@ -23,6 +23,9 @@ public interface SubgroupDao {
     @Query("SELECT * FROM subgrouplist")
     LiveData<List<Subgroup>> getAllSubgroups();
 
+    @Query("SELECT * from subgrouplist")
+    List<Subgroup> getSubgroupList();
+
     @Query("SELECT * FROM subgrouplist WHERE supergroupid = :supergroupid")
     LiveData<List<Subgroup>> getSubgroupsbySupergroup(String supergroupid);
 

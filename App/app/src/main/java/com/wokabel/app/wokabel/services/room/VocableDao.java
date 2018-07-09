@@ -29,6 +29,9 @@ public interface VocableDao {
     @Query("SELECT * from vocablist")
     LiveData<List<Vocable>> getAllVocables();
 
+    @Query("SELECT * from vocablist")
+    List<Vocable> getVocableList();
+
     @Query("SELECT * from vocablist WHERE subgroupid = :subgroupid")
     LiveData<List<Vocable>> getVocablesbySubgroup(String subgroupid);
 
