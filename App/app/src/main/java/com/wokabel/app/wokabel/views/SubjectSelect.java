@@ -3,14 +3,11 @@ package com.wokabel.app.wokabel.views;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import com.wokabel.app.wokabel.R;
 import com.wokabel.app.wokabel.WokabelApplication;
@@ -59,10 +56,7 @@ public class SubjectSelect extends AppCompatActivity {
         setContentView(R.layout.activity_subject_select);
 
         Settings settings = WokabelApplication.sharedPreferences;
-        TextView username = findViewById(R.id.UsernameTextView);
-        username.setText(getString(R.string.greet_user, settings.getString("username")));
 
-        mTextMessage = findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navigation.setSelectedItemId(R.id.navigation_subjects);
