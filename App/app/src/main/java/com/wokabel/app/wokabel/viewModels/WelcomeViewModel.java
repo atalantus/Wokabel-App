@@ -1,4 +1,6 @@
 package com.wokabel.app.wokabel.viewModels;
 
-public class WelcomeViewModel {
+import android.arch.lifecycle.ViewModel;
+
+public class WelcomeViewModel extends ViewModel {
 }
