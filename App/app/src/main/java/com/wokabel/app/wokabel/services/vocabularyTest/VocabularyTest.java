@@ -16,22 +16,30 @@ public class VocabularyTest {
         VALUE_KEY,
         RANDOM
     }
-
+    public enum Difficulty{
+        NOTIME,
+        EASY,
+        NORMAL,
+        HARD
+    }
     // Der Abfrage Modus
     private Modes mode;
     private ArrayList<Vocable> randomsorted;
     private Vocable currentVoc;
     private long starttime = System.currentTimeMillis();
     private int timecount;
+    private Difficulty dif;
+
     /**
      * Konstruktor
      *
      * @param input    Die Vokabeln die abgefragt werden sollen
      * @param testMode Der Modus der Abfrage
+     * @param testTime Dauer der Ausfrage in Sekunden
      */
-    public VocabularyTest(ArrayList<Vocable> input, Modes testMode, int seconds) {
-        timecount = seconds;
+    public VocabularyTest(ArrayList<Vocable> input, Modes testMode, Difficulty testTime) {
         mode = testMode;
+        dif = testTime;
         Random rand = new Random();
         randomsorted = new ArrayList<>();
         ArrayList<Vocable> a = new ArrayList<>();
@@ -46,6 +54,26 @@ public class VocabularyTest {
             int randnum = rand.nextInt(a.size());
             randomsorted.add(a.get(randnum));
             a.remove(randnum);
+        }
+
+        for(int i = 0; i < randomsorted.size(); i++) {
+            switch (dif){
+                case NOTIME:
+                    timecount = 0;
+                    i = randomsorted.size();
+                    break;
+                case EASY:
+                    timecount += 20;
+                    break;
+                case NORMAL:
+                    timecount += 15;
+                    break;
+                case HARD:
+                    timecount += 10;
+                    break;
+
+            }
+
         }
     }
 
@@ -96,7 +124,7 @@ public class VocabularyTest {
     /**
      *
      * @param answer Antwort des Nutzers
-     * @return ob Frage richtig oder falsch ist
+     * @return ob Antwort richtig oder falsch ist
      * @throws Exception
      */
     public boolean handleAnswer(String answer) throws Exception {
@@ -150,7 +178,7 @@ public class VocabularyTest {
         if(timecount == 0){
             return randomsorted.size() == 0;
         }else{
-            if(System.currentTimeMillis() - starttime >= timecount || randomsorted.size() == 0){
+            if(System.currentTimeMillis() - starttime >= timecount || randomsorted.size() == 0 ){
                 return true;
             }else{
                 return false;
