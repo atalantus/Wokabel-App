@@ -6,28 +6,29 @@ import android.arch.lifecycle.ViewModel;
 import com.wokabel.app.wokabel.models.Supergroup;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SubjectSelectViewModel extends ViewModel {
 
-    private LiveData<Supergroup> selectedSupergroup;
+    private LiveData<List<Supergroup>> Supergroups;
 
-    public LiveData<Supergroup> getSelectedSupergroup() {
-        return selectedSupergroup;
+    public SubjectSelectViewModel(){
+        //Abfrage aus Datenbank
+        Supergroups = null;
     }
 
-    public void setSelectedSupergroup(LiveData<Supergroup> selectedSupergroup) {
-        this.selectedSupergroup = selectedSupergroup;
-    }
 
-    public ArrayList<String> getAllSupergroups(){
+    public ArrayList<String> getSupergroups(){
         ArrayList<String> list = new ArrayList<>();
         list.add("Englisch");
         list.add("Französisch");
         list.add("Test");
+        //list = ((ArrayList<String>)Supergroups.getValue().getAll());
         return list;
     }
 
     public ArrayList<String> getAllIDs(){
+        //list =
         ArrayList<String> list = new ArrayList<>();
         list.add("1");
         list.add("2");

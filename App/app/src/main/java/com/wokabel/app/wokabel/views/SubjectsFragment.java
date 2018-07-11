@@ -72,7 +72,7 @@ public class SubjectsFragment extends Fragment {
 
         Log.d(TAG, "initRecyclerView: inti recyclerView.");
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(model.getAllSupergroups(), mImageUrls, getView().getContext(), model.getAllIDs());
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(model.getSupergroups(), mImageUrls, getView().getContext(), model.getAllIDs());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getView().getContext()));
     }

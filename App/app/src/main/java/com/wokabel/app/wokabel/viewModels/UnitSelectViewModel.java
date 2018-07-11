@@ -14,7 +14,7 @@ public class UnitSelectViewModel extends ViewModel {
 
     public UnitSelectViewModel(){
 
-        //alle subgroups der selected Supergroup abfragen
+        //setSubgroups(alle subgroups der selected Supergroup abfragen);
         subgroups = null;
     }
 
