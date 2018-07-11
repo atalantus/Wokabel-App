@@ -24,14 +24,15 @@
 
         <activity
             android:name=".views.Welcome"
-            android:label="@string/title_activity_welcome">
-        </activity>
+            android:label="@string/title_activity_welcome"/>
 
         <activity
             android:name=".views.SubjectSelect"
             android:label="@string/title_activity_subject_select" />
 
-        <activity android:name=".views.UnitSelect" />
+        <activity
+            android:name=".views.UnitSelect"
+            android:label="@string/UnitSelection"/>
 
         <activity android:name=".views.UnitDisplay" />
 

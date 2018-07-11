@@ -1,6 +1,8 @@
 package com.wokabel.app.wokabel.views;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wokabel.app.wokabel.R;
+import com.wokabel.app.wokabel.viewModels.SubjectSelectViewModel;
 
 import java.util.ArrayList;
 
@@ -19,33 +22,31 @@ import java.util.ArrayList;
 public class SubjectsFragment extends Fragment {
 
     private RecyclerView recyclerView;
-
     private static final String TAG = "SubjectsFragment";
-
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
+    private SubjectSelectViewModel model;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_subjects, container, false);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        model = ViewModelProviders.of(this).get(SubjectSelectViewModel.class);
         Log.d(TAG, "onCreate: started.");
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        recyclerView = getView().findViewById(R.id.recycler_view);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        recyclerView = view.findViewById(R.id.recycler_view);
         initImageBitmaps();
     }
 
     public static SubjectsFragment newInstance() {
-        SubjectsFragment fragment = new SubjectsFragment();
-        return fragment;
+        return new SubjectsFragment();
     }
 
 
@@ -56,11 +57,12 @@ public class SubjectsFragment extends Fragment {
         mImageUrls.clear();
         mNames.clear();
         //TODO: mNames.add(model.getSupergroups().getName());
-        mImageUrls.add("https://cdn.pixabay.com/photo/2013/07/12/13/27/england-147080_960_720.png");
-        mNames.add("English"); //noch mit strings.xml verknüpfen
+        //mImageUrls.add("https://cdn.pixabay.com/photo/2013/07/12/13/27/england-147080_960_720.png");
+        //mNames.add("English"); //noch mit strings.xml verknüpfen
 
-        mImageUrls.add("https://breite-apotheke.ch/wp-content/uploads/2016/05/Franz%C3%B6sisch.gif");
-        mNames.add("French"); //noch mit strings.xml verknüpfen
+        //mImageUrls.add("https://breite-apotheke.ch/wp-content/uploads/2016/05/Franz%C3%B6sisch.gif");
+        //mNames.add("French"); //noch mit strings.xml verknüpfen
+        //mNames = model.getAllSupergroups();
 
         initRecyclerView();
 
@@ -70,7 +72,7 @@ public class SubjectsFragment extends Fragment {
 
         Log.d(TAG, "initRecyclerView: inti recyclerView.");
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(mNames, mImageUrls, getView().getContext());
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(model.getAllSupergroups(), mImageUrls, getView().getContext(), model.getAllIDs());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getView().getContext()));
     }

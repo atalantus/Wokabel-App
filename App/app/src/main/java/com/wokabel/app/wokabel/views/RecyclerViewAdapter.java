@@ -1,6 +1,7 @@
 package com.wokabel.app.wokabel.views;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.wokabel.app.wokabel.R;
 
 import java.util.ArrayList;
@@ -21,17 +21,19 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
     private static final String TAG = "RecyclerViewAdapter";
+    public static final String EXTRA_MESSAGE = "com.wokabel.app.wokabel.MESSAGE";
 
-    private ArrayList<String> mImagesNames = new ArrayList<>();
-    private ArrayList<String> mImages = new ArrayList<>();
+    private ArrayList<String> mImagesNames;
+    //private ArrayList<String> mImages;
+    private ArrayList<String> mIDs = new ArrayList<>();
     private Context mContext;
 
-    public RecyclerViewAdapter(ArrayList<String> imagesNames, ArrayList<String> images, Context context)
+    public RecyclerViewAdapter(ArrayList<String> imagesNames, ArrayList<String> images, Context context, ArrayList<String> ids)
     {
         mImagesNames = imagesNames;
-        mImages = images;
+        //mImages = images;
         mContext = context;
-        
+        mIDs = ids;
     }
     @NonNull
     @Override
@@ -46,7 +48,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         Log.d(TAG, "onBindViewHolder: called.");
 
-        Glide.with(mContext).asBitmap().load(mImages.get(position)).into(holder.icon);
+        //Glide.with(mContext).asBitmap().load(mImages.get(position)).into(holder.icon);
 
         holder.name.setText(mImagesNames.get(position));
 
@@ -56,8 +58,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View view) {
                 Log.d(TAG, "onClick: clicked on: " + mImagesNames.get(position));
 
-
+                String ID = mIDs.get(position);
                 //Action: Neue Activitie Aufrufen
+                Intent intent = new Intent(view.getContext(), UnitSelect.class);
+                intent.putExtra(EXTRA_MESSAGE, ID);
+                view.getContext().startActivity(intent);
             }
         });
     }
