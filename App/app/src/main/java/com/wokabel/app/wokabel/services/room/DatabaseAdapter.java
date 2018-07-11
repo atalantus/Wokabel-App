@@ -95,4 +95,12 @@ public class DatabaseAdapter {
         }
         return true;
     }
+
+    boolean checkforContentDatabase(){
+
+        if(checkforContentSupergroup() || checkforContentSubgroup() || checkforContentVocable()){
+            return true;
+        }
+        return false;
+    }
 }
