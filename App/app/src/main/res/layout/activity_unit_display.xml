@@ -13,7 +13,8 @@
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/TabellenListe"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="0dp"
+        android:layout_weight="6"
         android:stretchColumns="*"> <!-- stretch the second column of the layout-->
 
         <!-- first row of the table layout-->
@@ -45,26 +46,38 @@
 
     </TableLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/TabellenListe"
-        >
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/add_subject_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_gravity="end|bottom"
-            android:layout_marginStart="94dp"
-            android:src="@drawable/ic_add_black_24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+     <TableLayout
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="1"
+         app:layout_constraintTop_toBottomOf="@id/TabellenListe"
+         android:stretchColumns="*">
 
 
-    </RelativeLayout>
+         <TableRow
+             android:layout_width="fill_parent"
+             android:layout_height="match_parent"
+
+
+             >
+
+             <ImageButton
+                 android:id="@+id/Play"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 app:srcCompat="@android:drawable/ic_media_play" />
+
+             <ImageButton
+                 android:id="@+id/Shuffle"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 app:srcCompat="@android:drawable/ic_media_next" />
+         </TableRow>
+
+
+
+     </TableLayout>
+
 
     </LinearLayout>
 
