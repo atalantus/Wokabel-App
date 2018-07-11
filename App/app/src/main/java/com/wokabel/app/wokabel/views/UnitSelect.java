@@ -19,6 +19,7 @@ public class UnitSelect extends AppCompatActivity {
 
         model = ViewModelProviders.of(this).get(UnitSelectViewModel.class);
         String unit = getIntent().getStringExtra(RecyclerViewAdapter.EXTRA_MESSAGE);
-        setTitle(model.getSupergroupbyID(unit));
+        model.setSelectedSupergroup(unit);
+        setTitle(model.getSelectedSupergroup().getValue().getName());
     }
 }

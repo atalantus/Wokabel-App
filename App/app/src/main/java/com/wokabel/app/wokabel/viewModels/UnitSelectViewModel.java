@@ -25,11 +25,12 @@ public class UnitSelectViewModel extends ViewModel {
         ids.add("toller Test");
     }
 
-    public void setSelectedSupergroup(LiveData<Supergroup> selectedSupergroup){
-        selectedSupergroup = selectedSupergroup;
+    public void setSelectedSupergroup(String ID){
+        //Abfrage an Datenbank getSupergroupbyId(ID)
+        selectedSupergroup = null;
     }
 
-    public void setSeectedSubgrooup(LiveData<Subgroup> selectedSubgroup) {
+    public void setSelectedSubgrooup(LiveData<Subgroup> selectedSubgroup) {
         this.selectedSubgrooup = selectedSubgroup;
     }
 
@@ -39,10 +40,6 @@ public class UnitSelectViewModel extends ViewModel {
 
     public void setSubgroups(LiveData<List<Subgroup>> subgroups) {
         this.subgroups = subgroups;
-    }
-
-    public String getSupergroupbyID(String ID) {
-        return ids.get(Integer.parseInt(ID)-1);
     }
 
     public LiveData<Supergroup> getSelectedSupergroup() {
