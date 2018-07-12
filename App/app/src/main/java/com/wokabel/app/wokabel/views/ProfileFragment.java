@@ -26,7 +26,8 @@ public class ProfileFragment extends Fragment {
         TextView username = view.findViewById(R.id.displayUsername);
         TextView user_xp = view.findViewById(R.id.displayXP);
         username.setText(settings.getString("username"));
-        user_xp.setText(settings.getInt("user_xp"));
+        String xp = Integer.toString(settings.getInt("user_xp"));
+        user_xp.setText(xp);
         return view;
     }
 
