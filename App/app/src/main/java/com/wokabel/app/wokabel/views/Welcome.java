@@ -8,9 +8,14 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.wokabel.app.wokabel.R;
+import com.wokabel.app.wokabel.models.Vocable;
+import com.wokabel.app.wokabel.services.vocabularyTest.VocabularyTest;
 import com.wokabel.app.wokabel.WokabelApplication;
 import com.wokabel.app.wokabel.services.preferences.Settings;
 import com.wokabel.app.wokabel.viewModels.WelcomeViewModel;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Welcome extends AppCompatActivity {
 

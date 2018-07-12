@@ -12,7 +12,7 @@ public class Typeconverter {
     public static String toString(ArrayList<String> list){
         return TextUtils.join(", ", list);
     }
-
+    @TypeConverter
     public static ArrayList<String> fromString(String string){
         return new ArrayList<>(Arrays.asList(string.split(",")));
     }
