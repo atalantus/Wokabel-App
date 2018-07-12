@@ -18,8 +18,14 @@ public interface SupergroupDao {
     @Query("DELETE FROM supergrouplist")
     void deleteAll();
 
+    @Query("SELECT * FROM supergrouplist WHERE id = :id")
+    Supergroup getSupergroupbyId(String id);
+
     @Query("SELECT * FROM supergrouplist")
     LiveData<List<Supergroup>> getAllSupergroups();
+
+    @Query("SELECT * from supergrouplist")
+    List<Supergroup> getSupergroupList();
 
     @Query("SELECT * FROM supergrouplist")
     Supergroup [] getAllSupergroupsArray();
