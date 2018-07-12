@@ -1,6 +1,7 @@
 package com.wokabel.app.wokabel.models;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
@@ -14,7 +15,7 @@ import java.util.UUID;
 /**
  * A vocable
  */
-@Entity(tableName = "vocablist")
+@Entity(tableName = "vocablist", foreignKeys = @ForeignKey(entity = Subgroup.class, parentColumns = "id", childColumns = "subgroupid"))
 public class Vocable {
     @PrimaryKey
     @NonNull
