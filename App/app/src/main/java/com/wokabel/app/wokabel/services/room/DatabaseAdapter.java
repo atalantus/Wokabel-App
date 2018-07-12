@@ -2,6 +2,8 @@ package com.wokabel.app.wokabel.services.room;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
+import android.os.AsyncTask;
+import android.util.Log;
 
 import com.wokabel.app.wokabel.models.Subgroup;
 import com.wokabel.app.wokabel.models.Supergroup;
@@ -15,58 +17,60 @@ public class DatabaseAdapter {
     private SubgroupDao subdao;
     private SupergroupDao supdao;
 
-    DatabaseAdapter(Application application){
-        db = WokabelDatabase.getInstance(application);
+    public DatabaseAdapter(Application application){
+        db = WokabelDatabase.create(application);
         vocdao = db.getVocableDao();
         subdao = db.getSubgroupDao();
         supdao = db.getSupergroupDao();
+        new LoadData(this).execute();
+
     }
 
-    LiveData<List<Vocable>> getAllVocables(){
+    public LiveData<List<Vocable>> getAllVocables(){
         return vocdao.getAllVocables();
     }
 
-    LiveData<List<Subgroup>> getAllSubgroups(){
+    public LiveData<List<Subgroup>> getAllSubgroups(){
         return subdao.getAllSubgroups();
     }
 
-    LiveData<List<Supergroup>> getAllSupergroups(){
+    public LiveData<List<Supergroup>> getAllSupergroups(){
         return supdao.getAllSupergroups();
     }
 
-    Vocable getVocablebyId(String id){
+    public Vocable getVocablebyId(String id){
         return vocdao.getVocablebyId(id);
     }
 
-    Subgroup getSubgroupbyId(String id){
+    public Subgroup getSubgroupbyId(String id){
         return subdao.getSubgroupbyId(id);
     }
 
-    Supergroup getSupergroupbyId(String id){
+    public Supergroup getSupergroupbyId(String id){
         return supdao.getSupergroupbyId(id);
     }
 
-    LiveData<List<Vocable>> getVocablesbySubgroup(String id){
+    public LiveData<List<Vocable>> getVocablesbySubgroup(String id){
         return vocdao.getVocablesbySubgroup(id);
     }
 
-    LiveData<List<Subgroup>> getSubgroupbySupergroup(String id){
+    public LiveData<List<Subgroup>> getSubgroupbySupergroup(String id){
         return subdao.getSubgroupsbySupergroup(id);
     }
 
-    void insertVocable(Vocable vocable){
+    public void insertVocable(Vocable vocable){
         vocdao.insert(vocable);
     }
 
-    void insertSubgroup(Subgroup subgroup){
+    public void insertSubgroup(Subgroup subgroup){
         subdao.insert(subgroup);
     }
 
-    void insertSupergroup(Supergroup supergroup){
+    public void insertSupergroup(Supergroup supergroup){
         supdao.insert(supergroup);
     }
 
-    void deleteDatabaseContent(){
+    public void deleteDatabaseContent(){
         vocdao.deleteAll();
         subdao.deleteAll();
         supdao.deleteAll();
@@ -103,4 +107,24 @@ public class DatabaseAdapter {
         }
         return false;
     }
+
+    private static class LoadData extends AsyncTask<Void, Void, Void> {
+
+        private final DatabaseAdapter mDb;
+
+        LoadData(DatabaseAdapter db) {
+            mDb = db;
+        }
+
+        @Override
+        protected Void doInBackground(final Void... params) {
+            //load data if necessary
+            mDb.deleteDatabaseContent();
+            mDb.insertSupergroup(new Supergroup("Test"));
+            mDb.insertSupergroup(new Supergroup("Test2"));
+            Log.d("DB Adapter","inserted Supergroups");
+            return null;
+        }
+    }
+
 }

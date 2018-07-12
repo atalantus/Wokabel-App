@@ -1,38 +1,28 @@
 package com.wokabel.app.wokabel.viewModels;
 
+import android.app.Application;
+import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.ViewModel;
+import android.util.Log;
 
 import com.wokabel.app.wokabel.models.Supergroup;
+import com.wokabel.app.wokabel.services.room.DatabaseAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class SubjectSelectViewModel extends ViewModel {
+public class SubjectSelectViewModel extends AndroidViewModel {
 
     private LiveData<List<Supergroup>> Supergroups;
 
-    public SubjectSelectViewModel(){
+    public SubjectSelectViewModel(Application application){
+        super(application);
         //Abfrage aus Datenbank
-        Supergroups = null;
+        DatabaseAdapter adapter = new DatabaseAdapter(application);
+        Supergroups = adapter.getAllSupergroups();
     }
 
-
-    public ArrayList<String> getSupergroups(){
-        ArrayList<String> list = new ArrayList<>();
-        list.add("Englisch");
-        list.add("Französisch");
-        list.add("Test");
-        //list = ((ArrayList<String>)Supergroups.getValue().getAll());
-        return list;
-    }
-
-    public ArrayList<String> getAllIDs(){
-        //list =
-        ArrayList<String> list = new ArrayList<>();
-        list.add("1");
-        list.add("2");
-        list.add("3");
-        return list;
+    public LiveData<List<Supergroup>> getSupergroups(){
+        Log.d("SubjectVM", "Supergroups called from DB");
+        return Supergroups;
     }
 }

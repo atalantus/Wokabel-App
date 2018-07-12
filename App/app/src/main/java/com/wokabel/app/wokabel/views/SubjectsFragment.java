@@ -1,5 +1,6 @@
 package com.wokabel.app.wokabel.views;
 
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,9 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wokabel.app.wokabel.R;
+import com.wokabel.app.wokabel.models.Supergroup;
 import com.wokabel.app.wokabel.viewModels.SubjectSelectViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class SubjectsFragment extends Fragment {
@@ -35,7 +38,10 @@ public class SubjectsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         model = ViewModelProviders.of(this).get(SubjectSelectViewModel.class);
+
+        //mNames = model.getSupergroups();
         Log.d(TAG, "onCreate: started.");
     }
 
@@ -56,14 +62,13 @@ public class SubjectsFragment extends Fragment {
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
         mImageUrls.clear();
         mNames.clear();
-        //TODO: mNames.add(model.getSupergroups().getName());
+        mNames.add(model.getSupergroups().toString());
         //mImageUrls.add("https://cdn.pixabay.com/photo/2013/07/12/13/27/england-147080_960_720.png");
         //mNames.add("English"); //noch mit strings.xml verknüpfen
 
         //mImageUrls.add("https://breite-apotheke.ch/wp-content/uploads/2016/05/Franz%C3%B6sisch.gif");
         //mNames.add("French"); //noch mit strings.xml verknüpfen
         //mNames = model.getAllSupergroups();
-
         initRecyclerView();
 
     }
@@ -72,9 +77,17 @@ public class SubjectsFragment extends Fragment {
 
         Log.d(TAG, "initRecyclerView: inti recyclerView.");
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(model.getSupergroups(), mImageUrls, getView().getContext(), model.getAllIDs());
+        //RecyclerViewAdapter adapter = new RecyclerViewAdapter(/*model.getSupergroups(), mImageUrls, */getView().getContext()/*, model.getAllIDs()*/);
+        final RecyclerViewAdapter adapter = new RecyclerViewAdapter(this.getContext());
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getView().getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        model.getSupergroups().observe(this, new Observer<List<Supergroup>>() {
+            @Override
+            public void onChanged(@Nullable final List<Supergroup> supergroups) {
+                adapter.setmSupergroups((ArrayList<Supergroup>) supergroups);
+                Log.d(TAG, "LiveData changed");
+            }
+        });
     }
 
     public void createSubject(View view) {

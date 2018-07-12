@@ -18,8 +18,13 @@ public class UnitSelect extends AppCompatActivity {
         setContentView(R.layout.activity_unit_select);
 
         model = ViewModelProviders.of(this).get(UnitSelectViewModel.class);
-        String unit = getIntent().getStringExtra(RecyclerViewAdapter.EXTRA_MESSAGE);
-        model.setSelectedSupergroup(unit);
-        setTitle(model.getSelectedSupergroup().getValue().getName());
+        setTitle("Test");
+        //start();
+        //setTitle(model.getSelectedSupergroup());
+    }
+    public void start(){
+
+        setTitle(model.getSelectedSupergroup());
+        model.setSelectedSupergroup(getIntent().getStringExtra(RecyclerViewAdapter.EXTRA_MESSAGE));
     }
 }
