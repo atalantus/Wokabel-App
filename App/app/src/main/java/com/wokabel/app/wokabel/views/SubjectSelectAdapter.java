@@ -18,23 +18,25 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class RecyclerViewAdapter2 extends RecyclerView.Adapter<RecyclerViewAdapter2.ViewHolder>{
+public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdapter.ViewHolder>{
 
-    private static final String TAG = "RecyclerViewAdapter";
+    private static final String TAG = "SubjectSelectAdapter";
 
-    private ArrayList<String> mNames = new ArrayList<>();
+    private ArrayList<String> mImagesNames = new ArrayList<>();
+    private ArrayList<String> mImages = new ArrayList<>();
     private Context mContext;
 
-    public RecyclerViewAdapter2(ArrayList<String> Names, Context context)
+    public SubjectSelectAdapter(ArrayList<String> imagesNames, ArrayList<String> images, Context context)
     {
-        mNames = Names;
+        mImagesNames = imagesNames;
+        mImages = images;
         mContext = context;
         
     }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_subject2, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_subject, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
@@ -44,15 +46,15 @@ public class RecyclerViewAdapter2 extends RecyclerView.Adapter<RecyclerViewAdapt
 
         Log.d(TAG, "onBindViewHolder: called.");
 
-        //Glide.with(mContext).asBitmap().load(mImages.get(position)).into(holder.icon);
+        Glide.with(mContext).asBitmap().load(mImages.get(position)).into(holder.icon);
 
-        holder.name.setText(mNames.get(position));
+        holder.name.setText(mImagesNames.get(position));
 
         //WAS beim klicken passiert WICHTIG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onClick: clicked on: " + mNames.get(position));
+                Log.d(TAG, "onClick: clicked on: " + mImagesNames.get(position));
 
 
                 //Action: Neue Activitie Aufrufen
@@ -62,10 +64,13 @@ public class RecyclerViewAdapter2 extends RecyclerView.Adapter<RecyclerViewAdapt
 
     @Override
     public int getItemCount() {
-        return mNames.size();
+        return mImagesNames.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
+
+
+        CircleImageView icon;
         TextView name;
         ImageButton editBtn;
         ConstraintLayout parentLayout;
@@ -73,7 +78,7 @@ public class RecyclerViewAdapter2 extends RecyclerView.Adapter<RecyclerViewAdapt
         public ViewHolder(View itemView)
         {
             super(itemView);
-
+            icon = itemView.findViewById(R.id.subject_icon);
             name = itemView.findViewById(R.id.subject_name);
             editBtn = itemView.findViewById(R.id.subject_editBtn);
             parentLayout = itemView.findViewById(R.id.parent_layout);

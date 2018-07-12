@@ -69,7 +69,7 @@ public class SubjectsFragment extends Fragment {
 
         Log.d(TAG, "initRecyclerView: inti recyclerView.");
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(mNames, mImageUrls, getView().getContext());
+        SubjectSelectAdapter adapter = new SubjectSelectAdapter(mNames, mImageUrls, getView().getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getView().getContext()));
     }

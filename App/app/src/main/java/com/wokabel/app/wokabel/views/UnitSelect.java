@@ -53,7 +53,7 @@ public class UnitSelect extends AppCompatActivity {
 
         Log.d(TAG, "initRecyclerView: inti recyclerView.");
 
-        RecyclerViewAdapter2 adapter = new RecyclerViewAdapter2(mNames, this);
+        UnitSelectAdapter adapter = new UnitSelectAdapter(mNames, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
