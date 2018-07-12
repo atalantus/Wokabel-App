@@ -23,7 +23,7 @@ public class UnitSelectViewModel extends AndroidViewModel {
 
     public void setSelectedSupergroup(String ID){
         selectedSupergroup = adapter.getSupergroupbyId(ID);
-        setSubgroups(adapter.getSubgroupbySupergroup(selectedSupergroup.getId()));
+        //setSubgroups(adapter.getSubgroupbySupergroup(selectedSupergroup.getId()));
     }
 
     public LiveData<List<Subgroup>> getSubgroups() {

@@ -120,8 +120,8 @@ public class DatabaseAdapter {
         protected Void doInBackground(final Void... params) {
             //load data if necessary
             mDb.deleteDatabaseContent();
-            mDb.insertSupergroup(new Supergroup("Test"));
-            mDb.insertSupergroup(new Supergroup("Test2"));
+            mDb.insertSupergroup(new Supergroup("Test","1"));
+            mDb.insertSupergroup(new Supergroup("Test2","2"));
             Log.d("DB Adapter","inserted Supergroups");
             return null;
         }

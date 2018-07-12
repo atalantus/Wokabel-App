@@ -42,6 +42,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private static final String TAG = "RecyclerViewAdapter";
     public static final String EXTRA_MESSAGE = "com.wokabel.app.wokabel.MESSAGE";
+    public static final String EXTRA_MESSAGE2 = "com.wokabel.app.wokabel.MESSAGE";
 
     private List<Supergroup> mSupergroups;
     //private ArrayList<String> mImages;
@@ -87,6 +88,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 //Action: Neue Activitie Aufrufen
                 Intent intent = new Intent(view.getContext(), UnitSelect.class);
                 intent.putExtra(EXTRA_MESSAGE, ID);
+                intent.putExtra(EXTRA_MESSAGE2,mSupergroups.get(position).getName());
                 view.getContext().startActivity(intent);
             }
         });
