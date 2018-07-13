@@ -6,14 +6,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".WokabelApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".WokabelApplication">
-
+        android:theme="@style/AppTheme">
         <activity android:name=".views.Launch">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,15 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".views.Welcome"
-            android:label="@string/title_activity_welcome"/>
-
+            android:label="@string/title_activity_welcome" />
         <activity
             android:name=".views.SubjectSelect"
             android:label="@string/title_activity_subject_select" />
-
         <activity
             android:name=".views.UnitSelect"
             android:label="@string/UnitSelection">
@@ -37,8 +33,21 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".views.SubjectSelect" />
         </activity>
-
-        <activity android:name=".views.UnitDisplay" />
+        <activity android:name=".views.UnitDisplay">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.UnitSelect" />
+        </activity>
+        <activity
+            android:name=".views.VocabularyTest"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_vocabulary_test"
+            android:theme="@style/FullscreenTheme" />
+        <activity android:name=".views.EditSubject">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.SubjectSelect" />
+        </activity>
 
     </application>
 

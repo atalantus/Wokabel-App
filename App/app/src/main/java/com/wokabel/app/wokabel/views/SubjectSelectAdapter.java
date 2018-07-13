@@ -20,7 +20,7 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdapter.ViewHolder>{
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
@@ -40,7 +40,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 
-    private static final String TAG = "RecyclerViewAdapter";
+    private static final String TAG = "SubjectSelectAdapter";
     public static final String EXTRA_MESSAGE = "com.wokabel.app.wokabel.MESSAGE";
     public static final String EXTRA_MESSAGE2 = "com.wokabel.app.wokabel.MESSAGE";
 
@@ -49,7 +49,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private Context context;
     private final LayoutInflater inflater;
 
-    public RecyclerViewAdapter(/*ArrayList<Supergroup> imagesNames, ArrayList<String> images, */Context iContext/*, ArrayList<String> ids*/)
+    public SubjectSelectAdapter(/*ArrayList<Supergroup> imagesNames, ArrayList<String> images, */Context iContext/*, ArrayList<String> ids*/)
     {
         /*mSupergroups = imagesNames;
         //mImages = images;

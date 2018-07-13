@@ -78,7 +78,7 @@ public class SubjectsFragment extends Fragment {
         Log.d(TAG, "initRecyclerView: inti recyclerView.");
 
         //RecyclerViewAdapter adapter = new RecyclerViewAdapter(/*model.getSupergroups(), mImageUrls, */getView().getContext()/*, model.getAllIDs()*/);
-        final RecyclerViewAdapter adapter = new RecyclerViewAdapter(this.getContext());
+        final SubjectSelectAdapter adapter = new SubjectSelectAdapter(this.getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         model.getSupergroups().observe(this, new Observer<List<Supergroup>>() {
