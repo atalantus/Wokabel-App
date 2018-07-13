@@ -1,10 +1,13 @@
 package com.wokabel.app.wokabel.viewModels;
 
-import java.util.ArrayList;
+import android.arch.lifecycle.ViewModel;
+
 import com.wokabel.app.wokabel.models.Vocable;
 import com.wokabel.app.wokabel.services.vocabularyTest.VocabularyTest;
 
-public class VocabularyTestViewModel {
+import java.util.ArrayList;
+
+public class VocabularyTestViewModel extends ViewModel {
 
     private VocabularyTest algorithm;
 
