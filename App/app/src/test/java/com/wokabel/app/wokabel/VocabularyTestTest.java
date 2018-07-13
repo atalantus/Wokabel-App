@@ -12,8 +12,13 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class VocabularyTestTest {
+    
+    private ArrayList<Vocable> testVocables;
 
-    private ArrayList<Vocable> testVocables = new ArrayList<Vocable>(Arrays.asList(
+    @Before
+    public void setUp()
+    {
+        testVocables = new ArrayList<Vocable>(Arrays.asList(
             new Vocable("tree", new ArrayList<String>(Arrays.asList("Baum")), "Fängt mit B an und existiert im Wald.", "0"),
             new Vocable("car", new ArrayList<String>(Arrays.asList("Auto")), "Brum brum", "0"),
             new Vocable("flower", new ArrayList<String>(Arrays.asList("Blume")), "Gibts auf Wiese und im Laden", "0"),
@@ -26,7 +31,7 @@ public class VocabularyTestTest {
             new Vocable("to fall", new ArrayList<String>(Arrays.asList("fallen")), "Gegenteil von springen", "0"),
             new Vocable("forest", new ArrayList<String>(Arrays.asList("Wald")), "Den ...... vor lauter Bäumen nicht mehr sehen", "0")
             ));
-
+    }
 
     @Test
     public void mode_keyValue() {
