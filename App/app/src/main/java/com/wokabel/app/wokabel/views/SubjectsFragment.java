@@ -91,6 +91,7 @@ public class SubjectsFragment extends Fragment {
     }
 
     public void createSubject(View view) {
+        // TODO
         Snackbar.make(view, "Hier sollte jetzt ne neue Activity zum Erstellen eines Subjects sein!", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
     }

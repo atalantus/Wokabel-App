@@ -56,6 +56,13 @@ public class UnitSelect extends AppCompatActivity {
         setTitle(model.getSelectedSupergroup());
         model.setSelectedSupergroup(getIntent().getStringExtra(SubjectSelectAdapter.EXTRA_MESSAGE));
     }
+
+    public void createUnit(View view) {
+        // TODO
+        Snackbar.make(view, "Hier sollte jetzt ne neue Activity zum Erstellen einer Unit sein!", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
+    }
+
     private static class LoadData extends AsyncTask<Void, Void, Void> {
 
         private final DatabaseAdapter mDb;
