@@ -29,18 +29,18 @@ public class VocabularyTestTest {
     @Before
     public void setUp()
     {
-        testVocables = new ArrayList<Vocable>(Arrays.asList(
-            new Vocable("tree", new ArrayList<String>(Arrays.asList("Baum")), "Fängt mit B an und existiert im Wald.", "0"),
-            new Vocable("car", new ArrayList<String>(Arrays.asList("Auto")), "Brum brum", "0"),
-            new Vocable("flower", new ArrayList<String>(Arrays.asList("Blume")), "Gibts auf Wiese und im Laden", "0"),
-            new Vocable("to pay", new ArrayList<String>(Arrays.asList("bezahlen")), "Nach dem Kauf ....... man", "0"),
-            new Vocable("house", new ArrayList<String>(Arrays.asList("Haus")), "Da wohnst du drinnen", "0"),
-            new Vocable("cellphone", new ArrayList<String>(Arrays.asList("Handy")), "Nutzt du jeden Tag", "0"),
-            new Vocable("table", new ArrayList<String>(Arrays.asList("Tisch")), "Kann man was draufstellen", "0"),
-            new Vocable("bike", new ArrayList<String>(Arrays.asList("Fahrrad")), "2 Räder, selber treten", "0"),
-            new Vocable("to jump", new ArrayList<String>(Arrays.asList("springen")), "Gegeneil von fallen", "0"),
-            new Vocable("to fall", new ArrayList<String>(Arrays.asList("fallen")), "Gegenteil von springen", "0"),
-            new Vocable("forest", new ArrayList<String>(Arrays.asList("Wald")), "Den ...... vor lauter Bäumen nicht mehr sehen", "0")
+        testVocables = new ArrayList<>(Arrays.asList(
+            new Vocable("tree", new ArrayList<>(Arrays.asList("Baum")), "Fängt mit B an und existiert im Wald.", "0"),
+            new Vocable("car", new ArrayList<>(Arrays.asList("Auto")), "Brum brum", "0"),
+            new Vocable("flower", new ArrayList<>(Arrays.asList("Blume")), "Gibts auf Wiese und im Laden", "0"),
+            new Vocable("to pay", new ArrayList<>(Arrays.asList("bezahlen")), "Nach dem Kauf ....... man", "0"),
+            new Vocable("house", new ArrayList<>(Arrays.asList("Haus")), "Da wohnst du drinnen", "0"),
+            new Vocable("cellphone", new ArrayList<>(Arrays.asList("Handy")), "Nutzt du jeden Tag", "0"),
+            new Vocable("table", new ArrayList<>(Arrays.asList("Tisch")), "Kann man was draufstellen", "0"),
+            new Vocable("bike", new ArrayList<>(Arrays.asList("Fahrrad")), "2 Räder, selber treten", "0"),
+            new Vocable("to jump", new ArrayList<>(Arrays.asList("springen")), "Gegeneil von fallen", "0"),
+            new Vocable("to fall", new ArrayList<>(Arrays.asList("fallen")), "Gegenteil von springen", "0"),
+            new Vocable("forest", new ArrayList<>(Arrays.asList("Wald")), "Den ...... vor lauter Bäumen nicht mehr sehen", "0")
             ));
     }
 
