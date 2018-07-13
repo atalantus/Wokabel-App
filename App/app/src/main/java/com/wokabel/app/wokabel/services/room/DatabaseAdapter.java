@@ -22,7 +22,7 @@ public class DatabaseAdapter {
         vocdao = db.getVocableDao();
         subdao = db.getSubgroupDao();
         supdao = db.getSupergroupDao();
-        //new LoadData(this).execute();
+        new LoadData(this).execute();
 
     }
 

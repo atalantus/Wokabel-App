@@ -34,7 +34,7 @@ public abstract class WokabelDatabase extends RoomDatabase {
             synchronized (WokabelDatabase.class){
                 if(instance == null){
                     instance = Room.databaseBuilder(context.getApplicationContext(), WokabelDatabase.class, DB_NAME)
-                            //.addCallback(sRoomDatabaseCallback)
+                            .addCallback(sRoomDatabaseCallback)
                             .build();
                     new LoadData(instance).execute();
                 }
