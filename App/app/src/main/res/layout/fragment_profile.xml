@@ -6,41 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".views.ProfileFragment">
 
-    <TextView
-        android:id="@+id/textViewUsername"
-        android:layout_width="127dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/Username"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/avatar_crown_blue"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/displayUsername"
-        android:layout_width="127dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toEndOf="@+id/textViewUsername"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewXP"
-        android:layout_width="127dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/XP"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUsername" />
-
-    <TextView
-        android:id="@+id/displayXP"
-        android:layout_width="127dp"
+        android:id="@+id/display_username"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/textViewXP"
-        app:layout_constraintTop_toBottomOf="@+id/displayUsername" />
+        android:text="Username"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_icon" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/display_username"
+        app:layout_constraintStart_toStartOf="@+id/display_username"
+        app:layout_constraintTop_toBottomOf="@+id/display_username">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/XP" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/display_xp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="300" />
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

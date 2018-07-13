@@ -23,8 +23,8 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         Settings settings = WokabelApplication.sharedPreferences;
-        TextView username = view.findViewById(R.id.displayUsername);
-        TextView user_xp = view.findViewById(R.id.displayXP);
+        TextView username = view.findViewById(R.id.display_username);
+        TextView user_xp = view.findViewById(R.id.display_xp);
         username.setText(settings.getString("username"));
         String xp = Integer.toString(settings.getInt("user_xp"));
         user_xp.setText(xp);
