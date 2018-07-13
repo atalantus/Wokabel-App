@@ -19,8 +19,6 @@ import com.wokabel.app.wokabel.models.Supergroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
 public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdapter.ViewHolder>{
 
     class ViewHolder extends RecyclerView.ViewHolder{
