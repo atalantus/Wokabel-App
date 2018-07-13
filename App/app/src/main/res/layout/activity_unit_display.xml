@@ -5,39 +5,80 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.UnitDisplay">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="60dp"
-            android:layout_alignParentBottom="true"
-            android:text="@string/inorder" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="70dp"
-            android:layout_alignParentBottom="true"
-            android:text="@string/shuffle" />
-    </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/TabellenListe"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:stretchColumns="*"> <!-- stretch the second column of the layout-->
+
+        <!-- first row of the table layout-->
+        <TableRow
+
+            android:id="@+id/firstRow"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <ListView
+                android:id="@+id/OriginalWords"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ListView
+                android:id="@+id/TranslatedWords"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+            </ListView>
+
+
+
+        </TableRow>
+
+
+
+
+    </TableLayout>
+
+     <TableLayout
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="1"
+         app:layout_constraintTop_toBottomOf="@id/TabellenListe"
+         android:stretchColumns="*">
+
+
+         <TableRow
+             android:layout_width="fill_parent"
+             android:layout_height="match_parent"
+
+
+             >
+
+             <ImageButton
+                 android:id="@+id/Play"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 app:srcCompat="@android:drawable/ic_media_play" />
+
+             <ImageButton
+                 android:id="@+id/Shuffle"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 app:srcCompat="@android:drawable/ic_media_next" />
+         </TableRow>
+
+
+
+     </TableLayout>
+
+
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
