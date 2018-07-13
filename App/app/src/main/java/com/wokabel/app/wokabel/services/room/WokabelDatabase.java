@@ -34,8 +34,9 @@ public abstract class WokabelDatabase extends RoomDatabase {
             synchronized (WokabelDatabase.class){
                 if(instance == null){
                     instance = Room.databaseBuilder(context.getApplicationContext(), WokabelDatabase.class, DB_NAME)
-                            .addCallback(sRoomDatabaseCallback)
+                            //.addCallback(sRoomDatabaseCallback)
                             .build();
+                    new LoadData(instance).execute();
                 }
             }
         }
@@ -64,7 +65,8 @@ public abstract class WokabelDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(final Void... params) {
             //load data if necessary
-
+            //mDb.getSupergroupDao().insert(new Supergroup("Test 1", "1") );
+            //mDb.getSupergroupDao().insert(new Supergroup("Test 2", "2"));
             return null;
         }
     }
