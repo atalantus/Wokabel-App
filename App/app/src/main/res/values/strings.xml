@@ -16,7 +16,10 @@
     <string name="French">French</string>
     <string name="Username">Username</string>
     <string name="XP">XP</string>
+    <string name="UnitSelection">Unit selection</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="edit">EDIT</string>
+    <string name="downgrade_dialog_title">Oops!</string>
+    <string name="downgrade_dialog_message">You just... downgraded the app?\\nPlease don\'t do this again.</string>
 </resources>
