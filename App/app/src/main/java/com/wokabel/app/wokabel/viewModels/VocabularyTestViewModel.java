@@ -8,9 +8,9 @@ public class VocabularyTestViewModel {
 
     private VocabularyTest algorithm;
 
-    public VocabularyTestViewModel(ArrayList<Vocable> input, VocabularyTest.Modes mode)
+    public VocabularyTestViewModel(ArrayList<Vocable> input, VocabularyTest.Modes mode, VocabularyTest.Difficulty difficulty)
     {
-        algorithm = new VocabularyTest(input, mode);
+        algorithm = new VocabularyTest(input, mode, difficulty);
     }
 
     public String getQuestion() {
