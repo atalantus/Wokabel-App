@@ -44,6 +44,6 @@ public class VocabularyTestViewModel {
         }
     }
     public boolean isEmpty(){
-        return algorithm.isEmpty();
+        return algorithm.isFinish();
     }
 }

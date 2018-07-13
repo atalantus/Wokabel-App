@@ -1,9 +1,20 @@
 package com.wokabel.app.wokabel;
 
+import com.wokabel.app.wokabel.models.Vocable;
 import com.wokabel.app.wokabel.services.vocabularyTest.VocabularyTest;
 
+import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static com.wokabel.app.wokabel.services.vocabularyTest.VocabularyTest.Difficulty.EASY;
+import static com.wokabel.app.wokabel.services.vocabularyTest.VocabularyTest.Difficulty.HARD;
+import static com.wokabel.app.wokabel.services.vocabularyTest.VocabularyTest.Difficulty.NOTIME;
+import static com.wokabel.app.wokabel.services.vocabularyTest.VocabularyTest.Modes.KEY_VALUE;
+import static com.wokabel.app.wokabel.services.vocabularyTest.VocabularyTest.Modes.RANDOM;
+import static com.wokabel.app.wokabel.services.vocabularyTest.VocabularyTest.Modes.VALUE_KEY;
 import static org.junit.Assert.*;
 
 /**
@@ -36,20 +47,18 @@ public class VocabularyTestTest {
     @Test
     public void mode_keyValue() {
         // TODO: Key -> Value tests
-        VocabularyTest testing = new VocabularyTestTest(testVocables, KEY_VALUE, EASY);
-        
-
+        VocabularyTest testing = new VocabularyTest(testVocables, VocabularyTest.Modes.KEY_VALUE, VocabularyTest.Difficulty.EASY);
     }
 
     @Test
     public void mode_valueKey() {
         // TODO: Value -> Key tests
-        VocabularyTest testing = new VocabularyTestTest(testVocables, VALUE_KEY, HARD);
+        VocabularyTest testing = new VocabularyTest(testVocables, VocabularyTest.Modes.VALUE_KEY, VocabularyTest.Difficulty.HARD);
     }
 
     @Test
     public void mode_random() {
         // TODO: Random tests
-        VocabularyTest testing = new VocabularyTestTest(testVocables, RANDOM, NOTIME2);
+        VocabularyTest testing = new VocabularyTest(testVocables, VocabularyTest.Modes.RANDOM, VocabularyTest.Difficulty.NOTIME);
     }
 }
