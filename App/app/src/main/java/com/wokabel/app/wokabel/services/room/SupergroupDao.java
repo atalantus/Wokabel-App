@@ -8,7 +8,6 @@ import android.arch.persistence.room.Update;
 
 import com.wokabel.app.wokabel.models.Supergroup;
 
-import java.util.ArrayList;
 import java.util.List;
 @Dao
 public interface SupergroupDao {
