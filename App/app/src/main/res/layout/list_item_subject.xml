@@ -46,7 +46,7 @@
         android:id="@+id/subject_editBtn"
         android:layout_width="63dp"
         android:layout_height="0dp"
-        android:background="@drawable/ripple_round_corners"
+        android:background="@drawable/ripple_background"
         android:contentDescription="@string/edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
