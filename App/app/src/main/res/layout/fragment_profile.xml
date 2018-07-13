@@ -10,8 +10,8 @@
         android:id="@+id/textViewUsername"
         android:layout_width="127dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:text="@string/Username"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,9 +20,8 @@
         android:id="@+id/displayUsername"
         android:layout_width="127dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/Username"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toEndOf="@+id/textViewUsername"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,7 +29,7 @@
         android:id="@+id/textViewXP"
         android:layout_width="127dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
         android:text="@string/XP"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,9 +39,8 @@
         android:id="@+id/displayXP"
         android:layout_width="127dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
-        android:text="@string/XP"
         app:layout_constraintStart_toEndOf="@+id/textViewXP"
         app:layout_constraintTop_toBottomOf="@+id/displayUsername" />
 </android.support.constraint.ConstraintLayout>

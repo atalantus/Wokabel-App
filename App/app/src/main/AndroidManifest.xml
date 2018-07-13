@@ -26,7 +26,9 @@
         <activity
             android:name=".views.SubjectSelect"
             android:label="@string/title_activity_subject_select" />
-        <activity android:name=".views.UnitSelect" >
+        <activity
+            android:name=".views.UnitSelect"
+            android:label="@string/UnitSelection">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".views.SubjectSelect" />
@@ -46,6 +48,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".views.SubjectSelect" />
         </activity>
+
     </application>
 
 </manifest>

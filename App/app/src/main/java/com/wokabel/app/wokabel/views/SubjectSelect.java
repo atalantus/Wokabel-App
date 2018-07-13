@@ -14,7 +14,7 @@ import com.wokabel.app.wokabel.WokabelApplication;
 import com.wokabel.app.wokabel.services.preferences.Settings;
 
 public class SubjectSelect extends AppCompatActivity {
-
+    Settings settings = WokabelApplication.sharedPreferences;
     private ProfileFragment profileFragment;
     private SubjectsFragment subjectsFragment;
     private SettingsFragment settingsFragment;
