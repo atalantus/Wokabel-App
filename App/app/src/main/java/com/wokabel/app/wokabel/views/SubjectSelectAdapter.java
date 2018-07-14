@@ -50,12 +50,8 @@ public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdap
     private Context context;
     private final LayoutInflater inflater;
 
-    public SubjectSelectAdapter(/*ArrayList<Supergroup> imagesNames, ArrayList<String> images, */Context iContext/*, ArrayList<String> ids*/)
+    public SubjectSelectAdapter(Context iContext)
     {
-        /*mSupergroups = imagesNames;
-        //mImages = images;
-        context = iContext;
-        mIDs = ids;*/
         inflater = LayoutInflater.from(iContext);
     }
     @NonNull
@@ -78,9 +74,9 @@ public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdap
                 String ID = mSupergroups.get(position).getId();
                 String name = mSupergroups.get(position).getName();
                 Intent intent = new Intent(view.getContext(), EditSubject.class);
-                intent.putExtra(SELECTED_SUPERGROUP_EDIT, name);
-                Log.d("BtnClickListener",intent.getStringExtra(SubjectSelectAdapter.SELECTED_SUPERGROUP_EDIT));
+                intent.putExtra(SELECTED_SUPERGROUP_NAME, name);
                 intent.putExtra(SELECTED_SUPERGROUP_ID, ID);
+                intent.putExtra(SELECTED_SUPERGROUP_EDIT, "true");
                 view.getContext().startActivity(intent);
             }
         });

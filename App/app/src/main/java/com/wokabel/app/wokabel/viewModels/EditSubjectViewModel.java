@@ -7,6 +7,8 @@ import android.util.Log;
 import com.wokabel.app.wokabel.models.Supergroup;
 import com.wokabel.app.wokabel.services.room.DatabaseAdapter;
 
+import java.util.Objects;
+
 public class EditSubjectViewModel extends AndroidViewModel {
 
     private Supergroup selectedSupergroup;
@@ -25,5 +27,19 @@ public class EditSubjectViewModel extends AndroidViewModel {
         Log.d("ESViewModel",getSelectedSupergroup().getName());
     }
 
+    public void setSelectedSupergroup(){
+        int i;
+        if (adapter.checkforContentSupergroup()){
+           i = Objects.requireNonNull(adapter.getAllSupergroups().getValue()).size();}
+        else { i = 1;}
+        selectedSupergroup = new Supergroup("new Supergroup","" + i,"icon");
+        adapter.insertSupergroup(selectedSupergroup);
+    }
 
+    public void setSupergroupName(String name){
+        selectedSupergroup.setName(name);
+    }
+    public void Apply(){
+        Log.d("t","t");
+    }
 }

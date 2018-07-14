@@ -58,17 +58,17 @@ public class DatabaseAdapter {
         return subdao.getSubgroupsbySupergroup(id);
     }
 
-    Vocable insertVocable(Vocable vocable){
+    public Vocable insertVocable(Vocable vocable){
         vocdao.insert(vocable);
         return vocable;
     }
 
-    Subgroup insertSubgroup(Subgroup subgroup){
+    public Subgroup insertSubgroup(Subgroup subgroup){
         subdao.insert(subgroup);
         return subgroup;
     }
 
-    Supergroup insertSupergroup(Supergroup supergroup){
+    public Supergroup insertSupergroup(Supergroup supergroup){
         supdao.insert(supergroup);
         return supergroup;
     }
@@ -79,7 +79,7 @@ public class DatabaseAdapter {
         supdao.deleteAll();
     }
 
-    boolean checkforContentSupergroup(){
+    public boolean checkforContentSupergroup(){
 
         if(supdao.getSupergroupList().isEmpty()){
             return false;
@@ -88,7 +88,7 @@ public class DatabaseAdapter {
         }
     }
 
-    boolean checkforContentSubgroup(){
+    public boolean checkforContentSubgroup(){
 
         if(subdao.getSubgroupList().isEmpty()){
             return false;
@@ -97,7 +97,7 @@ public class DatabaseAdapter {
         }
     }
 
-    boolean checkforContentVocable(){
+    public boolean checkforContentVocable(){
 
         if(vocdao.getVocableList().isEmpty()){
             return false;
