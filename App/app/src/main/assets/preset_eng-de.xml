@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subject questionType="English" answerType="German">
+    <unit name="Nature">
+        <vocable key="tree" value="Baum" hint="Gibt's im Wald" />
+    </unit>
+    <unit name="School">
+        <vocable key="computer science" value="Informatik" hint="Für uns unerlässlich" />
+    </unit>
+</subject>
