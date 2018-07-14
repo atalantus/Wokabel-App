@@ -3,6 +3,7 @@ package com.wokabel.app.wokabel;
 import com.wokabel.app.wokabel.models.Vocable;
 import com.wokabel.app.wokabel.services.vocabularyTest.VocabularyTest;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,25 +24,23 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class VocabularyTestTest {
-    
+
     private ArrayList<Vocable> testVocables;
+    private Vocable tree = new Vocable("tree", "Baum", "Fängt mit B an und existiert im Wald.", "0", 1, "99");
+    private Vocable car = new Vocable("car", "Auto, Fahrzeug", "Brum brum", "1", 1, "99");
+    private Vocable flower = new Vocable("flower", "Blume", "Gibts auf Wiese und im Laden", "2", 3, "99");
+    private Vocable toPay = new Vocable("to pay", "bezahlen, zahlen, entrichten, vergüten, entlohnen, rentieren, sich lohnen für, sich auszahlen für", "Nach dem Kauf ....... man", "3", 5, "99");
+    private Vocable house = new Vocable("house", "Haus, Haushalt", "Da wohnst du drinnen", "4", 4, "99");
+    private Vocable cellphone = new Vocable("cellphone", "Handy", "Nutzt du jeden Tag", "5", 4, "99");
+    private Vocable table = new Vocable("table", "Tisch", "Kann man was draufstellen", "6", 2, "99");
+    private Vocable bike = new Vocable("bike", "Fahrrad", "2 Räder, selber treten", "7", 1, "99");
+    private Vocable toJump = new Vocable("to jump", "springen", "Gegeneil von fallen", "8", 2, "99");
+    private Vocable toFall = new Vocable("to fall", "fallen", "Gegenteil von springen", "9", 1, "99");
+    private Vocable forest = new Vocable("forest", "Wald", "Den ... vor lauter Bäumen nicht mehr sehen", "10", 5, "99");
 
     @Before
-    public void setUp()
-    {
-        testVocables = new ArrayList<>(Arrays.asList(
-            new Vocable("tree", new ArrayList<>(Arrays.asList("Baum")), "Fängt mit B an und existiert im Wald.", "0"),
-            new Vocable("car", new ArrayList<>(Arrays.asList("Auto")), "Brum brum", "0"),
-            new Vocable("flower", new ArrayList<>(Arrays.asList("Blume")), "Gibts auf Wiese und im Laden", "0"),
-            new Vocable("to pay", new ArrayList<>(Arrays.asList("bezahlen")), "Nach dem Kauf ....... man", "0"),
-            new Vocable("house", new ArrayList<>(Arrays.asList("Haus")), "Da wohnst du drinnen", "0"),
-            new Vocable("cellphone", new ArrayList<>(Arrays.asList("Handy")), "Nutzt du jeden Tag", "0"),
-            new Vocable("table", new ArrayList<>(Arrays.asList("Tisch")), "Kann man was draufstellen", "0"),
-            new Vocable("bike", new ArrayList<>(Arrays.asList("Fahrrad")), "2 Räder, selber treten", "0"),
-            new Vocable("to jump", new ArrayList<>(Arrays.asList("springen")), "Gegeneil von fallen", "0"),
-            new Vocable("to fall", new ArrayList<>(Arrays.asList("fallen")), "Gegenteil von springen", "0"),
-            new Vocable("forest", new ArrayList<>(Arrays.asList("Wald")), "Den ...... vor lauter Bäumen nicht mehr sehen", "0")
-            ));
+    public void setUp() {
+        testVocables = new ArrayList<>(Arrays.asList(tree, car, flower, toPay, house, cellphone, table, bike, toJump, toFall, forest));
     }
 
     @Test

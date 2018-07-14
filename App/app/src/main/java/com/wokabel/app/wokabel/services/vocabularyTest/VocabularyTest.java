@@ -174,6 +174,7 @@ public class VocabularyTest {
 
         throw new Exception("Der Abfrage Modus '" + mode.toString() + "' wurde noch nicht in getAnswer() implementiert!");
     }
+
     public boolean isFinish(){
         if(timecount == 0){
             return randomsorted.size() == 0;
@@ -184,6 +185,7 @@ public class VocabularyTest {
                 return false;
             }
         }
-
     }
+
+    public ArrayList<Vocable> getRandomSorted() { return randomsorted; }
 }
