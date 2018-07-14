@@ -41,6 +41,7 @@ public class VocabularyTest {
      * @param testTime Dauer der Ausfrage in Sekunden
      */
     public VocabularyTest(ArrayList<Vocable> input, Modes testMode, Difficulty testTime) {
+        keyvalue = true;
         mode = testMode;
         dif = testTime;
         Random rand = new Random();
@@ -145,23 +146,31 @@ public class VocabularyTest {
                         s = s.replace(",", "");
                         s = s.replace(" ", "");
                         if (s.equals(answer)) {
+                            currentVoc.setLevel(currentVoc.getLevel()+1);
                             return true;
                         }
                     }
+                    currentVoc.setLevel(currentVoc.getLevel()+1);
                     return false;
                 case VALUE_KEY:
-                    return answer.equals(currentVoc.getKey()); //answer is right
+                    if(answer.equals(currentVoc.getKey())){
+                        currentVoc.setLevel(currentVoc.getLevel()+1);
+                        return true;
+                    } else{
+                        currentVoc.setLevel(currentVoc.getLevel()+1);
+                        return false;
+                    }
                 case RANDOM:
                     if (keyvalue) {
                         currentMode = Modes.KEY_VALUE;
                     }else{
                         currentMode = Modes.VALUE_KEY;
                     }
+                    break;
                 default:
                     throw new Exception("Der Abfrage Modus '" + mode.toString() + "' wurde noch nicht in handleAnswer() implementiert!");
             }
         }
-
 
     }
 
@@ -221,8 +230,5 @@ public class VocabularyTest {
             }
         }
     }
-
-    public ArrayList<Vocable> getRandomSorted() {
-        return randomsorted;
-    }
+    
 }
