@@ -39,10 +39,9 @@ public class UnitSelect extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_unit_select);
-
-
         model = ViewModelProviders.of(this).get(UnitSelectViewModel.class);
         setTitle(getIntent().getStringExtra(SubjectSelectAdapter.SELECTED_SUPERGROUP_NAME));
+        //Log.d(TAG,getIntent().getStringExtra(SubjectSelectAdapter.SELECTED_SUPERGROUP_NAME));
         //start();
         //setTitle(model.getSelectedSupergroup());
         new LoadData(new DatabaseAdapter(getApplication()), this).execute();
