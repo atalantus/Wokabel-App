@@ -41,8 +41,9 @@ public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdap
     }
 
     private static final String TAG = "SubjectSelectAdapter";
-    public static final String EXTRA_MESSAGE = "com.wokabel.app.wokabel.MESSAGE";
-    public static final String EXTRA_MESSAGE2 = "com.wokabel.app.wokabel.MESSAGE";
+    public static final String SELECTED_SUPERGROUP_ID = "com.wokabel.app.wokabel.MESSAGE";
+    public static final String SELECTED_SUPERGROUP_NAME = "com.wokabel.app.wokabel.MESSAGE";
+    public static final String SELECTED_SUPERGROUP_EDIT = "com.wokabel.app.wokabel.MESSAGE";
 
     private List<Supergroup> mSupergroups;
     //private ArrayList<String> mImages;
@@ -71,6 +72,16 @@ public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdap
         Log.d(TAG,"Supergroups loaded");
         Supergroup current = mSupergroups.get(position);
         holder.name.setText(current.getName());
+        holder.editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG,"TEst"+position);
+                Intent intent = new Intent(view.getContext(), EditSubject.class);
+                intent.putExtra(SELECTED_SUPERGROUP_EDIT, mSupergroups.get(position).getName());
+                intent.putExtra(SELECTED_SUPERGROUP_ID, mSupergroups.get(position).getId());
+                view.getContext().startActivity(intent);
+            }
+        });
          //else {
             //holder.name.setText("no content");
         //}
@@ -87,8 +98,8 @@ public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdap
                 String ID = mSupergroups.get(position).getId();
                 //Action: Neue Activitie Aufrufen
                 Intent intent = new Intent(view.getContext(), UnitSelect.class);
-                intent.putExtra(EXTRA_MESSAGE, ID);
-                intent.putExtra(EXTRA_MESSAGE2,mSupergroups.get(position).getName());
+                intent.putExtra(SELECTED_SUPERGROUP_ID, ID);
+                intent.putExtra(SELECTED_SUPERGROUP_NAME,mSupergroups.get(position).getName());
                 view.getContext().startActivity(intent);
             }
         });
