@@ -130,6 +130,8 @@ public class VocabularyTest {
     public boolean handleAnswer(String answer) throws Exception {
         switch (mode) {
             case KEY_VALUE:
+                answer = answer.substring(0,answer.length()-2);
+                System.out.println("Part: " + answer);
                 ArrayList<String> temp = currentVoc.getValuesList();
 
                 for (String s : temp) {
@@ -168,7 +170,7 @@ public class VocabularyTest {
         }
 
         if (!answer.equals("")) {
-            randomsorted.remove(0);
+            if(randomsorted.size()!= 0){randomsorted.remove(0);}
             return answer;
         }
 

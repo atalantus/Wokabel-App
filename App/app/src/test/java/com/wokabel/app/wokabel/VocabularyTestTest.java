@@ -3,6 +3,7 @@ package com.wokabel.app.wokabel;
 import com.wokabel.app.wokabel.models.Vocable;
 import com.wokabel.app.wokabel.services.vocabularyTest.VocabularyTest;
 
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,18 +42,39 @@ public class VocabularyTestTest {
     @Before
     public void setUp() {
         testVocables = new ArrayList<>(Arrays.asList(tree, car, flower, toPay, house, cellphone, table, bike, toJump, toFall, forest));
+
     }
 
     @Test
     public void mode_keyValue() {
         // TODO: Key -> Value tests
         VocabularyTest testing = new VocabularyTest(testVocables, VocabularyTest.Modes.KEY_VALUE, VocabularyTest.Difficulty.EASY);
+        while(testing.isFinish() == false){
+            try{
+                System.out.println("Question: " +testing.getQuestion());
+                System.out.println("Answer: " + testing.getAnswer());
+                System.out.println("handleAnser: " + testing.handleAnswer(testing.getAnswer()));
+            }catch (Exception e){
+                System.out.println(e);
+                break;
+            }
+        }
     }
 
     @Test
     public void mode_valueKey() {
         // TODO: Value -> Key tests
         VocabularyTest testing = new VocabularyTest(testVocables, VocabularyTest.Modes.VALUE_KEY, VocabularyTest.Difficulty.HARD);
+        while(testing.isFinish() == false){
+            try{
+                System.out.println("Value Question: " +testing.getQuestion());
+                System.out.println("Value Answer: " + testing.getAnswer());
+                System.out.println("Value handleAnser: " + testing.handleAnswer(testing.getAnswer()));
+            }catch (Exception e){
+                System.out.println(e);
+                break;
+            }
+        }
     }
 
     @Test
