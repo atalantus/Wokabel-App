@@ -89,7 +89,7 @@ public class Vocable {
     }
 
     public ArrayList<String> getValuesList() {
-        return new ArrayList<>(Arrays.asList(values.split(",")));
+        return new ArrayList<>(Arrays.asList(values.split(", ")));
     }
 
     public String getValues(){
