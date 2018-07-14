@@ -16,12 +16,14 @@ public class VocabularyTest {
         VALUE_KEY,
         RANDOM
     }
-    public enum Difficulty{
+
+    public enum Difficulty {
         NOTIME,
         EASY,
         NORMAL,
         HARD
     }
+
     // Der Abfrage Modus
     private Modes mode;
     private ArrayList<Vocable> randomsorted;
@@ -29,6 +31,7 @@ public class VocabularyTest {
     private long starttime = System.currentTimeMillis();
     private int timecount;
     private Difficulty dif;
+    boolean keyvalue;
 
     /**
      * Konstruktor
@@ -56,8 +59,8 @@ public class VocabularyTest {
             a.remove(randnum);
         }
 
-        for(int i = 0; i < randomsorted.size(); i++) {
-            switch (dif){
+        for (int i = 0; i < randomsorted.size(); i++) {
+            switch (dif) {
                 case NOTIME:
                     timecount = 0;
                     i = randomsorted.size();
@@ -79,6 +82,7 @@ public class VocabularyTest {
 
     /**
      * getQuestion
+     *
      * @return Frage der Vokabel
      * @throws Exception
      */
@@ -88,6 +92,7 @@ public class VocabularyTest {
         while (true) {
             switch (currentMode) {
                 case KEY_VALUE:
+                    keyvalue = true;
                     return currentVoc.getKey();
                 case VALUE_KEY:
                     ArrayList<String> temp = currentVoc.getValuesList();
@@ -97,6 +102,7 @@ public class VocabularyTest {
                         ValueString += s;
                         ValueString += ", ";
                     }
+                    keyvalue = false;
                     return ValueString;
                 case RANDOM:
                     Random rand = new Random();
@@ -114,7 +120,6 @@ public class VocabularyTest {
     }
 
     /**
-     *
      * @return Helfer (falls man nicht mehr weiter weiß)
      */
     public String getHelper() {
@@ -122,37 +127,50 @@ public class VocabularyTest {
     }
 
     /**
-     *
      * @param answer Antwort des Nutzers
      * @return ob Antwort richtig oder falsch ist
      * @throws Exception
      */
     public boolean handleAnswer(String answer) throws Exception {
-        switch (mode) {
-            case KEY_VALUE:
-                answer = answer.substring(0,answer.length()-2);
-                System.out.println("Part: " + answer);
-                ArrayList<String> temp = currentVoc.getValuesList();
+        Modes currentMode = mode;
+        while (true) {
+            switch (currentMode) {
+                case KEY_VALUE:
+                    answer = answer.replace(",", "");
+                    answer = answer.replace(" ", "");
 
-                for (String s : temp) {
-                    if (s.equals(answer)) {
-                        return true;
+                    ArrayList<String> temp = currentVoc.getValuesList();
+
+                    for (String s : temp) {
+                        s = s.replace(",", "");
+                        s = s.replace(" ", "");
+                        if (s.equals(answer)) {
+                            return true;
+                        }
                     }
-                }
-                return false;
-            case VALUE_KEY:
-                return answer.equals(currentVoc.getKey()); //answer is right
+                    return false;
+                case VALUE_KEY:
+                    return answer.equals(currentVoc.getKey()); //answer is right
+                case RANDOM:
+                    if (keyvalue) {
+                        currentMode = Modes.KEY_VALUE;
+                    }else{
+                        currentMode = Modes.VALUE_KEY;
+                    }
+                default:
+                    throw new Exception("Der Abfrage Modus '" + mode.toString() + "' wurde noch nicht in handleAnswer() implementiert!");
+            }
         }
 
-        throw new Exception("Der Abfrage Modus '" + mode.toString() + "' wurde noch nicht in handleAnswer() implementiert!");
+
     }
 
     /**
-     *
      * @return die Antwort (ohne zu checken ob richtig oder falschs
      * @throws Exception
      */
     public String getAnswer() throws Exception {
+
         String answer = "";
 
         switch (mode) {
@@ -167,27 +185,44 @@ public class VocabularyTest {
             case VALUE_KEY:
                 answer = currentVoc.getKey();
                 break;
+            case RANDOM:
+                if (keyvalue) {
+                    ArrayList<String> temp2 = currentVoc.getValuesList();
+
+                    for (String s : temp2) {
+                        answer += s;
+                        answer += ", ";
+                    }
+                    break;
+                }else{
+                    answer = currentVoc.getKey();
+                    break;
+                }
         }
 
         if (!answer.equals("")) {
-            if(randomsorted.size()!= 0){randomsorted.remove(0);}
+            if (randomsorted.size() != 0) {
+                randomsorted.remove(0);
+            }
             return answer;
         }
 
         throw new Exception("Der Abfrage Modus '" + mode.toString() + "' wurde noch nicht in getAnswer() implementiert!");
     }
 
-    public boolean isFinish(){
-        if(timecount == 0){
+    public boolean isFinish() {
+        if (timecount == 0) {
             return randomsorted.size() == 0;
-        }else{
-            if(System.currentTimeMillis() - starttime >= timecount || randomsorted.size() == 0 ){
+        } else {
+            if (System.currentTimeMillis() - starttime >= timecount || randomsorted.size() == 0) {
                 return true;
-            }else{
+            } else {
                 return false;
             }
         }
     }
 
-    public ArrayList<Vocable> getRandomSorted() { return randomsorted; }
+    public ArrayList<Vocable> getRandomSorted() {
+        return randomsorted;
+    }
 }

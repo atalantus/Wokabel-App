@@ -48,12 +48,19 @@ public class VocabularyTestInstrumentedTest {
     public void mode_keyValue() {
         // TODO: Key -> Value tests
         VocabularyTest testing = new VocabularyTest(testVocables, VocabularyTest.Modes.KEY_VALUE, VocabularyTest.Difficulty.EASY);
-        while(!testing.isFinish()){
-            try{
-                System.out.println("Question: " +testing.getQuestion());
-                System.out.println("Answer: " + testing.getAnswer());
-                System.out.println("handleAnser: " + testing.handleAnswer(testing.getAnswer()));
-            }catch (Exception e){
+        while(!testing.isFinish()) {
+            try {
+                String question = testing.getQuestion();
+                String answer = null;
+                if(question.equals("car")){ answer = "Auto";}
+                else if (question.equals("to pay")){answer = "zahlen";}
+                else if (question.equals("house")){answer = "Haus";}
+                if (answer == null){
+                    assertEquals(true, testing.handleAnswer(testing.getAnswer()));
+                }else{
+                    assertEquals(true,testing.handleAnswer(answer));
+                }
+            } catch (Exception e) {
                 System.out.println(e);
                 break;
             }
@@ -66,9 +73,9 @@ public class VocabularyTestInstrumentedTest {
         VocabularyTest testing = new VocabularyTest(testVocables, VocabularyTest.Modes.VALUE_KEY, VocabularyTest.Difficulty.HARD);
         while(!testing.isFinish()){
             try{
-                System.out.println("Value Question: " +testing.getQuestion());
-                System.out.println("Value Answer: " + testing.getAnswer());
-                System.out.println("Value handleAnser: " + testing.handleAnswer(testing.getAnswer()));
+                testing.getQuestion();
+                assertEquals(true,testing.handleAnswer(testing.getAnswer()));
+
             }catch (Exception e){
                 System.out.println(e);
                 break;
@@ -80,5 +87,19 @@ public class VocabularyTestInstrumentedTest {
     public void mode_random() {
         // TODO: Random tests
         VocabularyTest testing = new VocabularyTest(testVocables, VocabularyTest.Modes.RANDOM, VocabularyTest.Difficulty.NOTIME);
+        try{
+            String question = testing.getQuestion();
+            String answer = null;
+            if(question.equals("car")){ answer = "Auto";}
+            else if (question.equals("to pay")){answer = "zahlen";}
+            else if (question.equals("house")){answer = "Haus";}
+            if (answer == null){
+                assertEquals(true, testing.handleAnswer(testing.getAnswer()));
+            }else{
+                assertEquals(true,testing.handleAnswer(answer));
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 }
