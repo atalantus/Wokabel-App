@@ -58,16 +58,19 @@ public class DatabaseAdapter {
         return subdao.getSubgroupsbySupergroup(id);
     }
 
-    public void insertVocable(Vocable vocable){
+    Vocable insertVocable(Vocable vocable){
         vocdao.insert(vocable);
+        return vocable;
     }
 
-    public void insertSubgroup(Subgroup subgroup){
+    Subgroup insertSubgroup(Subgroup subgroup){
         subdao.insert(subgroup);
+        return subgroup;
     }
 
-    public void insertSupergroup(Supergroup supergroup){
+    Supergroup insertSupergroup(Supergroup supergroup){
         supdao.insert(supergroup);
+        return supergroup;
     }
 
     public void deleteDatabaseContent(){
@@ -80,32 +83,36 @@ public class DatabaseAdapter {
 
         if(supdao.getSupergroupList().isEmpty()){
             return false;
+        }else {
+            return true;
         }
-        return true;
     }
 
     boolean checkforContentSubgroup(){
 
         if(subdao.getSubgroupList().isEmpty()){
             return false;
+        }else {
+            return true;
         }
-        return true;
     }
 
     boolean checkforContentVocable(){
 
         if(vocdao.getVocableList().isEmpty()){
             return false;
+        }else {
+            return true;
         }
-        return true;
     }
 
     boolean checkforContentDatabase(){
 
         if(checkforContentSupergroup() || checkforContentSubgroup() || checkforContentVocable()){
             return true;
+        }else {
+            return false;
         }
-        return false;
     }
 
     private static class LoadData extends AsyncTask<Void, Void, Void> {

@@ -3,6 +3,7 @@ package com.wokabel.app.wokabel.models;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
@@ -12,7 +13,7 @@ import java.util.UUID;
 /**
  * Contains multiple {@link Vocable}s
  */
-@Entity(tableName = "subgrouplist", foreignKeys = @ForeignKey(entity = Supergroup.class, parentColumns = "id", childColumns = "supergroupid"))
+@Entity(tableName = "subgrouplist", indices = {@Index("supergroupid")},foreignKeys = @ForeignKey(entity = Supergroup.class, parentColumns = "id", childColumns = "supergroupid"))
 public class Subgroup {
 
     private String name;
@@ -23,9 +24,12 @@ public class Subgroup {
 
     private String supergroupid;
 
+
+
     /**
      * Constructor for initiating a NEW {@link Subgroup}
      * @param name The name
+     * @param supergroupid the Supergroup ID
      */
     @Ignore
     public Subgroup(String name, String supergroupid) {
