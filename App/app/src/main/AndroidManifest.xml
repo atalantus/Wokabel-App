@@ -38,17 +38,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".views.UnitSelect" />
         </activity>
-        <activity
-            android:name=".views.VocabularyTest"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_vocabulary_test"
-            android:theme="@style/FullscreenTheme" />
         <activity android:name=".views.EditSubject">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".views.SubjectSelect" />
         </activity>
-
+        <activity
+            android:name=".views.VocabularyTest"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_vocabulary_test"
+            android:theme="@style/FullscreenTheme" />
+        <activity android:name=".views.EditUnit"></activity>
     </application>
 
 </manifest>
