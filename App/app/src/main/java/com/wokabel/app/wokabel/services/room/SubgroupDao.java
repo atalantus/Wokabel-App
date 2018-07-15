@@ -3,6 +3,7 @@ package com.wokabel.app.wokabel.services.room;
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
 import com.wokabel.app.wokabel.models.Subgroup;
@@ -14,11 +15,14 @@ public interface SubgroupDao {
     @Insert
     void insert(Subgroup subgroup);
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertAll(List<Subgroup> subgroups);
+
     @Query("DELETE FROM subgrouplist")
     void deleteAll();
 
     @Query("SELECT * from subgrouplist WHERE id = :id")
-    Subgroup getSubgroupbyId(String id);
+    LiveData<Subgroup> getSubgroupById(String id);
 
     @Query("SELECT * FROM subgrouplist")
     LiveData<List<Subgroup>> getAllSubgroups();

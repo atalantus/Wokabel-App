@@ -5,6 +5,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
 import com.wokabel.app.wokabel.models.Vocable;
@@ -17,6 +18,9 @@ public interface VocableDao {
     @Insert
     void insert(Vocable vocable);
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertAll(List<Vocable> vocables);
+
     @Query("DELETE FROM vocablist")
     void deleteAll();
 
@@ -24,7 +28,7 @@ public interface VocableDao {
     void deletebyId(String id);
 
     @Query("SELECT * from vocablist WHERE id = :id")
-    Vocable getVocablebyId(String id);
+    LiveData<Vocable> getVocableById(String id);
 
     @Query("SELECT * from vocablist")
     LiveData<List<Vocable>> getAllVocables();
@@ -34,6 +38,4 @@ public interface VocableDao {
 
     @Query("SELECT * from vocablist WHERE subgroupid = :subgroupid")
     LiveData<List<Vocable>> getVocablesbySubgroup(String subgroupid);
-
-
 }

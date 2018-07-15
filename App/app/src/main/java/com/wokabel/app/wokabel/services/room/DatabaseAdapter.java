@@ -23,7 +23,6 @@ public class DatabaseAdapter {
         subdao = db.getSubgroupDao();
         supdao = db.getSupergroupDao();
         new LoadData(this).execute();
-
     }
 
     public LiveData<List<Vocable>> getAllVocables(){
@@ -38,16 +37,16 @@ public class DatabaseAdapter {
         return supdao.getAllSupergroups();
     }
 
-    public Vocable getVocablebyId(String id){
-        return vocdao.getVocablebyId(id);
+    public LiveData<Vocable> getVocablebyId(String id){
+        return vocdao.getVocableById(id);
     }
 
-    public Subgroup getSubgroupbyId(String id){
-        return subdao.getSubgroupbyId(id);
+    public LiveData<Subgroup> getSubgroupbyId(String id){
+        return subdao.getSubgroupById(id);
     }
 
-    public Supergroup getSupergroupbyId(String id){
-        return supdao.getSupergroupbyId(id);
+    public LiveData<Supergroup> getSupergroupbyId(String id){
+        return supdao.getSupergroupById(id);
     }
 
     public LiveData<List<Vocable>> getVocablesbySubgroup(String id){
@@ -63,14 +62,29 @@ public class DatabaseAdapter {
         return vocable;
     }
 
+    List<Vocable> insertAllVocables(List<Vocable> vocables){
+        vocdao.insertAll(vocables);
+        return vocables;
+    }
+
     Subgroup insertSubgroup(Subgroup subgroup){
         subdao.insert(subgroup);
         return subgroup;
     }
 
+    List<Subgroup> insertAllSubgroups(List<Subgroup> subgroups){
+        subdao.insertAll(subgroups);
+        return subgroups;
+    }
+
     Supergroup insertSupergroup(Supergroup supergroup){
         supdao.insert(supergroup);
         return supergroup;
+    }
+
+    List<Supergroup> insertAllSupergroups(List<Supergroup> supergroups){
+        supdao.insertAll(supergroups);
+        return supergroups;
     }
 
     public void deleteDatabaseContent(){
