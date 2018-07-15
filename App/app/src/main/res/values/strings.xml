@@ -35,10 +35,7 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="vocabulary_give_tip">Give me a tip</string>
-    <string name="vocabulary_give_solution">Give me the solution</string>
     <string name="answer">answer</string>
     <string name="vocabulary_question">What is</string>
     <string name="vocables">vocables</string>
-    <String name="confirm">confirm</String>
-
 </resources>
