@@ -13,7 +13,7 @@ import com.wokabel.app.wokabel.services.room.DatabaseAdapter;
 import java.util.List;
 
 public class UnitSelectViewModel extends AndroidViewModel {
-    private Supergroup selectedSupergroup;
+    private LiveData<Supergroup> selectedSupergroup;
     private LiveData<List<Subgroup>> subgroups;
     private DatabaseAdapter db;
 
@@ -40,7 +40,7 @@ public class UnitSelectViewModel extends AndroidViewModel {
 
     public String getSelectedSupergroup() {
         String result;
-        result = selectedSupergroup.getName();
+        result = selectedSupergroup.getValue().getName();
         if (selectedSupergroup == null){
             result = "Test";
         }

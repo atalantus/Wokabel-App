@@ -18,7 +18,6 @@ import java.util.UUID;
  */
 @Entity(tableName = "vocablist", indices = {@Index("subgroupid")}, foreignKeys = @ForeignKey(entity = Subgroup.class, parentColumns = "id", childColumns = "subgroupid"))
 public class Vocable {
-    @PrimaryKey
     @NonNull
     private String key;
 
@@ -26,6 +25,7 @@ public class Vocable {
 
     private String helper;
 
+    @PrimaryKey
     @NonNull
     private String id;
 
@@ -45,6 +45,15 @@ public class Vocable {
     public Vocable(@NonNull String key, ArrayList<String> values, String helper, String subgroupid) {
         this.key = key;
         this.values = TextUtils.join(", ", values);
+        this.helper = helper;
+        level = 0;
+        this.subgroupid = subgroupid;
+        id = "V" + UUID.randomUUID().toString();
+    }
+    @Ignore
+    public Vocable(@NonNull String key, String values, String helper, String subgroupid) {
+        this.key = key;
+        this.values = values;
         this.helper = helper;
         level = 0;
         this.subgroupid = subgroupid;
