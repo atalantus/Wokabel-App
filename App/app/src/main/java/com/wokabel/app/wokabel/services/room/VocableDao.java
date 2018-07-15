@@ -7,6 +7,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 import com.wokabel.app.wokabel.models.Vocable;
 
@@ -20,6 +21,9 @@ public interface VocableDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<Vocable> vocables);
+
+    @Update
+    void updateVocable(Vocable... vocables);
 
     @Query("DELETE FROM vocablist")
     void deleteAll();
