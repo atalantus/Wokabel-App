@@ -9,6 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.wokabel.app.wokabel.BuildConfig;
 import com.wokabel.app.wokabel.R;
+import com.wokabel.app.wokabel.services.XmlUtilities.XmlReader;
+
+import java.io.File;
 
 public class Launch extends AppCompatActivity {
 
@@ -30,6 +33,10 @@ public class Launch extends AppCompatActivity {
                 startActivity(appIntent);
                 break;
             case FIRST_RUN:
+                //File xmlFile = XmlReader.createFileFromAsset("preset_eng-de.xml", this);
+                //XmlReader reader = new XmlReader(xmlFile);
+                //reader.writeXmlToDB();
+
                 appIntent = new Intent(this, Welcome.class);
                 finish();
                 startActivity(appIntent);
