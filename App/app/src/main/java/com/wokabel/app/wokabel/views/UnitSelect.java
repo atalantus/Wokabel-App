@@ -9,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.app.Activity;
 import android.arch.lifecycle.LiveData;
@@ -41,6 +43,7 @@ public class UnitSelect extends AppCompatActivity {
 
     public UnitSelect(){
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +64,32 @@ public class UnitSelect extends AppCompatActivity {
         //setTitle(model.getSelectedSupergroup());
         new LoadData(new DatabaseAdapter(getApplication()), this).execute();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.unit_select_toolbar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_random:
+                // TODO: Select random Unit
+                return true;
+
+            case R.id.action_export_subject:
+                // TODO: Export whole subject with data as xml file
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
     public void start(){
 
         setTitle(model.getSelectedSupergroup());
