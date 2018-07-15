@@ -16,7 +16,7 @@ public interface SupergroupDao {
     void insert(Supergroup supergroup);
 
     @Update
-    void updateSupergroup(Supergroup... supergroups);
+    void updateSupergroup(Supergroup supergroups);
 
     @Query("DELETE FROM supergrouplist")
     void deleteAll();

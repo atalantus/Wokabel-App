@@ -24,7 +24,6 @@ public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdap
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
-
         private CircleImageView icon;
         private TextView name;
         private ImageButton editBtn;
@@ -80,19 +79,10 @@ public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdap
                 view.getContext().startActivity(intent);
             }
         });
-         //else {
-            //holder.name.setText("no content");
-        //}
-        //Glide.with(mContext).asBitmap().load(mImages.get(position)).into(holder.icon);
-
-        //holder.name.setText(mSupergroups.get(position).getName());
-
-        //WAS beim klicken passiert WICHTIG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: clicked on: " + mSupergroups.get(position).getId());
-
                 String ID = mSupergroups.get(position).getId();
                 //Action: Neue Activitie Aufrufen
                 Intent intent = new Intent(view.getContext(), UnitSelect.class);

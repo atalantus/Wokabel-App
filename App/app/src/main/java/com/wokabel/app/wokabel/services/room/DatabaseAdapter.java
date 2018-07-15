@@ -3,7 +3,6 @@ package com.wokabel.app.wokabel.services.room;
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.wokabel.app.wokabel.models.Subgroup;
 import com.wokabel.app.wokabel.models.Supergroup;
@@ -115,6 +114,10 @@ public class DatabaseAdapter {
         }
     }
 
+    public WokabelDatabase getDatabase(){
+        return db;
+    }
+
     private static class LoadData extends AsyncTask<Void, Void, Void> {
 
         private final DatabaseAdapter mDb;
@@ -126,12 +129,16 @@ public class DatabaseAdapter {
         @Override
         protected Void doInBackground(final Void... params) {
             //load data if necessary
+            /*Log.d("DatabaseAdapter", mDb.getSupergroupbyId("1").getName());
             mDb.deleteDatabaseContent();
-            mDb.insertSupergroup(new Supergroup("Test","1", "null"));
-            mDb.insertSupergroup(new Supergroup("Test2","2", "null"));
-            Log.d("DB Adapter","inserted Supergroups");
+            mDb.insertSupergroup(new Supergroup("Test", "1", "null"));
+            mDb.insertSupergroup(new Supergroup("Test2", "2", "null"));
+            mDb.insertSubgroup(new Subgroup("SubTest","1"));
+            mDb.insertSubgroup(new Subgroup("SubTest2","1"));
+            mDb.insertSubgroup(new Subgroup("SubTest2","2"));
+            mDb.insertSubgroup(new Subgroup("SubTest","2"));
+            Log.d("DB Adapter","inserted Super/Subgroups");*/
             return null;
         }
     }
-
 }

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.wokabel.app.wokabel.models.Subgroup;
 import com.wokabel.app.wokabel.models.Supergroup;
@@ -14,19 +15,22 @@ import java.util.List;
 public class UnitSelectViewModel extends AndroidViewModel {
     private Supergroup selectedSupergroup;
     private LiveData<List<Subgroup>> subgroups;
-    private DatabaseAdapter adapter;
+    private DatabaseAdapter db;
 
     public UnitSelectViewModel(Application application){
         super(application);
-        adapter = new DatabaseAdapter(application);
+        db = new DatabaseAdapter(application);
     }
 
     public void setSelectedSupergroup(String ID){
-        selectedSupergroup = adapter.getSupergroupbyId(ID);
-        //setSubgroups(adapter.getSubgroupbySupergroup(selectedSupergroup.getId()));
+        selectedSupergroup = db.getSupergroupbyId(ID);
+        Log.d("UnitSelectVM",String.valueOf(subgroups==null)+"bevore set");
+        setSubgroups(db.getSubgroupbySupergroup(selectedSupergroup.getId()));
+        Log.d("UnitSelectVM",String.valueOf(subgroups==null)+"after set");
     }
 
     public LiveData<List<Subgroup>> getSubgroups() {
+        Log.d("UnitSelectVM",String.valueOf(subgroups==null)+" getSubgroups");
         return subgroups;
     }
 

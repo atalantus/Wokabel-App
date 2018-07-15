@@ -43,11 +43,12 @@ public class EditSubject extends AppCompatActivity {
             deletebtn.setVisibility(View.GONE);
             new ProvideModelNoEdit(this).execute();
         }
+        model.setEdit(edit);
     }
 
     public void Apply(View view) {
         model.setSupergroupName(name.getText().toString());
-        this.finish();
+        finish();
     }
 
     private static class ProvideModelEdit extends AsyncTask<Void, Void, Void> {
@@ -82,6 +83,7 @@ public class EditSubject extends AppCompatActivity {
             //set selected Supergroup
             EditSubjectViewModel model = ViewModelProviders.of(mActivity).get(EditSubjectViewModel.class);
             model.setSelectedSupergroup();
+            Log.d("ES","setSelectedSupergroup");
             return null;
         }
     }

@@ -9,6 +9,7 @@ import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.wokabel.app.wokabel.models.Subgroup;
 import com.wokabel.app.wokabel.models.Supergroup;
@@ -21,13 +22,6 @@ public abstract class WokabelDatabase extends RoomDatabase {
     private static final String DB_NAME = "wokabelDatabase.db";
     private static volatile WokabelDatabase instance;
 
-    /*static synchronized WokabelDatabase getInstance(Context context) {
-        if (instance == null) {
-            instance = create(context);
-        }
-        return instance;
-    }*/
-
     public static WokabelDatabase create(final Context context) {
 
         if(instance == null){
@@ -36,16 +30,11 @@ public abstract class WokabelDatabase extends RoomDatabase {
                     instance = Room.databaseBuilder(context.getApplicationContext(), WokabelDatabase.class, DB_NAME)
                             .addCallback(sRoomDatabaseCallback)
                             .build();
-                    new LoadData(instance).execute();
+                    //new LoadData(instance).execute();
                 }
             }
         }
         return instance;
-        /*instance = Room.databaseBuilder(
-                context,
-                WokabelDatabase.class,
-                DB_NAME).build();
-        return instance;*/
     }
 
     public abstract VocableDao getVocableDao();
@@ -65,8 +54,9 @@ public abstract class WokabelDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(final Void... params) {
             //load data if necessary
-            //mDb.getSupergroupDao().insert(new Supergroup("Test 1", "1") );
-            //mDb.getSupergroupDao().insert(new Supergroup("Test 2", "2"));
+            //mDb.getSupergroupDao().insert(new Supergroup("Test 1", "null") );
+            //mDb.getSupergroupDao().insert(new Supergroup("Test 2", "null"));
+            Log.d("Database","loading data");
             return null;
         }
     }

@@ -21,13 +21,11 @@ import com.wokabel.app.wokabel.viewModels.SubjectSelectViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class SubjectsFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private static final String TAG = "SubjectsFragment";
     private ArrayList<String> mNames = new ArrayList<>();
-    private ArrayList<String> mImageUrls = new ArrayList<>();
     private SubjectSelectViewModel model;
 
     @Override
@@ -38,9 +36,7 @@ public class SubjectsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         model = ViewModelProviders.of(this).get(SubjectSelectViewModel.class);
-
         //mNames = model.getSupergroups();
         Log.d(TAG, "onCreate: started.");
     }
@@ -60,24 +56,13 @@ public class SubjectsFragment extends Fragment {
     public void initImageBitmaps() {
 
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
-        mImageUrls.clear();
         mNames.clear();
         mNames.add(model.getSupergroups().toString());
-        //mImageUrls.add("https://cdn.pixabay.com/photo/2013/07/12/13/27/england-147080_960_720.png");
-        //mNames.add("English"); //noch mit strings.xml verknüpfen
-
-        //mImageUrls.add("https://breite-apotheke.ch/wp-content/uploads/2016/05/Franz%C3%B6sisch.gif");
-        //mNames.add("French"); //noch mit strings.xml verknüpfen
-        //mNames = model.getAllSupergroups();
         initRecyclerView();
-
     }
 
     private void initRecyclerView() {
-
         Log.d(TAG, "initRecyclerView: inti recyclerView.");
-
-        //RecyclerViewAdapter adapter = new RecyclerViewAdapter(/*model.getSupergroups(), mImageUrls, */getView().getContext()/*, model.getAllIDs()*/);
         final SubjectSelectAdapter adapter = new SubjectSelectAdapter(this.getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));

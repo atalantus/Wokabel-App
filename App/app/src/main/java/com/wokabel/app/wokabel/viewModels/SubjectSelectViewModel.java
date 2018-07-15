@@ -13,16 +13,19 @@ import java.util.List;
 public class SubjectSelectViewModel extends AndroidViewModel {
 
     private LiveData<List<Supergroup>> Supergroups;
+    private DatabaseAdapter adapter;
 
     public SubjectSelectViewModel(Application application){
         super(application);
         //Abfrage aus Datenbank
-        DatabaseAdapter adapter = new DatabaseAdapter(application);
+        Log.d("SSVM","Adapter erstellt");
+        adapter = new DatabaseAdapter(application);
         Supergroups = adapter.getAllSupergroups();
     }
 
     public LiveData<List<Supergroup>> getSupergroups(){
         Log.d("SubjectVM", "Supergroups called from DB");
-        return Supergroups;
+        Log.d("SubjectVM",String.valueOf(Supergroups.getValue()==null));
+        return adapter.getAllSupergroups();
     }
 }
