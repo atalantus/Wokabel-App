@@ -28,6 +28,7 @@
             android:label="@string/title_activity_subject_select" />
         <activity
             android:name=".views.UnitSelect"
+            android:theme="@style/ToolbarStyle"
             android:label="@string/UnitSelection">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
