@@ -70,7 +70,7 @@ public class DatabaseAdapter {
         supdao.updateSupergroup(supergroups);
     }
 
-    
+
     Vocable insertVocable(Vocable vocable){
         vocdao.insert(vocable);
         return vocable;

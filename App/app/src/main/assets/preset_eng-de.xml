@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <subject questionType="English" answerType="German">
-    <unit name="Nature">
-        <vocable key="tree" value="Baum" hint="Gibt's im Wald" />
-        <vocable key="grass" value="Gras" hint="wächst auf einer Wiese" />
-        <vocable key="leave" value="Blatt" hint="wächst an Bäumen" />
-        <vocable key="fruit" value="Frucht" hint="Ist essbar und wächst an Bäumen" />
-        <vocable key="wheat" value="Weizen" hint="You can bake bread with it" />
-    </unit>
-    <unit name="School">
-        <vocable key="computer science" value="Informatik" hint="Für uns unerlässlich" />
-        <vocable key="pencil" value="Bleistift" hint="Used to draw things" />
-        <vocable key="book" value="Buch" hint="Krieg und Frieden ist ein sehr bekanntes ..." />
-    </unit>
-    <unit name="Küche">
-        <vocable key="kitchen" value="Küche" hint="Der Ort zum Kochen" />
-        <vocable key="pan" value="Pfanne" hint="Perfekt zum Steak braten" />
-        <vocable key="soup" value="Suppe" hint="Oftmals eine Vorspeise" />
-    </unit>
-    <unit name="Sport">
-        <vocable key="soccer" value="Fußball" hint="Spiel mit Ball und Fuß" />
-        <vocable key="Basketball" value="Basketball" hint="Lebron James plays ...." />
-    </unit>
+<unit name="Nature">
+    <vocable key="tree" value="Baum" hint="Gibt's im Wald" />
+    <vocable key="grass" value="Gras" hint="wächst auf einer Wiese" />
+    <vocable key="leave" value="Blatt" hint="wächst an Bäumen" />
+    <vocable key="fruit" value="Frucht" hint="Ist essbar und wächst an Bäumen" />
+    <vocable key="wheat" value="Weizen" hint="You can bake bread with it" />
+</unit>
+<unit name="School">
+    <vocable key="computer science" value="Informatik" hint="Für uns unerlässlich" />
+    <vocable key="pencil" value="Bleistift" hint="Used to draw things" />
+    <vocable key="book" value="Buch" hint="Krieg und Frieden ist ein sehr bekanntes ..." />
+</unit>
+<unit name="Küche">
+    <vocable key="kitchen" value="Küche" hint="Der Ort zum Kochen" />
+    <vocable key="pan" value="Pfanne" hint="Perfekt zum Steak braten" />
+    <vocable key="soup" value="Suppe" hint="Oftmals eine Vorspeise" />
+</unit>
+<unit name="Sport">
+    <vocable key="soccer" value="Fußball" hint="Spiel mit Ball und Fuß" />
+    <vocable key="Basketball" value="Basketball" hint="Lebron James plays ...." />
+</unit>
 </subject>
