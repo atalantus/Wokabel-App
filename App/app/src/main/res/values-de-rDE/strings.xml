@@ -16,4 +16,6 @@
     <string name="Username">Benutzername</string>
     <string name="XP">EP</string>
     <string name="edit">BEARBEITEN</string>
+    <string name="confirm">Bestätigen</string>
+    <string name="vocabulary_give_solution">Zeig mir die Lösung</string>
 </resources>
