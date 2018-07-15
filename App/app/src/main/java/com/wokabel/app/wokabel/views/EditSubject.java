@@ -41,12 +41,12 @@ public class EditSubject extends AppCompatActivity {
             setTitle(getString(R.string.new_subject));
             Button deletebtn = findViewById(R.id.delete_btn);
             deletebtn.setVisibility(View.GONE);
-            //new ProvideModelNoEdit(this).execute();
+            new ProvideModelNoEdit(this).execute();
         }
     }
 
     public void Apply(View view) {
-        //model.setSupergroupName(name.getText().toString());
+        model.setSupergroupName(name.getText().toString());
         this.finish();
     }
 
