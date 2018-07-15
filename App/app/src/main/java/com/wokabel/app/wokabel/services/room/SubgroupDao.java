@@ -5,6 +5,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 import com.wokabel.app.wokabel.models.Subgroup;
 
@@ -17,6 +18,9 @@ public interface SubgroupDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<Subgroup> subgroups);
+
+    @Update
+    void updateSubgroup(Subgroup... subgroups);
 
     @Query("DELETE FROM subgrouplist")
     void deleteAll();

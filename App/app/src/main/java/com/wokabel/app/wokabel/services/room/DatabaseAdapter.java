@@ -57,6 +57,20 @@ public class DatabaseAdapter {
         return subdao.getSubgroupsbySupergroup(id);
     }
 
+
+    public void updateVocable(Vocable... vocables){
+        vocdao.updateVocable(vocables);
+    }
+
+    public void updateSubgroup(Subgroup... subgroups){
+        subdao.updateSubgroup(subgroups);
+    }
+
+    public void updateSupergroup(Supergroup... supergroups){
+        supdao.updateSupergroup(supergroups);
+    }
+
+    
     Vocable insertVocable(Vocable vocable){
         vocdao.insert(vocable);
         return vocable;
@@ -86,6 +100,7 @@ public class DatabaseAdapter {
         supdao.insertAll(supergroups);
         return supergroups;
     }
+
 
     public void deleteDatabaseContent(){
         vocdao.deleteAll();
