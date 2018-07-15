@@ -25,6 +25,7 @@ public class DatabaseAdapter {
         new LoadData(this).execute();
     }
 
+    //Query Methods
     public LiveData<List<Vocable>> getAllVocables(){
         return vocdao.getAllVocables();
     }
@@ -57,7 +58,7 @@ public class DatabaseAdapter {
         return subdao.getSubgroupsbySupergroup(id);
     }
 
-
+    //Update Methods
     public void updateVocable(Vocable... vocables){
         vocdao.updateVocable(vocables);
     }
@@ -70,45 +71,84 @@ public class DatabaseAdapter {
         supdao.updateSupergroup(supergroups);
     }
 
-
-    Vocable insertVocable(Vocable vocable){
+    //Insert Methods
+    public Vocable insertVocable(Vocable vocable){
         vocdao.insert(vocable);
         return vocable;
     }
 
-    List<Vocable> insertAllVocables(List<Vocable> vocables){
+    public List<Vocable> insertAllVocables(List<Vocable> vocables){
         vocdao.insertAll(vocables);
         return vocables;
     }
 
-    Subgroup insertSubgroup(Subgroup subgroup){
+    public Subgroup insertSubgroup(Subgroup subgroup){
         subdao.insert(subgroup);
         return subgroup;
     }
 
-    List<Subgroup> insertAllSubgroups(List<Subgroup> subgroups){
+    public List<Subgroup> insertAllSubgroups(List<Subgroup> subgroups){
         subdao.insertAll(subgroups);
         return subgroups;
     }
 
-    Supergroup insertSupergroup(Supergroup supergroup){
+    public Supergroup insertSupergroup(Supergroup supergroup){
         supdao.insert(supergroup);
         return supergroup;
     }
 
-    List<Supergroup> insertAllSupergroups(List<Supergroup> supergroups){
+    public List<Supergroup> insertAllSupergroups(List<Supergroup> supergroups){
         supdao.insertAll(supergroups);
         return supergroups;
     }
 
-
+    //Delete Methods
     public void deleteDatabaseContent(){
         vocdao.deleteAll();
         subdao.deleteAll();
         supdao.deleteAll();
     }
 
-    boolean checkforContentSupergroup(){
+    public void deleteAllVocables(){
+        vocdao.deleteAll();
+    }
+
+    public void deleteAllSubgroups(){
+        subdao.deleteAll();
+    }
+
+    public void deleteSupergroups(){
+        supdao.deleteAll();
+    }
+
+    public void deleteVocablebyId(String id){
+        vocdao.deletebyId(id);
+    }
+
+    public void deleteSubgroupbyId(String id){
+        subdao.deletebyId(id);
+    }
+
+    public void deleteSupergroupbyId(String id){
+        supdao.deletebyId(id);
+    }
+
+    public void deleteVocable(Vocable... vocables){
+        vocdao.deleteVocable(vocables);
+    }
+
+    public void deleteSubgroup(Subgroup... subgroups){
+        subdao.deleteSubgroup(subgroups);
+    }
+
+    public void deleteSupergroup(Supergroup... supergroups){
+        supdao.deleteSupergroup(supergroups);
+    }
+
+
+
+    //Bool Methods
+    public boolean checkforContentSupergroup(){
 
         if(supdao.getSupergroupList().isEmpty()){
             return false;
@@ -117,7 +157,7 @@ public class DatabaseAdapter {
         }
     }
 
-    boolean checkforContentSubgroup(){
+    public boolean checkforContentSubgroup(){
 
         if(subdao.getSubgroupList().isEmpty()){
             return false;
@@ -126,7 +166,7 @@ public class DatabaseAdapter {
         }
     }
 
-    boolean checkforContentVocable(){
+    public boolean checkforContentVocable(){
 
         if(vocdao.getVocableList().isEmpty()){
             return false;
@@ -135,7 +175,7 @@ public class DatabaseAdapter {
         }
     }
 
-    boolean checkforContentDatabase(){
+    public boolean checkforContentDatabase(){
 
         if(checkforContentSupergroup() || checkforContentSubgroup() || checkforContentVocable()){
             return true;

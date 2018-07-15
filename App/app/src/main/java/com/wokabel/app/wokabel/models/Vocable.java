@@ -50,6 +50,15 @@ public class Vocable {
         this.subgroupid = subgroupid;
         id = "V" + UUID.randomUUID().toString();
     }
+    @Ignore
+    public Vocable(@NonNull String key, String values, String helper, String subgroupid) {
+        this.key = key;
+        this.values = values;
+        this.helper = helper;
+        level = 0;
+        this.subgroupid = subgroupid;
+        id = "V" + UUID.randomUUID().toString();
+    }
 
     /**
      * Constructor for initiating an OLD {@link Vocable}
