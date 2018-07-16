@@ -83,8 +83,6 @@ public class UnitSelect extends AppCompatActivity {
         }
     }
 
-    public void start(){
-
     @Override
     protected void onStart(){
         super.onStart();
