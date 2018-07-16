@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".views.ProfileFragment">
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/profile_icon"
         android:layout_width="100dp"
         android:layout_height="100dp"

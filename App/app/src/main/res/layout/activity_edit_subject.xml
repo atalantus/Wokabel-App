@@ -6,59 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".views.EditSubject">
 
-    <ImageButton
-        android:id="@+id/edit_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/ripple_background"
-        android:labelFor="@id/change_icon"
-        android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher_round"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/edit_name"
-        android:layout_width="wrap_content"
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:labelFor="@id/change_name"
-        android:text="SubjectName"
-        app:layout_constraintBottom_toBottomOf="@+id/edit_icon"
-        app:layout_constraintStart_toEndOf="@+id/edit_icon"
-        app:layout_constraintTop_toTopOf="@+id/edit_icon" />
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <TextView
-        android:id="@+id/change_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/edit_icon"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/edit_icon"
-        app:layout_constraintStart_toStartOf="@+id/edit_icon"
-        app:layout_constraintTop_toBottomOf="@+id/edit_icon"
-        tools:text="@string/edit_icon" />
+        <TextView
+            android:id="@+id/change_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/edit_icon"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/edit_icon"
+            app:layout_constraintStart_toStartOf="@+id/edit_icon"
+            app:layout_constraintTop_toBottomOf="@+id/edit_icon"
+            tools:text="@string/edit_icon" />
 
-    <TextView
-        android:id="@+id/change_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="@string/edit_name"
-        app:layout_constraintBottom_toBottomOf="@+id/change_icon"
-        app:layout_constraintEnd_toEndOf="@+id/edit_name"
-        app:layout_constraintStart_toStartOf="@+id/edit_name"
-        tools:text="@string/edit_name" />
+        <TextView
+            android:id="@+id/change_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/edit_name"
+            app:layout_constraintBottom_toBottomOf="@+id/change_icon"
+            app:layout_constraintEnd_toEndOf="@+id/edit_name"
+            app:layout_constraintStart_toStartOf="@+id/edit_name"
+            tools:text="@string/edit_name" />
+
+        <ImageButton
+            android:id="@+id/edit_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/ripple_background"
+            android:labelFor="@id/change_icon"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher_round"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edit_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:labelFor="@id/change_name"
+            android:text="SubjectName"
+            app:layout_constraintBottom_toBottomOf="@+id/edit_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/edit_icon" />
+    </android.support.constraint.ConstraintLayout>
 
     <Button
         android:id="@+id/apply_btn"

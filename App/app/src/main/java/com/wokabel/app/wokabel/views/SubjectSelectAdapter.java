@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wokabel.app.wokabel.R;
@@ -18,13 +19,12 @@ import com.wokabel.app.wokabel.models.Supergroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
 public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdapter.ViewHolder>{
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
-        private CircleImageView icon;
+
+        private ImageView icon;
         private TextView name;
         private ImageButton editBtn;
         private ConstraintLayout parentLayout;
