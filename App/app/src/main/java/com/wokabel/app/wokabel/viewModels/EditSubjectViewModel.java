@@ -15,7 +15,7 @@ public class EditSubjectViewModel extends AndroidViewModel {
     private boolean edit;
     public EditSubjectViewModel(Application application){
         super(application);
-        adapter = new DatabaseAdapter(application);
+        new SetAdapter(this, application).execute();
     }
 
     public Supergroup getSelectedSupergroup() {
@@ -23,9 +23,9 @@ public class EditSubjectViewModel extends AndroidViewModel {
     }
 
     public void setSelectedSupergroup(String ID) {
-        this.selectedSupergroup = adapter.getSupergroupbyId(ID);
+        selectedSupergroup = adapter.getSupergroupbyIdAsObject(ID);
         Log.d("ESViewModel", getSelectedSupergroup().getName());
-        new LoadData(adapter,this, edit).execute();
+        new UpdateData(adapter,this, edit).execute();
     }
 
     public void setSelectedSupergroup(){
@@ -35,7 +35,7 @@ public class EditSubjectViewModel extends AndroidViewModel {
     public void setSupergroupName(String name){
         selectedSupergroup.setName(name);
         Log.d("ESVM",selectedSupergroup.getName());
-        new LoadData(adapter,this, edit).execute();
+        new UpdateData(adapter,this, edit).execute();
 
     }
     public void Apply(){
@@ -50,13 +50,20 @@ public class EditSubjectViewModel extends AndroidViewModel {
         this.edit = edit;
     }
 
-    private static class LoadData extends AsyncTask<Void, Void, Void> {
+    public void delete(){
+        new DeleteData(adapter,this).execute();
+    }
+    public void setAdapter(DatabaseAdapter iadapter){
+        adapter = iadapter;
+    }
+
+    private static class UpdateData extends AsyncTask<Void, Void, Void> {
 
         private final DatabaseAdapter mDb;
         private EditSubjectViewModel mModel;
         private boolean edit;
 
-        LoadData(DatabaseAdapter db, EditSubjectViewModel model, boolean Iedit) {
+        UpdateData(DatabaseAdapter db, EditSubjectViewModel model, boolean Iedit) {
             mDb = db;
             mModel = model;
             edit = Iedit;
@@ -70,6 +77,41 @@ public class EditSubjectViewModel extends AndroidViewModel {
             } else{
                 mDb.insertSupergroup(mModel.selectedSupergroup);
             }
+            return null;
+        }
+    }
+    private static class DeleteData extends AsyncTask<Void, Void, Void> {
+
+        private final DatabaseAdapter mDb;
+        private EditSubjectViewModel mModel;
+
+        DeleteData(DatabaseAdapter db, EditSubjectViewModel model) {
+            mDb = db;
+            mModel = model;
+        }
+
+        @Override
+        protected Void doInBackground(final Void... params) {
+
+            mDb.deleteSupergroupbyId(mModel.selectedSupergroup.getId());
+            return null;
+        }
+    }
+    private static class SetAdapter extends AsyncTask<Void, Void, Void> {
+
+        private EditSubjectViewModel mModel;
+        private Application mApplication;
+
+        SetAdapter(EditSubjectViewModel model, Application application) {
+            mModel = model;
+            mApplication = application;
+
+        }
+
+        @Override
+        protected Void doInBackground(final Void... params) {
+
+            mModel.setAdapter(new DatabaseAdapter(mApplication));
             return null;
         }
     }

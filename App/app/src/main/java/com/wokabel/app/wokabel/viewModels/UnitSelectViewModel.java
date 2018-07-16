@@ -13,20 +13,19 @@ import com.wokabel.app.wokabel.services.room.DatabaseAdapter;
 import java.util.List;
 
 public class UnitSelectViewModel extends AndroidViewModel {
-    private LiveData<Supergroup> selectedSupergroup;
+    private Supergroup selectedSupergroup;
     private LiveData<List<Subgroup>> subgroups;
     private DatabaseAdapter db;
 
     public UnitSelectViewModel(Application application){
         super(application);
-        db = new DatabaseAdapter(application);
+        new LoadData(this, application).execute();
+
     }
 
-    public void setSelectedSupergroup(String ID){
-        selectedSupergroup = db.getSupergroupbyId(ID);
-        Log.d("UnitSelectVM",String.valueOf(subgroups==null)+"bevore set");
+    public void setSelectedSupergroup(String ID) {
+        selectedSupergroup = db.getSupergroupbyIdAsObject(ID);
         setSubgroups(db.getSubgroupbySupergroup(selectedSupergroup.getId()));
-        Log.d("UnitSelectVM",String.valueOf(subgroups==null)+"after set");
     }
 
     public LiveData<List<Subgroup>> getSubgroups() {
@@ -40,19 +39,29 @@ public class UnitSelectViewModel extends AndroidViewModel {
 
     public String getSelectedSupergroup() {
         String result;
-        result = selectedSupergroup.getValue().getName();
+        result = selectedSupergroup.getName();
         if (selectedSupergroup == null){
             result = "Test";
         }
         return result;
     }
 
+    public void setDb(DatabaseAdapter adapter){
+        db = adapter;
+    }
+
     private static class LoadData extends AsyncTask<Void, Void, Void> {
-        LoadData() {
+        Application mApplication;
+        UnitSelectViewModel mModel;
+
+        LoadData(UnitSelectViewModel model, Application application) {
+            mApplication = application;
+            mModel = model;
 
         }
         @Override
         protected Void doInBackground(final Void ...params){
+            mModel.setDb(new DatabaseAdapter(mApplication));
             return null;
         }
     }

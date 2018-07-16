@@ -12,7 +12,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import com.wokabel.app.wokabel.R;
 import com.wokabel.app.wokabel.models.Subgroup;
@@ -41,8 +40,6 @@ public class UnitSelect extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         model = ViewModelProviders.of(this).get(UnitSelectViewModel.class);
         setTitle(getIntent().getStringExtra(SubjectSelectAdapter.SELECTED_SUPERGROUP_NAME) + " " + getString(R.string.units));
-        TextView textView = findViewById(R.id.textView);
-        textView.setText(getIntent().getStringExtra(SubjectSelectAdapter.SELECTED_SUPERGROUP_NAME));
         new LoadData(this).execute();
     }
 

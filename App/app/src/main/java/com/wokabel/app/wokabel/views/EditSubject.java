@@ -50,6 +50,10 @@ public class EditSubject extends AppCompatActivity {
         model.setSupergroupName(name.getText().toString());
         finish();
     }
+    public void delete(View view){
+        model.delete();
+        finish();
+    }
 
     private static class ProvideModelEdit extends AsyncTask<Void, Void, Void> {
 
@@ -69,6 +73,7 @@ public class EditSubject extends AppCompatActivity {
             return null;
         }
     }
+
     private static class ProvideModelNoEdit extends AsyncTask<Void, Void, Void> {
 
         private final AppCompatActivity mActivity;

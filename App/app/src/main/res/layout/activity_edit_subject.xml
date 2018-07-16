@@ -80,6 +80,7 @@
         android:backgroundTint="@android:color/holo_red_light"
         android:text="@string/delete"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/apply_btn" />
+        app:layout_constraintEnd_toStartOf="@+id/apply_btn"
+        android:onClick="delete"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -8,6 +8,8 @@ import com.wokabel.app.wokabel.models.Subgroup;
 import com.wokabel.app.wokabel.models.Supergroup;
 import com.wokabel.app.wokabel.models.Vocable;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -32,7 +34,10 @@ public class DatabaseAdapter {
         vocdao = db.getVocableDao();
         subdao = db.getSubgroupDao();
         supdao = db.getSupergroupDao();
-        new LoadData(this).execute();
+        if (!checkforContentDatabase()){
+            new LoadData(this).execute();
+        }
+
     }
 
     /**
@@ -265,6 +270,11 @@ public class DatabaseAdapter {
      */
     public void deleteSupergroupbyId(String id){
         supdao.deletebyId(id);
+        List<String> subgroupids = subdao.getSubgroupsbSupergroupId(id);
+        for(int i =0; i< subgroupids.size();i++){
+            vocdao.deletebySubgroupId(subgroupids.get(i));
+        }
+        subdao.deletebySupergroupId(id);
     }
 
     /**
@@ -360,16 +370,18 @@ public class DatabaseAdapter {
 
         @Override
         protected Void doInBackground(final Void... params) {
-            //load data if necessary
-            /*Log.d("DatabaseAdapter", mDb.getSupergroupbyId("1").getName());
+            //load data if necessary;
             mDb.deleteDatabaseContent();
-            mDb.insertSupergroup(new Supergroup("Test", "1", "null"));
-            mDb.insertSupergroup(new Supergroup("Test2", "2", "null"));
-            mDb.insertSubgroup(new Subgroup("SubTest","1"));
-            mDb.insertSubgroup(new Subgroup("SubTest2","1"));
-            mDb.insertSubgroup(new Subgroup("SubTest2","2"));
-            mDb.insertSubgroup(new Subgroup("SubTest","2"));
-            Log.d("DB Adapter","inserted Super/Subgroups");*/
+            Supergroup supergroup01 = new Supergroup("Spanisch", "null");
+            Supergroup supergroup02 = new Supergroup("Englisch", "null");
+            mDb.insertSupergroup(supergroup01);
+            mDb.insertSupergroup(supergroup02);
+            Subgroup subgroup0101 = new Subgroup("Unit 1", supergroup01.getId());
+            Subgroup subgroup0201 = new Subgroup("Nature", supergroup02.getId());
+            mDb.insertSubgroup(subgroup0101);
+            mDb.insertSubgroup(subgroup0201);
+            mDb.insertVocable(new Vocable("flor", new ArrayList<String>(Arrays.asList("Blume")), "Gibts auf der Wiese", subgroup0101.getId()));
+            mDb.insertVocable(new Vocable("tree",new ArrayList<String>(Arrays.asList("Baum")),"Gibt's im Wald",subgroup0201.getId()));
             return null;
         }
     }

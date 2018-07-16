@@ -34,6 +34,9 @@ public interface SubgroupDao {
     @Delete
     void deleteSubgroup(Subgroup... subgroups);
 
+    @Query("DELETE FROM subgrouplist WHERE supergroupid = :id")
+    void deletebySupergroupId(String id);
+
     @Query("DELETE FROM subgrouplist WHERE id = :id")
     void deletebyId(String id);
 
@@ -41,6 +44,9 @@ public interface SubgroupDao {
     //Query Methods
     @Query("SELECT * from subgrouplist WHERE id = :id")
     LiveData<Subgroup> getSubgroupById(String id);
+
+    @Query("SELECT id from subgrouplist WHERE supergroupid= :id")
+    List<String> getSubgroupsbSupergroupId(String id);
 
     @Query("SELECT * from subgrouplist WHERE id = :id")
     Subgroup getSubgroupByIdAsObject(String id);

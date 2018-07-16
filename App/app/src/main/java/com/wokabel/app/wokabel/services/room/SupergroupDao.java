@@ -9,7 +9,6 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
 import com.wokabel.app.wokabel.models.Supergroup;
-import com.wokabel.app.wokabel.models.Vocable;
 
 import java.util.List;
 @Dao
@@ -25,14 +24,14 @@ public interface SupergroupDao {
 
     //Update Methods
     @Update
-    void updateSupergroup(Supergroup supergroups);
+    void updateSupergroup(Supergroup... supergroups);
 
 
     //Delete Methods
     @Query("DELETE FROM supergrouplist")
     void deleteAll();
 
-    @Query("DELETE FROM subgrouplist WHERE id = :id")
+    @Query("DELETE FROM supergrouplist WHERE id = :id")
     void deletebyId(String id);
 
     @Delete
