@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subject questionType="English" answerType="German" icon="flag_united_kingdom">
+    <unit name="Natur">
+        <vocable key="tree" value="Baum" hint="Gibt's im Wald" />
+        <vocable key="grass" value="Gras" hint="Wächst auf einer Wiese" />
+        <vocable key="leave" value="Blatt" hint="Wächst an Bäumen" />
+        <vocable key="fruit" value="Frucht" hint="Ist essbar und wächst an Bäumen" />
+        <vocable key="wheat" value="Weizen" hint="Daraus wird Brot gemacht" />
+    </unit>
+    <unit name="Schule">
+        <vocable key="computer science" value="Informatik" hint="Das beste Fach der Welt" />
+        <vocable key="pencil" value="Bleistift" hint="Benutzt man in der Schule" />
+        <vocable key="book" value="Buch" hint="Krieg und Frieden ist ein sehr bekanntes..." />
+    </unit>
+    <unit name="Haushalt">
+        <vocable key="kitchen" value="Küche" hint="Der Ort zum Kochen" />
+        <vocable key="pan" value="Pfanne" hint="Perfekt zum Steak braten" />
+        <vocable key="soup" value="Suppe" hint="Oftmals eine Vorspeise" />
+        <vocable key="living room" value="Wohnzimmer" hint="Das Hauptzimmer eines Hauses" />
+    </unit>
+    <unit name="Sport">
+        <vocable key="soccer" value="Fußball" hint="Die populärste Sportart der Welt" />
+        <vocable key="basketball" value="Basketball" hint="Eine der beliebtesten Sportarten in Amerika" />
+    </unit>
+</subject>
