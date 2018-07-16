@@ -1,6 +1,5 @@
 package com.wokabel.app.wokabel.views;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -12,69 +11,72 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.wokabel.app.wokabel.R;
+import com.wokabel.app.wokabel.models.Subgroup;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class UnitSelectAdapter extends RecyclerView.Adapter<UnitSelectAdapter.ViewHolder>{
+
+    class ViewHolder extends RecyclerView.ViewHolder{
+
+        private CircleImageView icon;
+        private TextView name;
+        private ImageButton editBtn;
+        private ConstraintLayout parentLayout;
+
+        private ViewHolder(View itemView)
+        {
+            super(itemView);
+            icon = itemView.findViewById(R.id.subject_icon);
+            name = itemView.findViewById(R.id.subject_name);
+            editBtn = itemView.findViewById(R.id.subject_editBtn);
+            parentLayout = itemView.findViewById(R.id.parent_layout);
+        }
+    }
 
     private static final String TAG = "SubjectSelectAdapter";
 
-    private ArrayList<String> mNames = new ArrayList<>();
-    private Context mContext;
-
-    public UnitSelectAdapter(ArrayList<String> Names, Context context)
-    {
-        mNames = Names;
-        mContext = context;
-        
+    private ArrayList<Subgroup> subgroups;
+    public UnitSelectAdapter() {
     }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_unit, parent, false);
-        ViewHolder holder = new ViewHolder(view);
-        return holder;
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-
         Log.d(TAG, "onBindViewHolder: called.");
-
-        //Glide.with(mContext).asBitmap().load(mImages.get(position)).into(holder.icon);
-
-        holder.name.setText(mNames.get(position));
-
+        holder.name.setText(subgroups.get(position).getName());
         //WAS beim klicken passiert WICHTIG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onClick: clicked on: " + mNames.get(position));
-
-
+                Log.d(TAG, "onClick: clicked on: " + subgroups.get(position).getName());
                 //Action: Neue Activitie Aufrufen
+
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return mNames.size();
+        if (subgroups != null){
+        return subgroups.size();}
+        return 0;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView name;
-        ImageButton editBtn;
-        ConstraintLayout parentLayout;
+    public ArrayList<Subgroup> getSubgroups() {
+        return subgroups;
+    }
 
-        public ViewHolder(View itemView)
-        {
-            super(itemView);
-
-            name = itemView.findViewById(R.id.subject_name);
-            editBtn = itemView.findViewById(R.id.subject_editBtn);
-            parentLayout = itemView.findViewById(R.id.parent_layout);
-        }
+    public void setSubgroups(ArrayList<Subgroup> subgroups) {
+        this.subgroups = subgroups;
+        notifyDataSetChanged();
     }
 
 }

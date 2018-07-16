@@ -77,7 +77,8 @@
         android:layout_marginEnd="16dp"
         android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="Apply"/>
 
     <Button
         android:id="@+id/delete_btn"
@@ -88,6 +89,7 @@
         android:backgroundTint="@android:color/holo_red_light"
         android:text="@string/delete"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/apply_btn" />
+        app:layout_constraintEnd_toStartOf="@+id/apply_btn"
+        android:onClick="delete"/>
 
 </android.support.constraint.ConstraintLayout>
