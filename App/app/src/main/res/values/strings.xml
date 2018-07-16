@@ -22,7 +22,6 @@
     <string name="edit">EDIT</string>
     <string name="units">Units</string>
     <string name="edit_of">Edit </string>
-    <string name="title_activity_vocabulary_test">VocabularyTest</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="edit_subject">Edit Subject</string>
@@ -35,4 +34,13 @@
     <string name="new_subject">New Subject</string>
     <string name="downgrade_dialog_title">Oops!</string>
     <string name="downgrade_dialog_message">You just... downgraded the app?\nPlease don\'t do this again.</string>
+    <string name="title_activity_vocabulary_test">Vocabulary Test</string>
+    <string name="vocabulary_give_tip">Give me a tip</string>
+    <string name="answer">answer</string>
+    <string name="vocabulary_question">What is</string>
+    <string name="vocables">vocables</string>
+    <string name="choose_random">Choose Random</string>
+    <string name="action_random">Random</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_export_subject">Export Subject</string>
 </resources>
