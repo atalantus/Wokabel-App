@@ -24,7 +24,6 @@ public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdap
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
-
         private CircleImageView icon;
         private TextView name;
         private ImageButton editBtn;
@@ -41,20 +40,17 @@ public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdap
     }
 
     private static final String TAG = "SubjectSelectAdapter";
-    public static final String EXTRA_MESSAGE = "com.wokabel.app.wokabel.MESSAGE";
-    public static final String EXTRA_MESSAGE2 = "com.wokabel.app.wokabel.MESSAGE";
+    public static final String SELECTED_SUPERGROUP_ID = "com.wokabel.app.wokabel.SELECTED_ID";
+    public static final String SELECTED_SUPERGROUP_NAME = "com.wokabel.app.wokabel.SELECTED_NAME";
+    public static final String SELECTED_SUPERGROUP_EDIT = "com.wokabel.app.wokabel.SELECTED_EDIT";
 
     private List<Supergroup> mSupergroups;
     //private ArrayList<String> mImages;
     private Context context;
     private final LayoutInflater inflater;
 
-    public SubjectSelectAdapter(/*ArrayList<Supergroup> imagesNames, ArrayList<String> images, */Context iContext/*, ArrayList<String> ids*/)
+    public SubjectSelectAdapter(Context iContext)
     {
-        /*mSupergroups = imagesNames;
-        //mImages = images;
-        context = iContext;
-        mIDs = ids;*/
         inflater = LayoutInflater.from(iContext);
     }
     @NonNull
@@ -71,24 +67,27 @@ public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdap
         Log.d(TAG,"Supergroups loaded");
         Supergroup current = mSupergroups.get(position);
         holder.name.setText(current.getName());
-         //else {
-            //holder.name.setText("no content");
-        //}
-        //Glide.with(mContext).asBitmap().load(mImages.get(position)).into(holder.icon);
-
-        //holder.name.setText(mSupergroups.get(position).getName());
-
-        //WAS beim klicken passiert WICHTIG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        holder.editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String ID = mSupergroups.get(position).getId();
+                String name = mSupergroups.get(position).getName();
+                Intent intent = new Intent(view.getContext(), EditSubject.class);
+                intent.putExtra(SELECTED_SUPERGROUP_NAME, name);
+                intent.putExtra(SELECTED_SUPERGROUP_ID, ID);
+                intent.putExtra(SELECTED_SUPERGROUP_EDIT, "true");
+                view.getContext().startActivity(intent);
+            }
+        });
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: clicked on: " + mSupergroups.get(position).getId());
-
                 String ID = mSupergroups.get(position).getId();
                 //Action: Neue Activitie Aufrufen
                 Intent intent = new Intent(view.getContext(), UnitSelect.class);
-                intent.putExtra(EXTRA_MESSAGE, ID);
-                intent.putExtra(EXTRA_MESSAGE2,mSupergroups.get(position).getName());
+                intent.putExtra(SELECTED_SUPERGROUP_ID, ID);
+                intent.putExtra(SELECTED_SUPERGROUP_NAME, mSupergroups.get(position).getName());
                 view.getContext().startActivity(intent);
             }
         });

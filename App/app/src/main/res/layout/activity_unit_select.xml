@@ -27,17 +27,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="TextView"
-            android:textAppearance="@android:style/TextAppearance.Material.Headline"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/subject_icon"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <View
             android:id="@+id/divider"
             android:layout_width="384dp"

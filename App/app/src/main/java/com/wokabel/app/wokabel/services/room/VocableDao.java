@@ -2,7 +2,6 @@ package com.wokabel.app.wokabel.services.room;
 
 
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -36,6 +35,9 @@ public interface VocableDao {
 
     @Delete
     void deleteVocable(Vocable... vocables);
+
+    @Query("DELETE FROM vocablist WHERE subgroupid = :id")
+    void deletebySubgroupId(String id);
 
     @Query("DELETE FROM vocablist WHERE id = :id")
     void deletebyId(String id);
