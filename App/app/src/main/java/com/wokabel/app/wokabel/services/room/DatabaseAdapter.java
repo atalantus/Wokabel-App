@@ -373,8 +373,8 @@ public class DatabaseAdapter {
         protected Void doInBackground(final Void... params) {
             //load data if necessary;
             mDb.deleteDatabaseContent();
-            Supergroup supergroup01 = new Supergroup("Spanisch", "null");
-            Supergroup supergroup02 = new Supergroup("Englisch", "null");
+            Supergroup supergroup01 = new Supergroup("Spanisch", "flag_spain");
+            Supergroup supergroup02 = new Supergroup("Englisch", "flag_united_kingdom");
             mDb.insertSupergroup(supergroup01);
             mDb.insertSupergroup(supergroup02);
             Subgroup subgroup0101 = new Subgroup("Unit 1", supergroup01.getId());
