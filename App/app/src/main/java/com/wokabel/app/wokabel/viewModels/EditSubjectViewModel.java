@@ -13,6 +13,8 @@ public class EditSubjectViewModel extends AndroidViewModel {
     private Supergroup selectedSupergroup;
     private DatabaseAdapter adapter;
     private boolean edit;
+
+
     public EditSubjectViewModel(Application application){
         super(application);
         new SetAdapter(this, application).execute();

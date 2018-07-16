@@ -2,12 +2,12 @@ package com.wokabel.app.wokabel.views;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -89,11 +89,6 @@ public class UnitSelect extends AppCompatActivity {
         Log.d("UnitSelect",String.valueOf(model.getSubgroups()==null));
     }
 
-    public void createUnit(View view) {
-        // TODO
-        Snackbar.make(view, "Hier sollte jetzt ne neue Activity zum Erstellen einer Unit sein!", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
-    }
 
     private static class LoadData extends AsyncTask<Void, Void, Void> {
 
@@ -120,9 +115,11 @@ public class UnitSelect extends AppCompatActivity {
         }
     }
 
-    public void createSubject(View view) {
-        Snackbar.make(view, "Hier sollte jetzt ne neue Activity zum Erstellen eines Subjects sein!", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
+    public void createUnit(View view) {
+        Intent intent = new Intent(this, EditUnit.class);
+        view.getContext().startActivity(intent);
+        //Snackbar.make(view, "Hier sollte jetzt ne neue Activity zum Erstellen eines Subjects sein!", Snackbar.LENGTH_LONG)
+          //      .setAction("Action", null).show();
     }
 
 }

@@ -40,9 +40,9 @@ public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdap
     }
 
     private static final String TAG = "SubjectSelectAdapter";
-    public static final String SELECTED_SUPERGROUP_ID = "com.wokabel.app.wokabel.SELECTED_ID";
-    public static final String SELECTED_SUPERGROUP_NAME = "com.wokabel.app.wokabel.SELECTED_NAME";
-    public static final String SELECTED_SUPERGROUP_EDIT = "com.wokabel.app.wokabel.SELECTED_EDIT";
+    public static final String SELECTED_SUPERGROUP_ID = "com.wokabel.app.wokabel.SELECTED_SUPERGROUP_ID";
+    public static final String SELECTED_SUPERGROUP_NAME = "com.wokabel.app.wokabel.SELECTED_SUPERGROUP_NAME";
+    public static final String SELECTED_SUPERGROUP_EDIT = "com.wokabel.app.wokabel.SELECTED_SUPERGROUP_EDIT";
 
     private List<Supergroup> mSupergroups;
     //private ArrayList<String> mImages;

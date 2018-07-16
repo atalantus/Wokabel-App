@@ -3,25 +3,30 @@ package com.wokabel.app.wokabel.viewModels;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.wokabel.app.wokabel.models.Subgroup;
+import com.wokabel.app.wokabel.models.Supergroup;
 import com.wokabel.app.wokabel.services.room.DatabaseAdapter;
 
 public class EditUnitViewModel extends AndroidViewModel {
 
     private DatabaseAdapter adapter;
+    private Supergroup selectedSupergroup;
     private Subgroup selectedSubgroup;
     private boolean edit;
 
     public EditUnitViewModel(Application application){
         super(application);
-        new SetAdapter(this,application);
+        new SetAdapter(this,application).execute();
     }
 
+    public Subgroup getSelectedSubgroup(){
+        return selectedSubgroup;
+    }
     public void delete(){
         new DeleteData(adapter,this).execute();
     }
+
 
     public DatabaseAdapter getAdapter() {
         return adapter;
@@ -31,14 +36,18 @@ public class EditUnitViewModel extends AndroidViewModel {
         this.adapter = adapter;
     }
 
-    public void setSelectedSubgroup(Subgroup selectedSubgroup) {
-        this.selectedSubgroup = selectedSubgroup;
+    public void setSelectedSubgroup(String ID) {
+        selectedSubgroup = adapter.getSubgroupbyIdAsObject(ID);
+        new UpdateData(adapter,this, edit).execute();
     }
 
     public void setSupergroupName(String name){
         selectedSubgroup.setName(name);
-        Log.d("ESVM",selectedSubgroup.getName());
         new UpdateData(adapter,this, edit).execute();
+    }
+    public void setSelectedSubgroup(){
+        selectedSubgroup = new Subgroup("Default Subgroup",selectedSupergroup.getId());
+        new UpdateData(adapter,this,edit).execute();
     }
 
     public boolean isEdit() {
@@ -47,6 +56,18 @@ public class EditUnitViewModel extends AndroidViewModel {
 
     public void setEdit(boolean edit) {
         this.edit = edit;
+    }
+
+    public void setSupergroup(String id) {
+        selectedSupergroup = adapter.getSupergroupbyIdAsObject(id);
+    }
+
+    public com.wokabel.app.wokabel.models.Supergroup getSelectedSupergroup() {
+        return selectedSupergroup;
+    }
+
+    public void setSelectedSupergroup(String iSelectedSupergroup) {
+        new SupergroupData(adapter, this, iSelectedSupergroup).execute();
     }
 
     private static class SetAdapter extends AsyncTask<Void, Void, Void> {
@@ -81,6 +102,25 @@ public class EditUnitViewModel extends AndroidViewModel {
             return null;
         }
     }
+
+    private static class SupergroupData extends AsyncTask<Void, Void, Void> {
+
+        private final DatabaseAdapter mDb;
+        private EditUnitViewModel mModel;
+        private String ID;
+
+        SupergroupData(DatabaseAdapter db, EditUnitViewModel model, String id) {
+            mDb = db;
+            mModel = model;
+            ID = id;
+        }
+        @Override
+        protected Void doInBackground(final Void... params) {
+            mModel.selectedSupergroup = mDb.getSupergroupbyIdAsObject(ID);
+            return null;
+        }
+    }
+
     private static class UpdateData extends AsyncTask<Void, Void, Void> {
 
         private final DatabaseAdapter mDb;
