@@ -45,6 +45,9 @@ public interface VocableDao {
     @Query("SELECT * from vocablist WHERE id = :id")
     LiveData<Vocable> getVocableById(String id);
 
+    @Query("SELECT * from vocablist WHERE id = :id")
+    Vocable getVocableByIdAsObject(String id);
+
     @Query("SELECT * from vocablist")
     LiveData<List<Vocable>> getAllVocables();
 

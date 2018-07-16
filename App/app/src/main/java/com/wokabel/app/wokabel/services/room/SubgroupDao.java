@@ -42,6 +42,9 @@ public interface SubgroupDao {
     @Query("SELECT * from subgrouplist WHERE id = :id")
     LiveData<Subgroup> getSubgroupById(String id);
 
+    @Query("SELECT * from subgrouplist WHERE id = :id")
+    Subgroup getSubgroupByIdAsObject(String id);
+
     @Query("SELECT * FROM subgrouplist")
     LiveData<List<Subgroup>> getAllSubgroups();
 

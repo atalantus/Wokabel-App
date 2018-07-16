@@ -43,6 +43,9 @@ public interface SupergroupDao {
     @Query("SELECT * FROM supergrouplist WHERE id = :id")
     LiveData<Supergroup> getSupergroupById(String id);
 
+    @Query("SELECT * FROM supergrouplist WHERE id = :id")
+    Supergroup getSupergroupByIdAsObject(String id);
+
     @Query("SELECT * FROM supergrouplist")
     LiveData<List<Supergroup>> getAllSupergroups();
 
