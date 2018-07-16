@@ -79,7 +79,8 @@
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="Apply"/>
 
         <Button
             android:id="@+id/delete_btn"
@@ -92,7 +93,8 @@
             android:text="@string/delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/apply_btn"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="Delete"/>
     </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.wokabel.app.wokabel.views;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -37,6 +38,11 @@ public class UnitSelectAdapter extends RecyclerView.Adapter<UnitSelectAdapter.Vi
     }
 
     private static final String TAG = "SubjectSelectAdapter";
+    public static final String SELECTED_SUBGROUP_ID = "com.wokable.com.wokabel.SELECTED_SUBGROUP_ID";
+    public static final String SELECTED_SUBGROUP_NAME = "com.wokable.com.wokabel.SELECTED_SUBGROUP_NAME";
+    public static final String SELECTED_SUBGROUP_EDIT = "com.wokable.com.wokable.SEÖECTED_SUBGROUP_EDIT";
+    public static final String SELECTED_SUPERGROUP_ID = "com.wokable.com.wokable.SELECTED_SUPERGROUP_ID";
+
 
     private ArrayList<Subgroup> subgroups;
     public UnitSelectAdapter() {
@@ -50,15 +56,30 @@ public class UnitSelectAdapter extends RecyclerView.Adapter<UnitSelectAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        Log.d(TAG, "onBindViewHolder: called.");
         holder.name.setText(subgroups.get(position).getName());
-        //WAS beim klicken passiert WICHTIG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        holder.editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String ID = subgroups.get(position).getId();
+                String name = subgroups.get(position).getName();
+                Intent intent = new Intent(view.getContext(), EditUnit.class);
+                intent.putExtra(SELECTED_SUBGROUP_NAME, name);
+                intent.putExtra(SELECTED_SUBGROUP_ID, ID);
+                intent.putExtra(SELECTED_SUBGROUP_EDIT, "true");
+                view.getContext().startActivity(intent);
+            }
+        });
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: clicked on: " + subgroups.get(position).getName());
                 //Action: Neue Activitie Aufrufen
-
+                String ID = subgroups.get(position).getId();
+                //Action: Neue Activitie Aufrufen
+                Intent intent = new Intent(view.getContext(), UnitDisplay.class);
+                intent.putExtra(SELECTED_SUBGROUP_ID, ID);
+                intent.putExtra(SELECTED_SUBGROUP_NAME, subgroups.get(position).getName());
+                view.getContext().startActivity(intent);
             }
         });
     }

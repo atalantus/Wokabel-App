@@ -2,6 +2,7 @@ package com.wokabel.app.wokabel.views;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -22,8 +23,6 @@ import java.util.List;
 public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdapter.ViewHolder>{
 
     class ViewHolder extends RecyclerView.ViewHolder{
-
-
         private ImageView icon;
         private TextView name;
         private ImageButton editBtn;
@@ -40,9 +39,9 @@ public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdap
     }
 
     private static final String TAG = "SubjectSelectAdapter";
-    public static final String SELECTED_SUPERGROUP_ID = "com.wokabel.app.wokabel.SELECTED_ID";
-    public static final String SELECTED_SUPERGROUP_NAME = "com.wokabel.app.wokabel.SELECTED_NAME";
-    public static final String SELECTED_SUPERGROUP_EDIT = "com.wokabel.app.wokabel.SELECTED_EDIT";
+    public static final String SELECTED_SUPERGROUP_ID = "com.wokabel.app.wokabel.SELECTED_SUPERGROUP_ID";
+    public static final String SELECTED_SUPERGROUP_NAME = "com.wokabel.app.wokabel.SELECTED_SUPERGROUP_NAME";
+    public static final String SELECTED_SUPERGROUP_EDIT = "com.wokabel.app.wokabel.SELECTED_SUPERGROUP_EDIT";
 
     private List<Supergroup> mSupergroups;
     //private ArrayList<String> mImages;
@@ -52,6 +51,7 @@ public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdap
     public SubjectSelectAdapter(Context iContext)
     {
         inflater = LayoutInflater.from(iContext);
+        context = iContext;
     }
     @NonNull
     @Override
@@ -66,6 +66,11 @@ public class SubjectSelectAdapter extends RecyclerView.Adapter<SubjectSelectAdap
         Log.d(TAG, "onBindViewHolder: called.");
         Log.d(TAG,"Supergroups loaded");
         Supergroup current = mSupergroups.get(position);
+
+        Resources res = context.getResources();
+        int resId = res.getIdentifier(current.getIcon(), "drawable", "com.wokabel.app.wokabel");
+        holder.icon.setImageResource(resId);
+
         holder.name.setText(current.getName());
         holder.editBtn.setOnClickListener(new View.OnClickListener() {
             @Override

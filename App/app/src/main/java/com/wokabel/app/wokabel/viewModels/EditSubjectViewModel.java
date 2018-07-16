@@ -13,6 +13,8 @@ public class EditSubjectViewModel extends AndroidViewModel {
     private Supergroup selectedSupergroup;
     private DatabaseAdapter adapter;
     private boolean edit;
+
+
     public EditSubjectViewModel(Application application){
         super(application);
         new SetAdapter(this, application).execute();
@@ -37,9 +39,6 @@ public class EditSubjectViewModel extends AndroidViewModel {
         Log.d("ESVM",selectedSupergroup.getName());
         new UpdateData(adapter,this, edit).execute();
 
-    }
-    public void Apply(){
-        Log.d("t","t");
     }
 
     public boolean isEdit() {
