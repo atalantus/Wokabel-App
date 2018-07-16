@@ -1,5 +1,6 @@
 package com.wokabel.app.wokabel.views;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -37,6 +38,9 @@ public class UnitSelectAdapter extends RecyclerView.Adapter<UnitSelectAdapter.Vi
     }
 
     private static final String TAG = "SubjectSelectAdapter";
+    private static final String SELECTED_SUBGROUP_ID = "com.wokable.com.wokabel.SELECTED_SUB_ID";
+    private static final String SELECTED_SUBGROUP_NAME = "com.wokable.com.wokabel.SELECTED_SUB_NAME";
+
 
     private ArrayList<Subgroup> subgroups;
     public UnitSelectAdapter() {
@@ -58,7 +62,12 @@ public class UnitSelectAdapter extends RecyclerView.Adapter<UnitSelectAdapter.Vi
             public void onClick(View view) {
                 Log.d(TAG, "onClick: clicked on: " + subgroups.get(position).getName());
                 //Action: Neue Activitie Aufrufen
-
+                String ID = subgroups.get(position).getId();
+                //Action: Neue Activitie Aufrufen
+                Intent intent = new Intent(view.getContext(), UnitDisplay.class);
+                intent.putExtra(SELECTED_SUBGROUP_ID, ID);
+                intent.putExtra(SELECTED_SUBGROUP_NAME, subgroups.get(position).getName());
+                view.getContext().startActivity(intent);
             }
         });
     }

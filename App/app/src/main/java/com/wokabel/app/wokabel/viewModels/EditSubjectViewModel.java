@@ -38,9 +38,6 @@ public class EditSubjectViewModel extends AndroidViewModel {
         new UpdateData(adapter,this, edit).execute();
 
     }
-    public void Apply(){
-        Log.d("t","t");
-    }
 
     public boolean isEdit() {
         return edit;

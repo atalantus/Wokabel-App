@@ -261,6 +261,7 @@ public class DatabaseAdapter {
      * @param id the Subgroup ID
      */
     public void deleteSubgroupbyId(String id){
+        vocdao.deletebySubgroupId(id);
         subdao.deletebyId(id);
     }
 
